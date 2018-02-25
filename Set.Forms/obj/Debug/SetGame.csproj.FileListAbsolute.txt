@@ -1,0 +1,27 @@
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\bin\Debug\SetGame.exe.config
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\bin\Debug\SetGame.exe
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\bin\Debug\SetGame.pdb
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.csprojResolveAssemblyReference.cache
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.vistas.InputVista.resources
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.vistas.MenuVista.resources
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.Set.resources
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.Properties.Resources.resources
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.PropiedadesVista.resources
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.vistas.RecordsVista.resources
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.csproj.GenerateResource.Cache
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.exe
+C:\Users\Jorge\Documents\Visual Studio 2013\Projects\SetCardGame\SetGame\obj\Debug\SetGame.pdb
+F:\DESARROLLO\2018\SetCardGame\SetGame\bin\Debug\SetGame.exe.config
+F:\DESARROLLO\2018\SetCardGame\SetGame\bin\Debug\SetGame.exe
+F:\DESARROLLO\2018\SetCardGame\SetGame\bin\Debug\SetGame.pdb
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.csprojResolveAssemblyReference.cache
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.vistas.InputVista.resources
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.vistas.MenuVista.resources
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.Set.resources
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.Properties.Resources.resources
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.PropiedadesVista.resources
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.vistas.RecordsVista.resources
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.csproj.GenerateResource.Cache
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.csproj.CoreCompileInputs.cache
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.exe
+F:\DESARROLLO\2018\SetCardGame\SetGame\obj\Debug\SetGame.pdb

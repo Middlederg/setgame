@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE7880A4-DC8F-4A7B-8B96-F7FA8D24BC02}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Set.Core</RootNamespace>
+    <AssemblyName>Set.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Carta.cs" />
+    <Compile Include="Model\Color.cs" />
+    <Compile Include="Model\Dificultad.cs" />
+    <Compile Include="Model\Shape.cs" />
+    <Compile Include="Model\Shading.cs" />
+    <Compile Include="Model\Juego.cs" />
+    <Compile Include="Model\Record.cs" />
+    <Compile Include="Negocio\GameHelper.cs" />
+    <Compile Include="Negocio\General.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvYell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trYell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\traBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\traRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\traYell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ovBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ovRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ovYell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orYell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oraBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oraRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oraYell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gvBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gvRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gvYell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grYell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graYell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BestScores.dat.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

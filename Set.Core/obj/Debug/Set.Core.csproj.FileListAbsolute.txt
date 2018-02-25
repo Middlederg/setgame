@@ -1,0 +1,8 @@
+F:\DESARROLLO\2018\SetCardGame\Set.Core\obj\Debug\Set.Core.csprojResolveAssemblyReference.cache
+F:\DESARROLLO\2018\SetCardGame\Set.Core\obj\Debug\Set.Core.csproj.CoreCompileInputs.cache
+F:\DESARROLLO\2018\SetCardGame\Set.Core\bin\Debug\Set.Core.dll
+F:\DESARROLLO\2018\SetCardGame\Set.Core\bin\Debug\Set.Core.pdb
+F:\DESARROLLO\2018\SetCardGame\Set.Core\obj\Debug\Set.Core.Properties.Resources.resources
+F:\DESARROLLO\2018\SetCardGame\Set.Core\obj\Debug\Set.Core.csproj.GenerateResource.Cache
+F:\DESARROLLO\2018\SetCardGame\Set.Core\obj\Debug\Set.Core.dll
+F:\DESARROLLO\2018\SetCardGame\Set.Core\obj\Debug\Set.Core.pdb
