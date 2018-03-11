@@ -35,7 +35,6 @@
             this.ImagenPortada = new System.Windows.Forms.PictureBox();
             this.FlpBotonesArriba = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
-            this.BtnMax = new FontAwesome.Sharp.IconButton();
             this.BtnMin = new FontAwesome.Sharp.IconButton();
             this.pPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -120,7 +119,6 @@
             // 
             this.FlpBotonesArriba.BackColor = System.Drawing.Color.Transparent;
             this.FlpBotonesArriba.Controls.Add(this.BtnClose);
-            this.FlpBotonesArriba.Controls.Add(this.BtnMax);
             this.FlpBotonesArriba.Controls.Add(this.BtnMin);
             this.FlpBotonesArriba.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlpBotonesArriba.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -150,25 +148,6 @@
             this.BtnClose.UseVisualStyleBackColor = false;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // BtnMax
-            // 
-            this.BtnMax.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMax.FlatAppearance.BorderSize = 0;
-            this.BtnMax.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(204)))), ((int)(((byte)(192)))));
-            this.BtnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMax.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.BtnMax.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.BtnMax.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.BtnMax.IconSize = 20;
-            this.BtnMax.Location = new System.Drawing.Point(123, 0);
-            this.BtnMax.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMax.Name = "BtnMax";
-            this.BtnMax.Rotation = 0D;
-            this.BtnMax.Size = new System.Drawing.Size(30, 30);
-            this.BtnMax.TabIndex = 1;
-            this.BtnMax.UseVisualStyleBackColor = false;
-            this.BtnMax.Click += new System.EventHandler(this.BtnMax_Click);
-            // 
             // BtnMin
             // 
             this.BtnMin.BackColor = System.Drawing.Color.Transparent;
@@ -179,7 +158,7 @@
             this.BtnMin.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.BtnMin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
             this.BtnMin.IconSize = 20;
-            this.BtnMin.Location = new System.Drawing.Point(93, 0);
+            this.BtnMin.Location = new System.Drawing.Point(123, 0);
             this.BtnMin.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMin.Name = "BtnMin";
             this.BtnMin.Rotation = 0D;
@@ -256,7 +235,6 @@
         private System.Windows.Forms.TableLayoutPanel pPrincipal;
         private System.Windows.Forms.FlowLayoutPanel FlpBotonesArriba;
         private FontAwesome.Sharp.IconButton BtnClose;
-        private FontAwesome.Sharp.IconButton BtnMax;
         private FontAwesome.Sharp.IconButton BtnMin;
         private System.Windows.Forms.Label label1;
     }

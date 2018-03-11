@@ -15,7 +15,6 @@ namespace Set.Forms.Views
         public FrmMenu()
         {
             InitializeComponent();
-
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)

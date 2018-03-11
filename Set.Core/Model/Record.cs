@@ -38,23 +38,22 @@ namespace Set.Core.Model
             Fecha = DateTime.Now;
         }
 
-        /// <summary>
-        /// Deconstruir desde linea del csv
-        /// </summary>
-        /// <param name="fila"></param>
-        public Record(string fila)
-        {
-            NombreJugador = fila.Split(';')[0];
-            NumSets = Int32.Parse(fila.Split(';')[1]);
-            Fallos = Int32.Parse(fila.Split(';')[2]);
-            Segundos = Int32.Parse(fila.Split(';')[3]);
-            Fecha = DateTime.Parse(fila.Split(';')[4]);
-        }
+        ///// <summary>
+        ///// Deconstruir desde linea del csv
+        ///// </summary>
+        ///// <param name="fila"></param>
+        //public Record(string fila)
+        //{
+        //    NombreJugador = fila.Split(';')[0];
+        //    NumSets = Int32.Parse(fila.Split(';')[1]);
+        //    Fallos = Int32.Parse(fila.Split(';')[2]);
+        //    Segundos = Int32.Parse(fila.Split(';')[3]);
+        //    Fecha = DateTime.Parse(fila.Split(';')[4]);
+        //}
 
         public int Puntuacion() => (NumSets * 5 - Fallos + (NumSets - (Segundos / 30)));
         public override string ToString() => NombreJugador + " (" + Puntuacion() + ")";
 
         public string Tiempo() => TimeSpan.FromSeconds(Segundos).ToString(@"mm\:ss");
-        
     }
 }

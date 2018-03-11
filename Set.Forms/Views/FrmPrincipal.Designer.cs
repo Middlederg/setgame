@@ -46,12 +46,14 @@
             this.BtnComprobarSet = new System.Windows.Forms.Button();
             this.FlpBotonesArriba = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
-            this.BtnMax = new FontAwesome.Sharp.IconButton();
             this.BtnMin = new FontAwesome.Sharp.IconButton();
             this.BtnLog = new System.Windows.Forms.Button();
+            this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnClasificacion = new System.Windows.Forms.Button();
             this.panelTiempo.SuspendLayout();
             this.TlpPrincipal.SuspendLayout();
             this.FlpBotonesArriba.SuspendLayout();
+            this.FlpBotones.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbNumCartas
@@ -121,7 +123,7 @@
             this.lbInfo.BackColor = System.Drawing.Color.Transparent;
             this.TlpPrincipal.SetColumnSpan(this.lbInfo, 2);
             this.lbInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbInfo.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfo.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbInfo.Location = new System.Drawing.Point(20, 588);
             this.lbInfo.Margin = new System.Windows.Forms.Padding(20, 5, 5, 0);
             this.lbInfo.Name = "lbInfo";
@@ -167,7 +169,7 @@
             this.TlpPrincipal.Controls.Add(this.BtnComprobarSet, 2, 4);
             this.TlpPrincipal.Controls.Add(this.FlpBotonesArriba, 1, 0);
             this.TlpPrincipal.Controls.Add(this.panelTiempo, 0, 2);
-            this.TlpPrincipal.Controls.Add(this.BtnLog, 2, 2);
+            this.TlpPrincipal.Controls.Add(this.FlpBotones, 2, 2);
             this.TlpPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
             this.TlpPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -274,7 +276,6 @@
             this.FlpBotonesArriba.BackColor = System.Drawing.Color.Transparent;
             this.TlpPrincipal.SetColumnSpan(this.FlpBotonesArriba, 2);
             this.FlpBotonesArriba.Controls.Add(this.BtnClose);
-            this.FlpBotonesArriba.Controls.Add(this.BtnMax);
             this.FlpBotonesArriba.Controls.Add(this.BtnMin);
             this.FlpBotonesArriba.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlpBotonesArriba.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -303,25 +304,6 @@
             this.BtnClose.UseVisualStyleBackColor = false;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
-            // BtnMax
-            // 
-            this.BtnMax.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMax.FlatAppearance.BorderSize = 0;
-            this.BtnMax.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(204)))), ((int)(((byte)(192)))));
-            this.BtnMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnMax.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.BtnMax.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.BtnMax.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.BtnMax.IconSize = 20;
-            this.BtnMax.Location = new System.Drawing.Point(403, 0);
-            this.BtnMax.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMax.Name = "BtnMax";
-            this.BtnMax.Rotation = 0D;
-            this.BtnMax.Size = new System.Drawing.Size(30, 30);
-            this.BtnMax.TabIndex = 1;
-            this.BtnMax.UseVisualStyleBackColor = false;
-            this.BtnMax.Click += new System.EventHandler(this.BtnMax_Click);
-            // 
             // BtnMin
             // 
             this.BtnMin.BackColor = System.Drawing.Color.Transparent;
@@ -332,7 +314,7 @@
             this.BtnMin.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.BtnMin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
             this.BtnMin.IconSize = 20;
-            this.BtnMin.Location = new System.Drawing.Point(373, 0);
+            this.BtnMin.Location = new System.Drawing.Point(403, 0);
             this.BtnMin.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMin.Name = "BtnMin";
             this.BtnMin.Rotation = 0D;
@@ -344,20 +326,48 @@
             // BtnLog
             // 
             this.BtnLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.BtnLog.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnLog.FlatAppearance.BorderSize = 0;
             this.BtnLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(110)))), ((int)(((byte)(114)))));
             this.BtnLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLog.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnLog.Location = new System.Drawing.Point(653, 47);
-            this.BtnLog.Margin = new System.Windows.Forms.Padding(0, 15, 20, 0);
+            this.BtnLog.Location = new System.Drawing.Point(172, 15);
+            this.BtnLog.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.BtnLog.Name = "BtnLog";
             this.BtnLog.Size = new System.Drawing.Size(50, 25);
             this.BtnLog.TabIndex = 7;
             this.BtnLog.Text = "Log";
             this.BtnLog.UseVisualStyleBackColor = false;
             this.BtnLog.Click += new System.EventHandler(this.BtnLog_Click);
+            // 
+            // FlpBotones
+            // 
+            this.FlpBotones.Controls.Add(this.BtnLog);
+            this.FlpBotones.Controls.Add(this.BtnClasificacion);
+            this.FlpBotones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FlpBotones.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.FlpBotones.Location = new System.Drawing.Point(481, 32);
+            this.FlpBotones.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.FlpBotones.Name = "FlpBotones";
+            this.FlpBotones.Size = new System.Drawing.Size(222, 40);
+            this.FlpBotones.TabIndex = 8;
+            // 
+            // BtnClasificacion
+            // 
+            this.BtnClasificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.BtnClasificacion.FlatAppearance.BorderSize = 0;
+            this.BtnClasificacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(110)))), ((int)(((byte)(114)))));
+            this.BtnClasificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClasificacion.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClasificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.BtnClasificacion.Location = new System.Drawing.Point(120, 15);
+            this.BtnClasificacion.Margin = new System.Windows.Forms.Padding(0, 15, 2, 0);
+            this.BtnClasificacion.Name = "BtnClasificacion";
+            this.BtnClasificacion.Size = new System.Drawing.Size(50, 25);
+            this.BtnClasificacion.TabIndex = 9;
+            this.BtnClasificacion.Text = "Jug.";
+            this.BtnClasificacion.UseVisualStyleBackColor = false;
+            this.BtnClasificacion.Visible = false;
             // 
             // FrmPrincipal
             // 
@@ -378,6 +388,7 @@
             this.TlpPrincipal.ResumeLayout(false);
             this.TlpPrincipal.PerformLayout();
             this.FlpBotonesArriba.ResumeLayout(false);
+            this.FlpBotones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -397,11 +408,12 @@
         private System.Windows.Forms.Button BtnRendirse;
         private System.Windows.Forms.FlowLayoutPanel FlpBotonesArriba;
         private FontAwesome.Sharp.IconButton BtnClose;
-        private FontAwesome.Sharp.IconButton BtnMax;
         private FontAwesome.Sharp.IconButton BtnMin;
         private System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.Label LblRaya;
         private System.Windows.Forms.Button BtnLog;
+        private System.Windows.Forms.FlowLayoutPanel FlpBotones;
+        private System.Windows.Forms.Button BtnClasificacion;
     }
 }
 

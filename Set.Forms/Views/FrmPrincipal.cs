@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Set.Core.Enums;
 using Set.Core.Model;
 using Set.Core.Negocio;
 
@@ -23,15 +24,21 @@ namespace Set.Forms.Views
 
         public int segundos, minutos;
 
-        public FrmPrincipal(Dificultad dificultad, int numCartas)
+        public FrmPrincipal(Dificultad dificultad, int numCartas, IEnumerable<string> nombres)
         {
             InitializeComponent();
 
-            j = new Juego(numCartas, dificultad);
+            j = new Juego(numCartas, dificultad, nombres);
             Redibujar();
 
             BtnRendirse.Enabled = dificultad.Equals(Dificultad.Tutorial);
             BtnComprobarSet.Enabled = pCartas.Controls.OfType<PanelCarta>().Count(x => x.Seleccionada) == 3;
+
+            if (j.Jugadores.Count > 1)
+            {
+                lbnumsets.Visible = false;
+                lbPuntos.Visible = false;
+            }
         }
 
         public void Redibujar()
@@ -51,10 +58,10 @@ namespace Set.Forms.Views
                 if (x > 3) { x = 0; y++; }
             }
   
-            lbPuntos.Text = "Puntos: " + new Record(j.NumSets, j.Fallos, (int)(DateTime.Now.Subtract(j.ComienzoJuego).TotalSeconds)).Puntuacion();
+            lbPuntos.Text = "Puntos: " + new Record(j.ElTurno(0).NumSets, j.ElTurno(0).Fallos, (int)(DateTime.Now.Subtract(j.ComienzoJuego).TotalSeconds)).Puntuacion();
             lbInfo.Text = j.Log.LastOrDefault() ?? string.Empty;
-            lbnumsets.Text = "Sets: " + j.NumSets;
-            lbnumsets.Text += (j.Fallos > 0) ? "\t\tFallos: " + j.Fallos : "";
+            lbnumsets.Text = "Sets: " + j.ElTurno(0).NumSets;
+            lbnumsets.Text += (j.ElTurno(0).Fallos > 0) ? "\t\tFallos: " + j.ElTurno(0).Fallos : "";
             lbNumCartas.Text = "Cartas: " + j.Mazo.Count;
         }
 
@@ -92,7 +99,15 @@ namespace Set.Forms.Views
             try
             {
                 var selectedCards = pCartas.Controls.OfType<PanelCarta>().Where(x => x.Seleccionada).Select(x => x.Card).ToList();
-                if (j.ComprobarSet(selectedCards))
+                int jugador = 0;
+                if (j.Jugadores.Count > 1)
+                {
+                    FrmJugadores f = new FrmJugadores(j.Jugadores);
+                    f.Location = new Point(Location.X + Width, Location.Y);
+                    f.ShowDialog();
+                    jugador = f.BotonSeleccionado;
+                }
+                if (j.ComprobarSet(selectedCards, jugador))
                     FinalJuego();
                 else
                     Redibujar();
@@ -138,9 +153,16 @@ namespace Set.Forms.Views
         {
             timerTiempo.Stop();
             lbInfo.Text = "Fin de partida";
-            new FrmInputName(j.NumSets, j.Fallos, (int)(DateTime.Now.Subtract(j.ComienzoJuego).TotalSeconds)).ShowDialog();
-            foreach (var btn in TlpPrincipal.Controls.OfType<Button>())
-                btn.Enabled = false;
+            if (j.Jugadores.Count > 1)
+            {
+
+            }
+            else
+            {
+                new FrmInputName(j.ElTurno(0).NumSets, j.ElTurno(0).Fallos, (int)(DateTime.Now.Subtract(j.ComienzoJuego).TotalSeconds)).ShowDialog();
+                foreach (var btn in TlpPrincipal.Controls.OfType<Button>())
+                    btn.Enabled = false;
+            }
         }
     }
 }

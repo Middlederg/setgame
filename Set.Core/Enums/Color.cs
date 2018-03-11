@@ -1,4 +1,4 @@
-﻿namespace Set.Core.Model
+﻿namespace Set.Core.Enums
 {
     public enum Color
     {

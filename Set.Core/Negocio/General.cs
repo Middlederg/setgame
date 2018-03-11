@@ -19,14 +19,31 @@ namespace Set.Core.Negocio
         /// <returns></returns>
         public static int NumAleatorio(int inf, int sup) => r.Next(inf, sup + 1);
 
+        /// <summary>
+        /// Devuelve elemento al azar de una lista
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="lista"></param>
+        /// <returns></returns>
         public static T ElementoAleatorio<T>(IEnumerable<T> lista)
         {
             if (lista == null || !lista.Any()) return default(T);
             return lista.ElementAt(NumAleatorio(0, lista.Count() - 1));
         }
 
+        /// <summary>
+        /// Obtiene una imagen guardada como recurso en el proyecto
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
         public static Image ObtenerRecurso(string nombre) => (Image)Properties.Resources.ResourceManager.GetObject(nombre);
 
+        /// <summary>
+        /// Desordena al azar una lista de elementos
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="lista"></param>
+        /// <returns></returns>
         public static IEnumerable<T> DesordenarLista<T>(this List<T> lista)
         {
             List<T> mazoAuxiliar = new List<T>();
@@ -42,6 +59,11 @@ namespace Set.Core.Negocio
             return mazoAuxiliar;
         }
 
+        /// <summary>
+        /// Obtiene la descricpción aplicada como atributo a una enumeración
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static string Descripcion(this Enum value)
         {
             Type type = value.GetType();
@@ -64,7 +86,20 @@ namespace Set.Core.Negocio
         /// <returns></returns>
         public static IEnumerable<string> GetEnumListString<T>() => GetEnumList<T>().Select(x => x.ToString());
 
-
-      
+        /// <summary>
+        /// Quita acentos y pone en minusculas
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string Simplificar(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value)) return string.Empty;
+            return value.Trim().ToLowerInvariant()
+                .Replace("á", "a")
+                .Replace("é", "e")
+                .Replace("í", "i")
+                .Replace("ó", "o")
+                .Replace("ú", "u");
+        }
     }
 }

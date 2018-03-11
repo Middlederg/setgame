@@ -57,7 +57,7 @@
             this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pPrincipal.Size = new System.Drawing.Size(424, 391);
+            this.pPrincipal.Size = new System.Drawing.Size(723, 391);
             this.pPrincipal.TabIndex = 5;
             // 
             // lbTitulo
@@ -70,7 +70,7 @@
             this.lbTitulo.Location = new System.Drawing.Point(20, 0);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(384, 35);
+            this.lbTitulo.Size = new System.Drawing.Size(683, 35);
             this.lbTitulo.TabIndex = 1;
             this.lbTitulo.Text = "Log de jugadas";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -84,10 +84,10 @@
             this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAceptar.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnAceptar.Location = new System.Drawing.Point(100, 331);
-            this.BtnAceptar.Margin = new System.Windows.Forms.Padding(100, 5, 100, 5);
+            this.BtnAceptar.Location = new System.Drawing.Point(200, 331);
+            this.BtnAceptar.Margin = new System.Windows.Forms.Padding(200, 5, 200, 5);
             this.BtnAceptar.Name = "BtnAceptar";
-            this.BtnAceptar.Size = new System.Drawing.Size(224, 40);
+            this.BtnAceptar.Size = new System.Drawing.Size(323, 40);
             this.BtnAceptar.TabIndex = 1;
             this.BtnAceptar.Text = "Cerrar";
             this.BtnAceptar.UseVisualStyleBackColor = false;
@@ -103,7 +103,7 @@
             this.LbxLog.Margin = new System.Windows.Forms.Padding(20, 5, 20, 5);
             this.LbxLog.Name = "LbxLog";
             this.LbxLog.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.LbxLog.Size = new System.Drawing.Size(384, 281);
+            this.LbxLog.Size = new System.Drawing.Size(683, 281);
             this.LbxLog.TabIndex = 2;
             // 
             // pGeneral
@@ -113,14 +113,14 @@
             this.pGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pGeneral.Location = new System.Drawing.Point(0, 0);
             this.pGeneral.Name = "pGeneral";
-            this.pGeneral.Size = new System.Drawing.Size(426, 393);
+            this.pGeneral.Size = new System.Drawing.Size(725, 393);
             this.pGeneral.TabIndex = 6;
             // 
             // FrmLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 393);
+            this.ClientSize = new System.Drawing.Size(725, 393);
             this.ControlBox = false;
             this.Controls.Add(this.pGeneral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

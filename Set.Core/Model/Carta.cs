@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Set.Core.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,8 +29,16 @@ namespace Set.Core.Model
             Interior = interior;
 	    }
 
+        /// <summary>
+        /// Id único de la carta, determinado por sus propiedades
+        /// </summary>
+        /// <returns></returns>
         public int Id() => Numero * 1000 + ((int)ColorCarta + 1) * 100 + ((int)Forma + 1) * 10 + ((int)Interior + 1) * 1;
 
+        /// <summary>
+        /// Ruta de la imagen
+        /// </summary>
+        /// <returns></returns>
         public string Ruta() => Forma.ToString().ToLower().First() + Interior.ToString().ToLower().Substring(0, 2) + ColorCarta.ToString();
 
 	    public override string ToString() => Numero + " " + ColorCarta.ToString() + " " + Interior.ToString() + " " + Forma.ToString(); 

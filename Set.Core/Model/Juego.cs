@@ -1,4 +1,5 @@
-﻿using Set.Core.Negocio;
+﻿using Set.Core.Enums;
+using Set.Core.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,32 +8,53 @@ using System.Threading.Tasks;
 
 namespace Set.Core.Model
 {
+    public class Jugador
+    {
+        public string Nombre { get; set; }
+        public int NumSets { get; set; }
+        public int Fallos { get; set; }
+
+        public Jugador(string nombre)
+        {
+            Nombre = nombre;
+            Reset();
+        }
+
+        public void Reset()
+        {
+            NumSets = 0;
+            Fallos = 0;
+        }
+    }
+
     public class Juego
     {
         public int NumCartasVisibles { get; set; }
         public List<Carta> Mazo { get; set; }
-	    public int NumSets { get; set; }
-        public int Fallos { get; set; }
+        public List<Jugador> Jugadores { get; set; }
         public Dificultad DificultadJuego { get; set; }
         public List<string> Log { get; set; }
         public DateTime ComienzoJuego { get; set; }
+        public Jugador ElTurno(int indx) => Jugadores[indx];
 
-        public Juego(int numCartas, Dificultad dificultad)
+        public Juego(int numCartas, Dificultad dificultad, IEnumerable<string> nombres)
 	    {
             DificultadJuego = dificultad;
 		    Log = new List<string>() { "Comienza la partida"};
+            Jugadores = new List<Jugador>();
+            foreach (var item in nombres)
+                Jugadores.Add(new Jugador(item));
             Reset(numCartas);
 	    }
 
-	    public void Reset(int numCartas = 12)
+	    public void Reset(int numCartas)
 	    {
             if (Log.Count > 1) Log.Add("Partida reiniciada");
             if (numCartas < 12)
                 throw new ArgumentOutOfRangeException(numCartas.ToString());
-            Mazo = GameHelper.GetCartas().Take(numCartas).ToList();
+            Mazo = GameHelper.GetCartas(DificultadJuego.Equals(Dificultad.Tutorial)).Take(numCartas).ToList();
             ComienzoJuego = DateTime.Now;
-		    NumSets = 0;
-            Fallos = 0;
+            Jugadores.ForEach(x => x.Reset());
             NumCartasVisibles = 12;
 	    }
 
@@ -41,12 +63,12 @@ namespace Set.Core.Model
         /// </summary>
         /// <param name="cartas"></param>
         /// <returns></returns>
-	    public bool ComprobarSet(List<Carta> cartas)
+	    public bool ComprobarSet(List<Carta> cartas, int turno)
 	    {
 		    if (cartas.EsSet())
 		    {
-			    NumSets++;
-                Log.Add("¡Consigues Set! " + string.Join(", ", cartas.Select(x=> x.ToString())));
+			    ElTurno(turno).NumSets++;
+                Log.Add((string.IsNullOrWhiteSpace(ElTurno(turno).Nombre) ? "¡Consigues Set! " : ElTurno(turno).Nombre + " consigue Set - ") + string.Join(", ", cartas.Select(x=> x.ToString())));
                 foreach (var c in cartas)
                     Mazo.Remove(c);
                 if (NumCartasVisibles == 15)
@@ -55,7 +77,7 @@ namespace Set.Core.Model
 		    else
 		    {
 			    Log.Add("Fallo. No es un Set");
-                Fallos++;
+                ElTurno(turno).Fallos++;
 		    }
             return false; //seguimos jugando
 	    }
@@ -106,18 +128,6 @@ namespace Set.Core.Model
             }
             return false;
         }
-	    
-        ///// <summary>
-        ///// Puntuación actual
-        ///// </summary>
-        ///// <param name="mins"></param>
-        ///// <param name="secs"></param>
-        ///// <returns></returns>
-        //public int Puntuacion(int mins, int secs)
-        //{
-        //    var segundos = DateTime.Now.Subtract(ComienzoJuego).TotalSeconds;
-        //    return (NumSets * 5 - Fallos + (NumSets - (int)Math.Truncate(segundos) / 30));
-        //}
 
         /// <summary>
         /// Devuelve cartas boca arriba sobre las mesa
@@ -145,8 +155,6 @@ namespace Set.Core.Model
             listaCartas.ToList().ForEach(x => x.OrderBy(c => c.Id()));
 
             //Para cada trío distinto que haya, miro si es un set, y lo devuelvo
-            //return listaCartas.Distinct().Where(x => x.EsSet());
-
             return listaCartas.GroupBy(x => x.Sum(c => c.Id())).Select(x=> x.First()).Where(x => x.EsSet());
 	    }
     }
