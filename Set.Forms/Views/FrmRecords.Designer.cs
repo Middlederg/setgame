@@ -45,7 +45,7 @@
             this.LvwPuntos.Margin = new System.Windows.Forms.Padding(20, 10, 20, 5);
             this.LvwPuntos.MultiSelect = false;
             this.LvwPuntos.Name = "LvwPuntos";
-            this.LvwPuntos.Size = new System.Drawing.Size(432, 197);
+            this.LvwPuntos.Size = new System.Drawing.Size(432, 212);
             this.LvwPuntos.TabIndex = 1;
             this.LvwPuntos.UseCompatibleStateImageBehavior = false;
             this.LvwPuntos.View = System.Windows.Forms.View.Details;
@@ -62,11 +62,10 @@
             this.pPrincipal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pPrincipal.Name = "pPrincipal";
-            this.pPrincipal.RowCount = 4;
+            this.pPrincipal.RowCount = 3;
             this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -97,7 +96,7 @@
             this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAceptar.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnAceptar.Location = new System.Drawing.Point(392, 252);
+            this.BtnAceptar.Location = new System.Drawing.Point(392, 267);
             this.BtnAceptar.Margin = new System.Windows.Forms.Padding(0, 5, 20, 0);
             this.BtnAceptar.Name = "BtnAceptar";
             this.BtnAceptar.Size = new System.Drawing.Size(60, 25);

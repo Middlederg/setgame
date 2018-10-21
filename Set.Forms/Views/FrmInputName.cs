@@ -21,7 +21,7 @@ namespace Set.Forms.Views
             InitializeComponent();
             record = new Record(sets, fallos, segundos);
             LblSets.Text = $"{sets} / {fallos}";
-            LblTiempo.Text = record.Tiempo();
+            LblTiempo.Text = record.Tiempo.ToString();
             LblPuntuacion.Text = record.Puntuacion().ToString() + " puntos";
         }
 
@@ -29,7 +29,6 @@ namespace Set.Forms.Views
         {
             if (!string.IsNullOrWhiteSpace(tbNombre.Text))
             {
-
                 record.NombreJugador = tbNombre.Text;
                 try
                 {

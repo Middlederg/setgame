@@ -38,6 +38,7 @@ namespace Set.Forms.Views
             {
                 lbnumsets.Visible = false;
                 lbPuntos.Visible = false;
+                BtnClasificacion.Visible = true;
             }
         }
 
@@ -102,8 +103,10 @@ namespace Set.Forms.Views
                 int jugador = 0;
                 if (j.Jugadores.Count > 1)
                 {
-                    FrmJugadores f = new FrmJugadores(j.Jugadores);
-                    f.Location = new Point(Location.X + Width, Location.Y);
+                    FrmJugadores f = new FrmJugadores(j.Jugadores)
+                    {
+                        Location = new Point(Location.X + Width, Location.Y)
+                    };
                     f.ShowDialog();
                     jugador = f.BotonSeleccionado;
                 }
@@ -149,20 +152,36 @@ namespace Set.Forms.Views
         private void BtnClose_Click(object sender, EventArgs e) => Close();
         private void BtnMin_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
 
+        private void BtnClasificacion_Click(object sender, EventArgs e)
+        {
+            using (var f = new FrmClasificacion(j, segundos))
+            {
+                f.ShowDialog();
+            }
+        }
+
         public void FinalJuego()
         {
             timerTiempo.Stop();
             lbInfo.Text = "Fin de partida";
             if (j.Jugadores.Count > 1)
             {
+                //Agregar record de caa jugador
+                foreach (var jug in j.Jugadores)
+                {
+                    var record = new Record(jug.NumSets, jug.Fallos, segundos) { NombreJugador = jug.Nombre };
+                    GameHelper.GuardarPuntuacion(record);
+                }
 
+                //Mostrar clasificación
+                using (var f = new FrmClasificacion(j, segundos)) { f.ShowDialog(); }
             }
             else
             {
                 new FrmInputName(j.ElTurno(0).NumSets, j.ElTurno(0).Fallos, (int)(DateTime.Now.Subtract(j.ComienzoJuego).TotalSeconds)).ShowDialog();
-                foreach (var btn in TlpPrincipal.Controls.OfType<Button>())
-                    btn.Enabled = false;
             }
+            foreach (var btn in TlpPrincipal.Controls.OfType<Button>())
+                btn.Enabled = false;
         }
     }
 }

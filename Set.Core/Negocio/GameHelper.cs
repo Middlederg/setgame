@@ -35,7 +35,7 @@ namespace Set.Core.Negocio
                     }
         }
 
-        private static string[] nombres = { "Ricardio", "Vicente", "Emiliano", "Felix",
+        private static string[] Nombres = { "Ricardio", "Vicente", "Emiliano", "Felix",
                                    "Verónica", "Montserrat", "Andrea", "Olga", "Nacho", "Domingo",
                                    "César", "Agustín", "Hugo", "Tomás", "Rafael", "Donatello", "Miguel Angel",
                             "Leonardo", "Nieves", "Isabel", "Irene", "Mar", "Alicia", "Carla", "Eva",
@@ -45,7 +45,7 @@ namespace Set.Core.Negocio
         /// Devuelve un nombre al azar
         /// </summary>
         /// <returns></returns>
-        public static string NombreAleatorio() => General.ElementoAleatorio(nombres);
+        public static string NombreAleatorio() => General.ElementoAleatorio(Nombres);
 
         /// <summary>
         /// Devuelve un nombre aleatorio que no este entre los nombres usados
@@ -59,7 +59,7 @@ namespace Set.Core.Negocio
                 return NombreAleatorio();
             do
             {
-                nombre = General.ElementoAleatorio(nombres);
+                nombre = General.ElementoAleatorio(Nombres);
             }
             while (nombresUsuados.Contains(nombre));
             return nombre;
@@ -133,7 +133,7 @@ namespace Set.Core.Negocio
                 fs.Close();
                 return lista;
             }
-            catch (FileNotFoundException)
+            catch (Exception)
             {
                 return new List<Record>();
             }

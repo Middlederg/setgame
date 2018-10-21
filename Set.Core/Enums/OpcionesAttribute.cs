@@ -10,4 +10,6 @@ namespace Set.Core.Enums
             MaxCartas = maxCartas;
         }
     }
+
+   
 }

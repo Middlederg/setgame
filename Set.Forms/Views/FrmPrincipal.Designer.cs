@@ -47,8 +47,8 @@
             this.FlpBotonesArriba = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMin = new FontAwesome.Sharp.IconButton();
-            this.BtnLog = new System.Windows.Forms.Button();
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnLog = new System.Windows.Forms.Button();
             this.BtnClasificacion = new System.Windows.Forms.Button();
             this.panelTiempo.SuspendLayout();
             this.TlpPrincipal.SuspendLayout();
@@ -323,6 +323,18 @@
             this.BtnMin.UseVisualStyleBackColor = false;
             this.BtnMin.Click += new System.EventHandler(this.BtnMin_Click);
             // 
+            // FlpBotones
+            // 
+            this.FlpBotones.Controls.Add(this.BtnLog);
+            this.FlpBotones.Controls.Add(this.BtnClasificacion);
+            this.FlpBotones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FlpBotones.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.FlpBotones.Location = new System.Drawing.Point(481, 32);
+            this.FlpBotones.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.FlpBotones.Name = "FlpBotones";
+            this.FlpBotones.Size = new System.Drawing.Size(222, 40);
+            this.FlpBotones.TabIndex = 8;
+            // 
             // BtnLog
             // 
             this.BtnLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
@@ -340,18 +352,6 @@
             this.BtnLog.UseVisualStyleBackColor = false;
             this.BtnLog.Click += new System.EventHandler(this.BtnLog_Click);
             // 
-            // FlpBotones
-            // 
-            this.FlpBotones.Controls.Add(this.BtnLog);
-            this.FlpBotones.Controls.Add(this.BtnClasificacion);
-            this.FlpBotones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlpBotones.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FlpBotones.Location = new System.Drawing.Point(481, 32);
-            this.FlpBotones.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.FlpBotones.Name = "FlpBotones";
-            this.FlpBotones.Size = new System.Drawing.Size(222, 40);
-            this.FlpBotones.TabIndex = 8;
-            // 
             // BtnClasificacion
             // 
             this.BtnClasificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
@@ -368,6 +368,7 @@
             this.BtnClasificacion.Text = "Jug.";
             this.BtnClasificacion.UseVisualStyleBackColor = false;
             this.BtnClasificacion.Visible = false;
+            this.BtnClasificacion.Click += new System.EventHandler(this.BtnClasificacion_Click);
             // 
             // FrmPrincipal
             // 

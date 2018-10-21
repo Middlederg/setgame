@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\DificultadHelper.cs" />
     <Compile Include="Model\Carta.cs" />
     <Compile Include="Enums\Color.cs" />
     <Compile Include="Enums\Dificultad.cs" />
@@ -48,7 +47,9 @@
     <Compile Include="Enums\Shape.cs" />
     <Compile Include="Enums\Shading.cs" />
     <Compile Include="Model\Juego.cs" />
+    <Compile Include="Model\Jugador.cs" />
     <Compile Include="Model\Record.cs" />
+    <Compile Include="Model\Tiempo.cs" />
     <Compile Include="Negocio\GameHelper.cs" />
     <Compile Include="Negocio\General.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,8 +6,6 @@ using System.Drawing;
 
 namespace Set.Forms
 {
-
-
     internal class InterfazGrafica
     {
         private static double cardWidth = 140;

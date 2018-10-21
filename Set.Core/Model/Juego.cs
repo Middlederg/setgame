@@ -8,25 +8,6 @@ using System.Threading.Tasks;
 
 namespace Set.Core.Model
 {
-    public class Jugador
-    {
-        public string Nombre { get; set; }
-        public int NumSets { get; set; }
-        public int Fallos { get; set; }
-
-        public Jugador(string nombre)
-        {
-            Nombre = nombre;
-            Reset();
-        }
-
-        public void Reset()
-        {
-            NumSets = 0;
-            Fallos = 0;
-        }
-    }
-
     public class Juego
     {
         public int NumCartasVisibles { get; set; }
@@ -90,7 +71,7 @@ namespace Set.Core.Model
         {
             int num = BuscarSets().Count();
 
-            //Si no hay ningún ser y no quedan cartas, termina la partida
+            //Si no hay ningún set y no quedan cartas, termina la partida
             if(num == 0 && Mazo.Count < NumCartasVisibles)
             {
                 Log.Add("No hay ningún set más y no quedan cartas. Termina la partida");
@@ -155,7 +136,10 @@ namespace Set.Core.Model
             listaCartas.ToList().ForEach(x => x.OrderBy(c => c.Id()));
 
             //Para cada trío distinto que haya, miro si es un set, y lo devuelvo
-            return listaCartas.GroupBy(x => x.Sum(c => c.Id())).Select(x=> x.First()).Where(x => x.EsSet());
+            return listaCartas
+                .GroupBy(x => x.Sum(c => c.Id()))
+                .Select(x=> x.First())
+                .Where(x => x.EsSet());
 	    }
     }
 }

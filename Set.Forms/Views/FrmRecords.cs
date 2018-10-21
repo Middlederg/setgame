@@ -40,7 +40,7 @@ namespace Set.Forms.Views
                     item.SubItems.Add(record.Puntuacion().ToString());
                     item.SubItems.Add(record.NumSets.ToString());
                     item.SubItems.Add(record.Fallos.ToString());
-                    item.SubItems.Add(record.Tiempo());
+                    item.SubItems.Add(record.Tiempo.ToString());
                     LvwPuntos.Items.Add(item);
                 }
             }

@@ -22,8 +22,8 @@ namespace Set.Core.Model
 
         public int NumSets { get; set; }
         public int Fallos { get; set; }
-        public int Segundos { get; set; }
         public DateTime Fecha { get; set; }
+        public Tiempo Tiempo { get; set; }
 
         /// <summary>
         /// Construir nuevo record
@@ -34,26 +34,11 @@ namespace Set.Core.Model
         {
             NumSets = numsets;
             Fallos = fallos;
-            Segundos = segundos;
+            Tiempo = new Tiempo(segundos);
             Fecha = DateTime.Now;
         }
 
-        ///// <summary>
-        ///// Deconstruir desde linea del csv
-        ///// </summary>
-        ///// <param name="fila"></param>
-        //public Record(string fila)
-        //{
-        //    NombreJugador = fila.Split(';')[0];
-        //    NumSets = Int32.Parse(fila.Split(';')[1]);
-        //    Fallos = Int32.Parse(fila.Split(';')[2]);
-        //    Segundos = Int32.Parse(fila.Split(';')[3]);
-        //    Fecha = DateTime.Parse(fila.Split(';')[4]);
-        //}
-
-        public int Puntuacion() => (NumSets * 5 - Fallos + (NumSets - (Segundos / 30)));
+        public int Puntuacion() => (NumSets * 5 - Fallos + (NumSets - (Tiempo.Segundos / 30)));
         public override string ToString() => NombreJugador + " (" + Puntuacion() + ")";
-
-        public string Tiempo() => TimeSpan.FromSeconds(Segundos).ToString(@"mm\:ss");
     }
 }

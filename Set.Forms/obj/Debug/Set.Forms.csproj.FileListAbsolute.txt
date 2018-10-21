@@ -34,7 +34,6 @@ F:\DESARROLLO\2018\SetCardGame\Set.Forms\bin\Debug\Set.Core.dll
 F:\DESARROLLO\2018\SetCardGame\Set.Forms\bin\Debug\Set.Core.pdb
 F:\DESARROLLO\2018\SetCardGame\Set.Forms\obj\Debug\Set.Forms.exe
 F:\DESARROLLO\2018\SetCardGame\Set.Forms\obj\Debug\Set.Forms.pdb
-F:\DESARROLLO\Repos\SetGame\Set.Forms\obj\Debug\Set.Forms.csprojResolveAssemblyReference.cache
 F:\DESARROLLO\Repos\SetGame\Set.Forms\obj\Debug\Set.Forms.Views.FrmInputName.resources
 F:\DESARROLLO\Repos\SetGame\Set.Forms\obj\Debug\Set.Forms.Views.FrmLog.resources
 F:\DESARROLLO\Repos\SetGame\Set.Forms\obj\Debug\Set.Forms.Views.FrmMenu.resources
@@ -53,3 +52,8 @@ F:\DESARROLLO\Repos\SetGame\Set.Forms\bin\Debug\FontAwesome.Sharp.dll
 F:\DESARROLLO\Repos\SetGame\Set.Forms\bin\Debug\Set.Core.dll
 F:\DESARROLLO\Repos\SetGame\Set.Forms\bin\Debug\Set.Core.pdb
 F:\DESARROLLO\Repos\SetGame\Set.Forms\obj\Debug\Set.Forms.Views.FrmJugadores.resources
+F:\DESARROLLO\Repos\SetGame\Set.Forms\obj\Debug\Set.Forms.csprojAssemblyReference.cache
+F:\DESARROLLO\Repos\SetGame\Set.Forms\obj\Debug\Set.Forms.csproj.CopyComplete
+F:\DESARROLLO\Repos\SetGame\Set.Forms\bin\Debug\System.ValueTuple.dll
+F:\DESARROLLO\Repos\SetGame\Set.Forms\bin\Debug\System.ValueTuple.xml
+F:\DESARROLLO\Repos\SetGame\Set.Forms\obj\Debug\Set.Forms.Views.FrmClasificacion.resources
