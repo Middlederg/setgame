@@ -2,8 +2,6 @@
 
 Set card game implementation in C# with Windows forms
 
----
-
-img
+![principal](img/.panel-principal.png)
 
 https://en.wikipedia.org/wiki/Set_(card_game)
