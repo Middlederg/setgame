@@ -14,3 +14,11 @@ F:\DESARROLLO\Repos\SetGame\Set.Core\obj\Debug\Set.Core.pdb
 F:\DESARROLLO\Repos\SetGame\Set.Core\bin\Debug\Set.Core.dll
 F:\DESARROLLO\Repos\SetGame\Set.Core\bin\Debug\Set.Core.pdb
 F:\DESARROLLO\Repos\SetGame\Set.Core\obj\Debug\Set.Core.csprojAssemblyReference.cache
+F:\DESARROLLO\Repos\Set\Set.Core\bin\Debug\Set.Core.dll
+F:\DESARROLLO\Repos\Set\Set.Core\bin\Debug\Set.Core.pdb
+F:\DESARROLLO\Repos\Set\Set.Core\obj\Debug\Set.Core.csprojAssemblyReference.cache
+F:\DESARROLLO\Repos\Set\Set.Core\obj\Debug\Set.Core.Properties.Resources.resources
+F:\DESARROLLO\Repos\Set\Set.Core\obj\Debug\Set.Core.csproj.GenerateResource.cache
+F:\DESARROLLO\Repos\Set\Set.Core\obj\Debug\Set.Core.csproj.CoreCompileInputs.cache
+F:\DESARROLLO\Repos\Set\Set.Core\obj\Debug\Set.Core.dll
+F:\DESARROLLO\Repos\Set\Set.Core\obj\Debug\Set.Core.pdb
