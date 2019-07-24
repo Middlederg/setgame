@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -28,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -40,18 +42,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Carta.cs" />
-    <Compile Include="Enums\Color.cs" />
-    <Compile Include="Enums\Dificultad.cs" />
-    <Compile Include="Enums\OpcionesAttribute.cs" />
-    <Compile Include="Enums\Shape.cs" />
-    <Compile Include="Enums\Shading.cs" />
-    <Compile Include="Model\Juego.cs" />
-    <Compile Include="Model\Jugador.cs" />
-    <Compile Include="Model\Record.cs" />
-    <Compile Include="Model\Tiempo.cs" />
-    <Compile Include="Negocio\GameHelper.cs" />
-    <Compile Include="Negocio\General.cs" />
+    <Compile Include="Carta\Background.cs" />
+    <Compile Include="Carta\Card.cs" />
+    <Compile Include="Carta\ICard.cs" />
+    <Compile Include="Carta\SimpleCard.cs" />
+    <Compile Include="Juego\Easy.cs" />
+    <Compile Include="Juego\Game.cs" />
+    <Compile Include="Juego\GameMode.cs" />
+    <Compile Include="Juego\GameModeFactory.cs" />
+    <Compile Include="Juego\GameOptions.cs" />
+    <Compile Include="Juego\Regular.cs" />
+    <Compile Include="Carta\Shape.cs" />
+    <Compile Include="Carta\Shading.cs" />
+    <Compile Include="Juego\Tutorial.cs" />
+    <Compile Include="Jugador\Jugador.cs" />
+    <Compile Include="Jugador\Record.cs" />
+    <Compile Include="Jugador\Tiempo.cs" />
+    <Compile Include="Carta\CardFactory.cs" />
+    <Compile Include="Carta\CardTrio.cs" />
+    <Compile Include="Files.cs" />
+    <Compile Include="NameFactory.cs" />
+    <Compile Include="Randomizer.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

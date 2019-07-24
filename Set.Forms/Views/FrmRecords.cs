@@ -20,7 +20,7 @@ namespace Set.Forms.Views
 
             try
             {
-                List<Record> l = GameHelper.LeerBestScores();
+                List<Record> l = Files.LeerBestScores();
                 LvwPuntos.View = View.Details;
 
                 List<ColumnHeader> columnas = new List<ColumnHeader>();

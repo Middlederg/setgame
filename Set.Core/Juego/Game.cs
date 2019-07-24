@@ -1,24 +1,23 @@
-﻿using Set.Core.Enums;
-using Set.Core.Negocio;
+﻿using Set.Core.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Set.Core.Model
+namespace Set.Core
 {
-    public class Juego
+    public class Game
     {
         public int NumCartasVisibles { get; set; }
-        public List<Carta> Mazo { get; set; }
+        public List<Card> Mazo { get; set; }
         public List<Jugador> Jugadores { get; set; }
-        public Dificultad DificultadJuego { get; set; }
+        public GameMode DificultadJuego { get; set; }
         public List<string> Log { get; set; }
         public DateTime ComienzoJuego { get; set; }
         public Jugador ElTurno(int indx) => Jugadores[indx];
 
-        public Juego(int numCartas, Dificultad dificultad, IEnumerable<string> nombres)
+        public Game(int numCartas, GameMode dificultad, IEnumerable<string> nombres)
 	    {
             DificultadJuego = dificultad;
 		    Log = new List<string>() { "Comienza la partida"};
@@ -33,7 +32,7 @@ namespace Set.Core.Model
             if (Log.Count > 1) Log.Add("Partida reiniciada");
             if (numCartas < 12)
                 throw new ArgumentOutOfRangeException(numCartas.ToString());
-            Mazo = GameHelper.GetCartas(DificultadJuego.Equals(Dificultad.Tutorial)).Take(numCartas).ToList();
+            Mazo = Files.GetCartas(DificultadJuego.Equals(GameMode.Tutorial)).Take(numCartas).ToList();
             ComienzoJuego = DateTime.Now;
             Jugadores.ForEach(x => x.Reset());
             NumCartasVisibles = 12;
@@ -44,7 +43,7 @@ namespace Set.Core.Model
         /// </summary>
         /// <param name="cartas"></param>
         /// <returns></returns>
-	    public bool ComprobarSet(List<Carta> cartas, int turno)
+	    public bool ComprobarSet(List<Card> cartas, int turno)
 	    {
 		    if (cartas.EsSet())
 		    {
@@ -114,23 +113,23 @@ namespace Set.Core.Model
         /// Devuelve cartas boca arriba sobre las mesa
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Carta> CartasVisibles() => Mazo.Take(Math.Min(NumCartasVisibles, Mazo.Count));
+        public IEnumerable<Card> CartasVisibles() => Mazo.Take(Math.Min(NumCartasVisibles, Mazo.Count));
 
         /// <summary>
         /// Devuelve array con lista de sets
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<List<Carta>> BuscarSets()
+        public IEnumerable<List<Card>> BuscarSets()
 	    {
             var cartasVisibles = Mazo.Take(Math.Min(NumCartasVisibles, Mazo.Count));
 
             //Recojo todas las posibilidades de 
-            var listaCartas = new List<List<Carta>>();
+            var listaCartas = new List<List<Card>>();
             foreach (var c1 in cartasVisibles)
                 foreach (var c2 in cartasVisibles)
                     foreach (var c3 in cartasVisibles)
                         if (!c1.Equals(c2) && !c1.Equals(c3) && !c2.Equals(c3))
-                            listaCartas.Add(new List<Carta> { c1, c2, c3 });
+                            listaCartas.Add(new List<Card> { c1, c2, c3 });
 
             //Ordeno cada trio de cartas recogido
             listaCartas.ToList().ForEach(x => x.OrderBy(c => c.Id()));

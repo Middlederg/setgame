@@ -1,4 +1,4 @@
-﻿namespace Set.Core.Enums
+﻿namespace Set.Core
 {
     public enum Shading
     {

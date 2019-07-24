@@ -46,7 +46,7 @@ namespace Set.Forms
                     BackColor = System.Drawing.Color.Transparent,
                     //BorderStyle = BorderStyle.FixedSingle,
                     Margin = new Padding(0),
-                    Image = Set.Core.Negocio.General.ObtenerRecurso(c.Ruta())
+                    Image = Set.Core.Negocio.Util.ObtenerRecurso(c.Ruta())
                 };
                 var punto = (cardWidth / (c.Numero + 1)) * num; //punto del centro de la imagen
                 pbx.Location = new Point((int)Math.Truncate(punto - (pbx.Size.Width / 2)), 0);

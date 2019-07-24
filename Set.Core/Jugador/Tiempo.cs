@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Set.Core.Model
+namespace Set.Core
 {
     [Serializable]
     public class Tiempo

@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Set.Core.Enums;
-using Set.Core.Model;
+using Set.Core;
 using Set.Core.Negocio;
 
 namespace Set.Forms.Views
@@ -19,7 +18,7 @@ namespace Set.Forms.Views
         {
             InitializeComponent();
 
-            CmbDificultad.DataSource = General.GetEnumList<Dificultad>();
+            CmbDificultad.DataSource = Util.GetEnumList<Dificultad>();
             CmbDificultad.SelectedIndex = 0;
             LlenarNombres();
         }
@@ -64,18 +63,18 @@ namespace Set.Forms.Views
             LvwNombres.Items.Clear();
             if (NudJugadores.Value != 0)
                 foreach (var num in Enumerable.Range(0, (int)NudJugadores.Value))
-                    LvwNombres.Items.Add(GameHelper.NombreAleatorio(NombresEnLista().ToList()));
+                    LvwNombres.Items.Add(Files.NombreAleatorio(NombresEnLista().ToList()));
         }
 
         private IEnumerable<string> NombresEnLista(bool minusc = false)
         {
             foreach (ListViewItem item in LvwNombres.Items)
-                yield return minusc ? item.Text.Simplificar() : item.Text.Trim();
+                yield return minusc ? item.Text.Simplify() : item.Text.Trim();
         }
 
         private void LabelEditado(object sender, LabelEditEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(e.Label) || NombresEnLista(true).Contains(e.Label.Simplificar()))
+            if (string.IsNullOrWhiteSpace(e.Label) || NombresEnLista(true).Contains(e.Label.Simplify()))
             {
                 MessageBox.Show("No se pueden duplicar nombres");
                 e.CancelEdit = true;

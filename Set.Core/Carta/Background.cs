@@ -1,6 +1,6 @@
-﻿namespace Set.Core.Enums
+﻿namespace Set.Core
 {
-    public enum Color
+    public enum Background
     {
         Red,
         Blue,

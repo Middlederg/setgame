@@ -32,7 +32,7 @@ namespace Set.Forms.Views
                 record.NombreJugador = tbNombre.Text;
                 try
                 {
-                    GameHelper.GuardarPuntuacion(record);
+                    Files.GuardarPuntuacion(record);
                 }
                 catch (Exception ex)
                 {

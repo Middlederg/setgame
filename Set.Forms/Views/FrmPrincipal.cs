@@ -170,7 +170,7 @@ namespace Set.Forms.Views
                 foreach (var jug in j.Jugadores)
                 {
                     var record = new Record(jug.NumSets, jug.Fallos, segundos) { NombreJugador = jug.Nombre };
-                    GameHelper.GuardarPuntuacion(record);
+                    Files.GuardarPuntuacion(record);
                 }
 
                 //Mostrar clasificación
