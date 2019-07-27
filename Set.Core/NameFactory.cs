@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Set.Core.Negocio
+namespace Set.Core
 {
     public static class NameFactory
     {

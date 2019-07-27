@@ -7,15 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Set.Core.Enums;
-using Set.Core.Model;
-using Set.Core.Negocio;
+using Set.Core;
 
 namespace Set.Forms.Views
 {
     public partial class FrmPrincipal : Form
     {
-        Juego j;
+        Game game;
 
         /// <summary>
         /// indx del siguiente set a mostrar
@@ -24,17 +22,18 @@ namespace Set.Forms.Views
 
         public int segundos, minutos;
 
-        public FrmPrincipal(Dificultad dificultad, int numCartas, IEnumerable<string> nombres)
+        public FrmPrincipal(GameOptions options)
         {
             InitializeComponent();
 
-            j = new Juego(numCartas, dificultad, nombres);
-            Redibujar();
+            var logger = new Logger(LvwLog);
+            game = new Game(options, logger);
+            DrawMainPanel();
 
-            BtnRendirse.Enabled = dificultad.Equals(Dificultad.Tutorial);
-            BtnComprobarSet.Enabled = pCartas.Controls.OfType<PanelCarta>().Count(x => x.Seleccionada) == 3;
+            BtnRendirse.Enabled = options.GameMode.IsTutorial;
+            BtnComprobarSet.Enabled = pCartas.Controls.OfType<CardPanel>().Count(x => x.Seleccionada) == 3;
 
-            if (j.Jugadores.Count > 1)
+            if (game.Players.Count > 1)
             {
                 lbnumsets.Visible = false;
                 lbPuntos.Visible = false;
@@ -42,28 +41,16 @@ namespace Set.Forms.Views
             }
         }
 
-        public void Redibujar()
+        public void DrawMainPanel()
         {
             numSetAyuda = 0;
-            pCartas.Controls.Clear();
-
-            int x = 0; int y = 0;
-            int padding = 24;
-            foreach (var c in j.CartasVisibles())
-            {
-                var pCard = InterfazGrafica.DibujarCarta(c);
-                pCard.Location = new Point(padding + (padding + pCard.Width) * x, padding + (padding + pCard.Height) * y);
-                pCard.Click += ClickCard;
-                pCartas.Controls.Add(pCard);
-                x++;
-                if (x > 3) { x = 0; y++; }
-            }
+         
   
-            lbPuntos.Text = "Puntos: " + new Record(j.ElTurno(0).NumSets, j.ElTurno(0).Fallos, (int)(DateTime.Now.Subtract(j.ComienzoJuego).TotalSeconds)).Puntuacion();
-            lbInfo.Text = j.Log.LastOrDefault() ?? string.Empty;
-            lbnumsets.Text = "Sets: " + j.ElTurno(0).NumSets;
-            lbnumsets.Text += (j.ElTurno(0).Fallos > 0) ? "\t\tFallos: " + j.ElTurno(0).Fallos : "";
-            lbNumCartas.Text = "Cartas: " + j.Mazo.Count;
+            lbPuntos.Text = "Puntos: " + new Score(game.PlayerTurn(0).Score(.sco.NumSets, game.ElTurno(0).Fallos, (int)(DateTime.Now.Subtract(game.ComienzoJuego).TotalSeconds)).Puntuacion();
+            lbInfo.Text = game.Log.LastOrDefault() ?? string.Empty;
+            lbnumsets.Text = "Sets: " + game.ElTurno(0).NumSets;
+            lbnumsets.Text += (game.ElTurno(0).Fallos > 0) ? "\t\tFallos: " + game.ElTurno(0).Fallos : "";
+            lbNumCartas.Text = "Cartas: " + game.Mazo.Count;
         }
 
         private void TimerTiempo_Tick(object sender, EventArgs e)
@@ -84,12 +71,11 @@ namespace Set.Forms.Views
 
         public void ClickCard(object sender, EventArgs e)
         {
-            var c = (sender as PanelCarta);
+            var c = (sender as CardPanel);
             c.Seleccionar(!c.Seleccionada);
-            if (pCartas.Controls.OfType<PanelCarta>().Count(x => x.Seleccionada) == 3)
+            if (pCartas.Controls.OfType<CardPanel>().Count(x => x.Seleccionada) == 3)
             {
                 BtnComprobarSet.Enabled = true;
-                
             }
             else
                 BtnComprobarSet.Enabled = false;
@@ -99,54 +85,54 @@ namespace Set.Forms.Views
         {
             try
             {
-                var selectedCards = pCartas.Controls.OfType<PanelCarta>().Where(x => x.Seleccionada).Select(x => x.Card).ToList();
+                var selectedCards = pCartas.Controls.OfType<CardPanel>().Where(x => x.Seleccionada).Select(x => x.Card).ToList();
                 int jugador = 0;
-                if (j.Jugadores.Count > 1)
+                if (game.Jugadores.Count > 1)
                 {
-                    FrmJugadores f = new FrmJugadores(j.Jugadores)
+                    FrmJugadores f = new FrmJugadores(game.Jugadores)
                     {
                         Location = new Point(Location.X + Width, Location.Y)
                     };
                     f.ShowDialog();
                     jugador = f.BotonSeleccionado;
                 }
-                if (j.ComprobarSet(selectedCards, jugador))
+                if (game.ComprobarSet(selectedCards, jugador))
                     FinalJuego();
                 else
-                    Redibujar();
+                    DrawMainPanel();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            BtnComprobarSet.Enabled = pCartas.Controls.OfType<PanelCarta>().Count(x => x.Seleccionada) == 3;
+            BtnComprobarSet.Enabled = pCartas.Controls.OfType<CardPanel>().Count(x => x.Seleccionada) == 3;
         }
 
         private void BtnNoSets_Click(object sender, EventArgs e)
         {
-            if (j.NoHayNingunSet())
+            if (game.NoHayNingunSet())
                 FinalJuego();
             else
-                Redibujar();
-            BtnComprobarSet.Enabled = pCartas.Controls.OfType<PanelCarta>().Count(x => x.Seleccionada) == 3;
+                DrawMainPanel();
+            BtnComprobarSet.Enabled = pCartas.Controls.OfType<CardPanel>().Count(x => x.Seleccionada) == 3;
         }
 
         private void BtnRendirse_Click(object sender, EventArgs e)
         {
-            var sets = j.BuscarSets().ToList();
+            var sets = game.FindSets().ToList();
 
             if (sets.Count() == 0)
                 lbInfo.Text = "No hay ningún set :(";
             else
             {
-                foreach (var c in pCartas.Controls.OfType<PanelCarta>())
+                foreach (var c in pCartas.Controls.OfType<CardPanel>())
                     c.Seleccionar(sets.ElementAt(numSetAyuda).Contains(c.Card));
                 numSetAyuda = numSetAyuda < sets.Count() - 1 ? numSetAyuda + 1 : 0;
             }
-            BtnComprobarSet.Enabled = pCartas.Controls.OfType<PanelCarta>().Count(x => x.Seleccionada) == 3;
+            BtnComprobarSet.Enabled = pCartas.Controls.OfType<CardPanel>().Count(x => x.Seleccionada) == 3;
         }
 
-        private void BtnLog_Click(object sender, EventArgs e) => new FrmLog(j.Log).ShowDialog();
+        //private void BtnLog_Click(object sender, EventArgs e) => new FrmLog(game.l).ShowDialog();
 
         private void BtnMax_Click(object sender, EventArgs e) => WindowState = WindowState.Equals(FormWindowState.Maximized) ? FormWindowState.Normal : FormWindowState.Maximized;
         private void BtnClose_Click(object sender, EventArgs e) => Close();
@@ -154,7 +140,7 @@ namespace Set.Forms.Views
 
         private void BtnClasificacion_Click(object sender, EventArgs e)
         {
-            using (var f = new FrmClasificacion(j, segundos))
+            using (var f = new FrmClasificacion())
             {
                 f.ShowDialog();
             }
@@ -164,21 +150,21 @@ namespace Set.Forms.Views
         {
             timerTiempo.Stop();
             lbInfo.Text = "Fin de partida";
-            if (j.Jugadores.Count > 1)
+            if (game.Jugadores.Count > 1)
             {
                 //Agregar record de caa jugador
-                foreach (var jug in j.Jugadores)
+                foreach (var jug in game.Jugadores)
                 {
                     var record = new Record(jug.NumSets, jug.Fallos, segundos) { NombreJugador = jug.Nombre };
                     Files.GuardarPuntuacion(record);
                 }
 
                 //Mostrar clasificación
-                using (var f = new FrmClasificacion(j, segundos)) { f.ShowDialog(); }
+                using (var f = new FrmClasificacion(game, segundos)) { f.ShowDialog(); }
             }
             else
             {
-                new FrmInputName(j.ElTurno(0).NumSets, j.ElTurno(0).Fallos, (int)(DateTime.Now.Subtract(j.ComienzoJuego).TotalSeconds)).ShowDialog();
+                new FrmInputName(game.ElTurno(0).NumSets, game.ElTurno(0).Fallos, (int)(DateTime.Now.Subtract(game.ComienzoJuego).TotalSeconds)).ShowDialog();
             }
             foreach (var btn in TlpPrincipal.Controls.OfType<Button>())
                 btn.Enabled = false;

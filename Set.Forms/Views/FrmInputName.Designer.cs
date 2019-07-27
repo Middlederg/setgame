@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.TbxNombre = new System.Windows.Forms.TextBox();
             this.pGeneral = new System.Windows.Forms.Panel();
             this.pPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -55,14 +55,14 @@
             this.label1.Text = "Nombre:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tbNombre
+            // TbxNombre
             // 
-            this.tbNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbNombre.Location = new System.Drawing.Point(209, 50);
-            this.tbNombre.Margin = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(170, 26);
-            this.tbNombre.TabIndex = 2;
+            this.TbxNombre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TbxNombre.Location = new System.Drawing.Point(209, 50);
+            this.TbxNombre.Margin = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.TbxNombre.Name = "TbxNombre";
+            this.TbxNombre.Size = new System.Drawing.Size(170, 26);
+            this.TbxNombre.TabIndex = 2;
             // 
             // pGeneral
             // 
@@ -86,7 +86,7 @@
             this.pPrincipal.Controls.Add(this.lbTitulo, 0, 0);
             this.pPrincipal.Controls.Add(this.label1, 0, 2);
             this.pPrincipal.Controls.Add(this.BtnAceptar, 0, 6);
-            this.pPrincipal.Controls.Add(this.tbNombre, 1, 2);
+            this.pPrincipal.Controls.Add(this.TbxNombre, 1, 2);
             this.pPrincipal.Controls.Add(this.label2, 0, 3);
             this.pPrincipal.Controls.Add(this.label3, 0, 4);
             this.pPrincipal.Controls.Add(this.label4, 0, 5);
@@ -142,7 +142,7 @@
             this.BtnAceptar.TabIndex = 1;
             this.BtnAceptar.Text = "Aceptar";
             this.BtnAceptar.UseVisualStyleBackColor = false;
-            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click_1);
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptarClick);
             // 
             // label2
             // 
@@ -238,7 +238,7 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbNombre;
+        private System.Windows.Forms.TextBox TbxNombre;
         private System.Windows.Forms.Panel pGeneral;
         private System.Windows.Forms.TableLayoutPanel pPrincipal;
         private System.Windows.Forms.Label lbTitulo;

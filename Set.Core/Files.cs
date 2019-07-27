@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Set.Core.Negocio
+namespace Set.Core
 {
-
     public static class Files
     {
         /// <summary>
@@ -13,7 +12,7 @@ namespace Set.Core.Negocio
         /// Si no existiera devuelve lista vacía
         /// </summary>
         /// <returns></returns>
-        public static List<Record> LeerBestScores()
+        public static List<Score> LeerBestScores()
         {
             string ruta = Properties.Resources.BestScorePath;
 
@@ -21,13 +20,13 @@ namespace Set.Core.Negocio
             {
                 FileStream fs = new FileStream(ruta, FileMode.Open);
                 BinaryFormatter binForm = new BinaryFormatter();
-                List<Record> lista = (List<Record>)binForm.Deserialize(fs);
+                List<Score> lista = (List<Score>)binForm.Deserialize(fs);
                 fs.Close();
                 return lista;
             }
             catch (Exception)
             {
-                return new List<Record>();
+                return new List<Score>();
             }
         }
 
@@ -35,7 +34,7 @@ namespace Set.Core.Negocio
         /// Lee el fichero de puntuaciones y guarda la nueva puntuación
         /// </summary>
         /// <param name="score"></param>
-        public static void GuardarPuntuacion(Record score)
+        public static void GuardarPuntuacion(Score score)
         {
             var scores = LeerBestScores();
             scores.Add(score);

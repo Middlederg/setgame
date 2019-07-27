@@ -50,6 +50,7 @@
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnLog = new System.Windows.Forms.Button();
             this.BtnClasificacion = new System.Windows.Forms.Button();
+            this.LvwLog = new System.Windows.Forms.ListView();
             this.panelTiempo.SuspendLayout();
             this.TlpPrincipal.SuspendLayout();
             this.FlpBotonesArriba.SuspendLayout();
@@ -64,7 +65,7 @@
             this.lbNumCartas.Location = new System.Drawing.Point(20, 603);
             this.lbNumCartas.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.lbNumCartas.Name = "lbNumCartas";
-            this.lbNumCartas.Size = new System.Drawing.Size(220, 20);
+            this.lbNumCartas.Size = new System.Drawing.Size(219, 20);
             this.lbNumCartas.TabIndex = 4;
             this.lbNumCartas.Text = "Cartas: 0";
             this.lbNumCartas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -77,7 +78,7 @@
             this.lbPuntos.Location = new System.Drawing.Point(20, 643);
             this.lbPuntos.Margin = new System.Windows.Forms.Padding(20, 0, 0, 5);
             this.lbPuntos.Name = "lbPuntos";
-            this.lbPuntos.Size = new System.Drawing.Size(220, 15);
+            this.lbPuntos.Size = new System.Drawing.Size(219, 15);
             this.lbPuntos.TabIndex = 4;
             this.lbPuntos.Text = "Puntuación: 0";
             this.lbPuntos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -90,7 +91,7 @@
             this.lbnumsets.Location = new System.Drawing.Point(20, 623);
             this.lbnumsets.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.lbnumsets.Name = "lbnumsets";
-            this.lbnumsets.Size = new System.Drawing.Size(220, 20);
+            this.lbnumsets.Size = new System.Drawing.Size(219, 20);
             this.lbnumsets.TabIndex = 4;
             this.lbnumsets.Text = "Sets: 0";
             this.lbnumsets.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -127,7 +128,7 @@
             this.lbInfo.Location = new System.Drawing.Point(20, 588);
             this.lbInfo.Margin = new System.Windows.Forms.Padding(20, 5, 5, 0);
             this.lbInfo.Name = "lbInfo";
-            this.lbInfo.Size = new System.Drawing.Size(456, 15);
+            this.lbInfo.Size = new System.Drawing.Size(453, 15);
             this.lbInfo.TabIndex = 3;
             this.lbInfo.Text = "label1";
             this.lbInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,7 +142,7 @@
             this.pCartas.Location = new System.Drawing.Point(20, 72);
             this.pCartas.Margin = new System.Windows.Forms.Padding(20, 0, 20, 5);
             this.pCartas.Name = "pCartas";
-            this.pCartas.Size = new System.Drawing.Size(683, 506);
+            this.pCartas.Size = new System.Drawing.Size(677, 506);
             this.pCartas.TabIndex = 1;
             // 
             // timerTiempo
@@ -153,10 +154,11 @@
             // TlpPrincipal
             // 
             this.TlpPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
-            this.TlpPrincipal.ColumnCount = 3;
+            this.TlpPrincipal.ColumnCount = 4;
             this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
             this.TlpPrincipal.Controls.Add(this.LblRaya, 0, 1);
             this.TlpPrincipal.Controls.Add(this.LblTitulo, 0, 0);
             this.TlpPrincipal.Controls.Add(this.lbPuntos, 0, 7);
@@ -170,6 +172,7 @@
             this.TlpPrincipal.Controls.Add(this.FlpBotonesArriba, 1, 0);
             this.TlpPrincipal.Controls.Add(this.panelTiempo, 0, 2);
             this.TlpPrincipal.Controls.Add(this.FlpBotones, 2, 2);
+            this.TlpPrincipal.Controls.Add(this.LvwLog, 3, 2);
             this.TlpPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TlpPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
             this.TlpPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -184,20 +187,19 @@
             this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TlpPrincipal.Size = new System.Drawing.Size(723, 678);
+            this.TlpPrincipal.Size = new System.Drawing.Size(1043, 678);
             this.TlpPrincipal.TabIndex = 1;
             // 
             // LblRaya
             // 
             this.LblRaya.AutoSize = true;
             this.LblRaya.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.TlpPrincipal.SetColumnSpan(this.LblRaya, 3);
+            this.TlpPrincipal.SetColumnSpan(this.LblRaya, 4);
             this.LblRaya.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblRaya.Location = new System.Drawing.Point(20, 30);
             this.LblRaya.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.LblRaya.Name = "LblRaya";
-            this.LblRaya.Size = new System.Drawing.Size(683, 2);
+            this.LblRaya.Size = new System.Drawing.Size(1003, 2);
             this.LblRaya.TabIndex = 2;
             this.LblRaya.Text = "label1";
             // 
@@ -209,7 +211,7 @@
             this.LblTitulo.Location = new System.Drawing.Point(20, 0);
             this.LblTitulo.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(220, 30);
+            this.LblTitulo.Size = new System.Drawing.Size(219, 30);
             this.LblTitulo.TabIndex = 6;
             this.LblTitulo.Text = "Set Game";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -223,11 +225,11 @@
             this.BtnRendirse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRendirse.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRendirse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnRendirse.Location = new System.Drawing.Point(486, 628);
+            this.BtnRendirse.Location = new System.Drawing.Point(483, 628);
             this.BtnRendirse.Margin = new System.Windows.Forms.Padding(5, 5, 20, 5);
             this.BtnRendirse.Name = "BtnRendirse";
             this.TlpPrincipal.SetRowSpan(this.BtnRendirse, 2);
-            this.BtnRendirse.Size = new System.Drawing.Size(217, 30);
+            this.BtnRendirse.Size = new System.Drawing.Size(214, 30);
             this.BtnRendirse.TabIndex = 4;
             this.BtnRendirse.Text = "Rendirse";
             this.BtnRendirse.UseVisualStyleBackColor = false;
@@ -242,11 +244,11 @@
             this.BtnNoSets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNoSets.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnNoSets.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnNoSets.Location = new System.Drawing.Point(260, 628);
+            this.BtnNoSets.Location = new System.Drawing.Point(259, 628);
             this.BtnNoSets.Margin = new System.Windows.Forms.Padding(20, 5, 5, 5);
             this.BtnNoSets.Name = "BtnNoSets";
             this.TlpPrincipal.SetRowSpan(this.BtnNoSets, 2);
-            this.BtnNoSets.Size = new System.Drawing.Size(216, 30);
+            this.BtnNoSets.Size = new System.Drawing.Size(214, 30);
             this.BtnNoSets.TabIndex = 3;
             this.BtnNoSets.Text = "No hay sets";
             this.BtnNoSets.UseVisualStyleBackColor = false;
@@ -261,11 +263,11 @@
             this.BtnComprobarSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnComprobarSet.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnComprobarSet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnComprobarSet.Location = new System.Drawing.Point(486, 588);
+            this.BtnComprobarSet.Location = new System.Drawing.Point(483, 588);
             this.BtnComprobarSet.Margin = new System.Windows.Forms.Padding(5, 5, 20, 5);
             this.BtnComprobarSet.Name = "BtnComprobarSet";
             this.TlpPrincipal.SetRowSpan(this.BtnComprobarSet, 2);
-            this.BtnComprobarSet.Size = new System.Drawing.Size(217, 30);
+            this.BtnComprobarSet.Size = new System.Drawing.Size(214, 30);
             this.BtnComprobarSet.TabIndex = 2;
             this.BtnComprobarSet.Text = "Comprobar set";
             this.BtnComprobarSet.UseVisualStyleBackColor = false;
@@ -274,15 +276,15 @@
             // FlpBotonesArriba
             // 
             this.FlpBotonesArriba.BackColor = System.Drawing.Color.Transparent;
-            this.TlpPrincipal.SetColumnSpan(this.FlpBotonesArriba, 2);
+            this.TlpPrincipal.SetColumnSpan(this.FlpBotonesArriba, 3);
             this.FlpBotonesArriba.Controls.Add(this.BtnClose);
             this.FlpBotonesArriba.Controls.Add(this.BtnMin);
             this.FlpBotonesArriba.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlpBotonesArriba.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FlpBotonesArriba.Location = new System.Drawing.Point(240, 0);
+            this.FlpBotonesArriba.Location = new System.Drawing.Point(239, 0);
             this.FlpBotonesArriba.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.FlpBotonesArriba.Name = "FlpBotonesArriba";
-            this.FlpBotonesArriba.Size = new System.Drawing.Size(463, 30);
+            this.FlpBotonesArriba.Size = new System.Drawing.Size(784, 30);
             this.FlpBotonesArriba.TabIndex = 5;
             // 
             // BtnClose
@@ -295,7 +297,7 @@
             this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.BtnClose.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
             this.BtnClose.IconSize = 20;
-            this.BtnClose.Location = new System.Drawing.Point(433, 0);
+            this.BtnClose.Location = new System.Drawing.Point(754, 0);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Rotation = 0D;
@@ -314,7 +316,7 @@
             this.BtnMin.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.BtnMin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
             this.BtnMin.IconSize = 20;
-            this.BtnMin.Location = new System.Drawing.Point(403, 0);
+            this.BtnMin.Location = new System.Drawing.Point(724, 0);
             this.BtnMin.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMin.Name = "BtnMin";
             this.BtnMin.Rotation = 0D;
@@ -329,10 +331,10 @@
             this.FlpBotones.Controls.Add(this.BtnClasificacion);
             this.FlpBotones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlpBotones.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FlpBotones.Location = new System.Drawing.Point(481, 32);
+            this.FlpBotones.Location = new System.Drawing.Point(478, 32);
             this.FlpBotones.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.FlpBotones.Name = "FlpBotones";
-            this.FlpBotones.Size = new System.Drawing.Size(222, 40);
+            this.FlpBotones.Size = new System.Drawing.Size(219, 40);
             this.FlpBotones.TabIndex = 8;
             // 
             // BtnLog
@@ -343,14 +345,13 @@
             this.BtnLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLog.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnLog.Location = new System.Drawing.Point(172, 15);
+            this.BtnLog.Location = new System.Drawing.Point(169, 15);
             this.BtnLog.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.BtnLog.Name = "BtnLog";
             this.BtnLog.Size = new System.Drawing.Size(50, 25);
             this.BtnLog.TabIndex = 7;
             this.BtnLog.Text = "Log";
             this.BtnLog.UseVisualStyleBackColor = false;
-            this.BtnLog.Click += new System.EventHandler(this.BtnLog_Click);
             // 
             // BtnClasificacion
             // 
@@ -360,7 +361,7 @@
             this.BtnClasificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnClasificacion.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnClasificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnClasificacion.Location = new System.Drawing.Point(120, 15);
+            this.BtnClasificacion.Location = new System.Drawing.Point(117, 15);
             this.BtnClasificacion.Margin = new System.Windows.Forms.Padding(0, 15, 2, 0);
             this.BtnClasificacion.Name = "BtnClasificacion";
             this.BtnClasificacion.Size = new System.Drawing.Size(50, 25);
@@ -370,11 +371,23 @@
             this.BtnClasificacion.Visible = false;
             this.BtnClasificacion.Click += new System.EventHandler(this.BtnClasificacion_Click);
             // 
+            // LvwLog
+            // 
+            this.LvwLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvwLog.Location = new System.Drawing.Point(717, 47);
+            this.LvwLog.Margin = new System.Windows.Forms.Padding(0, 15, 20, 20);
+            this.LvwLog.Name = "LvwLog";
+            this.TlpPrincipal.SetRowSpan(this.LvwLog, 2);
+            this.LvwLog.Size = new System.Drawing.Size(306, 516);
+            this.LvwLog.TabIndex = 9;
+            this.LvwLog.UseCompatibleStateImageBehavior = false;
+            this.LvwLog.View = System.Windows.Forms.View.Details;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 678);
+            this.ClientSize = new System.Drawing.Size(1043, 678);
             this.ControlBox = false;
             this.Controls.Add(this.TlpPrincipal);
             this.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -415,6 +428,7 @@
         private System.Windows.Forms.Button BtnLog;
         private System.Windows.Forms.FlowLayoutPanel FlpBotones;
         private System.Windows.Forms.Button BtnClasificacion;
+        private System.Windows.Forms.ListView LvwLog;
     }
 }
 

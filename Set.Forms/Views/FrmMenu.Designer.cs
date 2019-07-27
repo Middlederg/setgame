@@ -60,7 +60,7 @@
             this.btnInstrucciones.TabIndex = 1;
             this.btnInstrucciones.Text = "Reglamento";
             this.btnInstrucciones.UseVisualStyleBackColor = false;
-            this.btnInstrucciones.Click += new System.EventHandler(this.BtnInstrucciones_Click);
+            this.btnInstrucciones.Click += new System.EventHandler(this.BtnInstruccionesClick);
             // 
             // btnRecords
             // 
@@ -79,7 +79,7 @@
             this.btnRecords.TabIndex = 1;
             this.btnRecords.Text = "Mejores puntuaciones";
             this.btnRecords.UseVisualStyleBackColor = false;
-            this.btnRecords.Click += new System.EventHandler(this.BtnRecords_Click);
+            this.btnRecords.Click += new System.EventHandler(this.BtnRecordsClick);
             // 
             // btnPlay
             // 
@@ -127,7 +127,6 @@
             this.FlpBotonesArriba.Name = "FlpBotonesArriba";
             this.FlpBotonesArriba.Size = new System.Drawing.Size(183, 30);
             this.FlpBotonesArriba.TabIndex = 2;
-            this.FlpBotonesArriba.DoubleClick += new System.EventHandler(this.BtnMax_Click);
             // 
             // BtnClose
             // 
@@ -146,7 +145,7 @@
             this.BtnClose.Size = new System.Drawing.Size(30, 30);
             this.BtnClose.TabIndex = 0;
             this.BtnClose.UseVisualStyleBackColor = false;
-            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            this.BtnClose.Click += new System.EventHandler(this.BtnCloseClick);
             // 
             // BtnMin
             // 
@@ -165,7 +164,7 @@
             this.BtnMin.Size = new System.Drawing.Size(30, 30);
             this.BtnMin.TabIndex = 2;
             this.BtnMin.UseVisualStyleBackColor = false;
-            this.BtnMin.Click += new System.EventHandler(this.BtnMin_Click);
+            this.BtnMin.Click += new System.EventHandler(this.BtnMinClick);
             // 
             // pPrincipal
             // 
@@ -203,7 +202,6 @@
             this.label1.Size = new System.Drawing.Size(203, 30);
             this.label1.TabIndex = 3;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.DoubleClick += new System.EventHandler(this.BtnMax_Click);
             // 
             // FrmMenu
             // 

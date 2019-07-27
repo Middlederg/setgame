@@ -8,47 +8,50 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Set.Core;
-using Set.Core.Negocio;
 
 namespace Set.Forms.Views
 {
     public partial class FrmPropiedades : Form
     {
+        public GameMode GameMode
+        {
+            get => GameModeCombo.SelectedItem as GameMode;
+            set => GameModeCombo.SelectedItem = value;
+        }
+
+        public int CardNumber
+        {
+            get => (int)CardNumberSelector.Value;
+            set => CardNumberSelector.Value = value;
+        }
+
+        public int PlayerNumberCount => (int)PlayerNumberSelector.Value;
+
+        public IEnumerable<string> GetPlayersNames => LvwNombres.Items.OfType<ListViewItem>().Select(x => x.Text.Trim());
+
         public FrmPropiedades()
         {
             InitializeComponent();
 
-            CmbDificultad.DataSource = Util.GetEnumList<Dificultad>();
-            CmbDificultad.SelectedIndex = 0;
-            LlenarNombres();
+            GameModeCombo.DataSource = new List<GameMode>() { GameModeFactory.Tutorial, GameModeFactory.Easy, GameModeFactory.Regular };
+            GameModeCombo.SelectedIndex = 0;
         }
-
-        private void BtnAceptar_Click(object sender, EventArgs e)
-        {
-            Visible = false;
-            Dificultad dificultad = (Dificultad)CmbDificultad.SelectedItem;
-            int numCartas = (int)NudNumCartas.Value;
-            new FrmPrincipal(dificultad, numCartas, NombresEnLista()).ShowDialog();
-            Close();
-        }
-
-        private void BtnVolver_Click(object sender, EventArgs e) => Close();
 
         private void CmbDificultad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var dificultad = (Dificultad)CmbDificultad.SelectedItem;
-            NudNumCartas.Maximum = dificultad.NumeroMaximo();
-            new ToolTip().SetToolTip(CmbDificultad, dificultad.Descripcion());
+            var gameMode = (GameMode)GameModeCombo.SelectedItem;
+            if (CardNumberSelector.Value > GameMode.MaxCardNumber)
+                CardNumberSelector.Value = GameMode.MaxCardNumber;
+            CardNumberSelector.Maximum = gameMode.MaxCardNumber;
+            new ToolTip().SetToolTip(GameModeCombo, gameMode.Description);
         }
 
         private void NudJugadores_ValueChanged(object sender, EventArgs e)
         {
-            if (NudJugadores.Value == 1)
+            if (PlayerNumberSelector.Value == 1)
             {
                 pPrincipal.RowStyles[5].Height = 0;
                 Height = 220;
-                LvwNombres.Items.Clear();
-                LvwNombres.Items.Add(string.Empty);
             }
             else
             {
@@ -61,24 +64,35 @@ namespace Set.Forms.Views
         private void LlenarNombres()
         {
             LvwNombres.Items.Clear();
-            if (NudJugadores.Value != 0)
-                foreach (var num in Enumerable.Range(0, (int)NudJugadores.Value))
-                    LvwNombres.Items.Add(Files.NombreAleatorio(NombresEnLista().ToList()));
-        }
-
-        private IEnumerable<string> NombresEnLista(bool minusc = false)
-        {
-            foreach (ListViewItem item in LvwNombres.Items)
-                yield return minusc ? item.Text.Simplify() : item.Text.Trim();
+            foreach (var i in Enumerable.Range(0, (int)PlayerNumberSelector.Value))
+                LvwNombres.Items.Add(NameFactory.GetRandomName(GetPlayersNames));
         }
 
         private void LabelEditado(object sender, LabelEditEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(e.Label) || NombresEnLista(true).Contains(e.Label.Simplify()))
+            if (string.IsNullOrWhiteSpace(e.Label))
             {
-                MessageBox.Show("No se pueden duplicar nombres");
+                MessageBox.Show("El nombre del jugador no puede estar vacío");
                 e.CancelEdit = true;
             }
+
+            if (GetPlayersNames.Select(x => x.Simplify()).Contains(e.Label.Simplify()))
+            {
+                MessageBox.Show("El nombre del jugador ya existe");
+                e.CancelEdit = true;
+            }
+        }
+
+        private void BtnAceptar_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void BtnVolver_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

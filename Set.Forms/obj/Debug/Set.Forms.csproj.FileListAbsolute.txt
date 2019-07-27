@@ -80,3 +80,7 @@ F:\DESARROLLO\Repos\Set\Set.Forms\bin\Debug\System.ValueTuple.xml
 F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.csproj.CopyComplete
 F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.exe
 F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.pdb
+F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.OneObject.resources
+F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.ThreeObjects.resources
+F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.TwoObjects.resources
+F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.UserControls.UcClasificacion.resources

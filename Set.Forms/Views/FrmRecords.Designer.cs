@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRecords));
-            this.LvwPuntos = new System.Windows.Forms.ListView();
+            this.Lvw = new System.Windows.Forms.ListView();
             this.pPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.BtnAceptar = new System.Windows.Forms.Button();
             this.pPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // LvwPuntos
+            // Lvw
             // 
-            this.LvwPuntos.AllowColumnReorder = true;
-            this.LvwPuntos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LvwPuntos.GridLines = true;
-            this.LvwPuntos.Location = new System.Drawing.Point(20, 45);
-            this.LvwPuntos.Margin = new System.Windows.Forms.Padding(20, 10, 20, 5);
-            this.LvwPuntos.MultiSelect = false;
-            this.LvwPuntos.Name = "LvwPuntos";
-            this.LvwPuntos.Size = new System.Drawing.Size(432, 212);
-            this.LvwPuntos.TabIndex = 1;
-            this.LvwPuntos.UseCompatibleStateImageBehavior = false;
-            this.LvwPuntos.View = System.Windows.Forms.View.Details;
+            this.Lvw.AllowColumnReorder = true;
+            this.Lvw.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Lvw.GridLines = true;
+            this.Lvw.Location = new System.Drawing.Point(20, 45);
+            this.Lvw.Margin = new System.Windows.Forms.Padding(20, 10, 20, 5);
+            this.Lvw.MultiSelect = false;
+            this.Lvw.Name = "Lvw";
+            this.Lvw.Size = new System.Drawing.Size(432, 212);
+            this.Lvw.TabIndex = 1;
+            this.Lvw.UseCompatibleStateImageBehavior = false;
+            this.Lvw.View = System.Windows.Forms.View.Details;
             // 
             // pPrincipal
             // 
@@ -56,7 +56,7 @@
             this.pPrincipal.ColumnCount = 1;
             this.pPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pPrincipal.Controls.Add(this.lbTitulo, 0, 0);
-            this.pPrincipal.Controls.Add(this.LvwPuntos, 0, 1);
+            this.pPrincipal.Controls.Add(this.Lvw, 0, 1);
             this.pPrincipal.Controls.Add(this.BtnAceptar, 0, 2);
             this.pPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pPrincipal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -84,7 +84,7 @@
             this.lbTitulo.Name = "lbTitulo";
             this.lbTitulo.Size = new System.Drawing.Size(432, 35);
             this.lbTitulo.TabIndex = 1;
-            this.lbTitulo.Text = "Record de puntuaciones";
+            this.lbTitulo.Text = "Registro de puntuaciones";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnAceptar
@@ -103,7 +103,7 @@
             this.BtnAceptar.TabIndex = 1;
             this.BtnAceptar.Text = "Volver";
             this.BtnAceptar.UseVisualStyleBackColor = false;
-            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptarClick);
             // 
             // FrmRecords
             // 
@@ -125,7 +125,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ListView LvwPuntos;
+        private System.Windows.Forms.ListView Lvw;
         private System.Windows.Forms.TableLayoutPanel pPrincipal;
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Button BtnAceptar;

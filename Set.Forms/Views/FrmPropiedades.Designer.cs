@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPropiedades));
-            this.NudNumCartas = new System.Windows.Forms.NumericUpDown();
-            this.CmbDificultad = new System.Windows.Forms.ComboBox();
+            this.CardNumberSelector = new System.Windows.Forms.NumericUpDown();
+            this.GameModeCombo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbDif = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
@@ -38,51 +38,51 @@
             this.BtnVolver = new System.Windows.Forms.Button();
             this.BtnAceptar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.NudJugadores = new System.Windows.Forms.NumericUpDown();
+            this.PlayerNumberSelector = new System.Windows.Forms.NumericUpDown();
             this.LvwNombres = new System.Windows.Forms.ListView();
             this.pGeneral = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.NudNumCartas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CardNumberSelector)).BeginInit();
             this.pPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NudJugadores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerNumberSelector)).BeginInit();
             this.pGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
-            // NudNumCartas
+            // CardNumberSelector
             // 
-            this.NudNumCartas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NudNumCartas.Location = new System.Drawing.Point(209, 80);
-            this.NudNumCartas.Margin = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.NudNumCartas.Maximum = new decimal(new int[] {
+            this.CardNumberSelector.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CardNumberSelector.Location = new System.Drawing.Point(209, 80);
+            this.CardNumberSelector.Margin = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.CardNumberSelector.Maximum = new decimal(new int[] {
             81,
             0,
             0,
             0});
-            this.NudNumCartas.Minimum = new decimal(new int[] {
+            this.CardNumberSelector.Minimum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.NudNumCartas.Name = "NudNumCartas";
-            this.NudNumCartas.Size = new System.Drawing.Size(169, 26);
-            this.NudNumCartas.TabIndex = 3;
-            this.NudNumCartas.Value = new decimal(new int[] {
+            this.CardNumberSelector.Name = "CardNumberSelector";
+            this.CardNumberSelector.Size = new System.Drawing.Size(169, 26);
+            this.CardNumberSelector.TabIndex = 3;
+            this.CardNumberSelector.Value = new decimal(new int[] {
             27,
             0,
             0,
             0});
             // 
-            // CmbDificultad
+            // GameModeCombo
             // 
-            this.CmbDificultad.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CmbDificultad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDificultad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CmbDificultad.FormattingEnabled = true;
-            this.CmbDificultad.Location = new System.Drawing.Point(209, 50);
-            this.CmbDificultad.Margin = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.CmbDificultad.Name = "CmbDificultad";
-            this.CmbDificultad.Size = new System.Drawing.Size(169, 27);
-            this.CmbDificultad.TabIndex = 3;
-            this.CmbDificultad.SelectedIndexChanged += new System.EventHandler(this.CmbDificultad_SelectedIndexChanged);
+            this.GameModeCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GameModeCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GameModeCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GameModeCombo.FormattingEnabled = true;
+            this.GameModeCombo.Location = new System.Drawing.Point(209, 50);
+            this.GameModeCombo.Margin = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.GameModeCombo.Name = "GameModeCombo";
+            this.GameModeCombo.Size = new System.Drawing.Size(169, 27);
+            this.GameModeCombo.TabIndex = 3;
+            this.GameModeCombo.SelectedIndexChanged += new System.EventHandler(this.CmbDificultad_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -129,14 +129,14 @@
             this.pPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.pPrincipal.Controls.Add(this.label1, 0, 3);
-            this.pPrincipal.Controls.Add(this.NudNumCartas, 1, 3);
-            this.pPrincipal.Controls.Add(this.CmbDificultad, 1, 2);
+            this.pPrincipal.Controls.Add(this.CardNumberSelector, 1, 3);
+            this.pPrincipal.Controls.Add(this.GameModeCombo, 1, 2);
             this.pPrincipal.Controls.Add(this.lbDif, 0, 2);
             this.pPrincipal.Controls.Add(this.lbTitulo, 0, 0);
             this.pPrincipal.Controls.Add(this.BtnVolver, 1, 7);
             this.pPrincipal.Controls.Add(this.BtnAceptar, 0, 7);
             this.pPrincipal.Controls.Add(this.label2, 0, 4);
-            this.pPrincipal.Controls.Add(this.NudJugadores, 1, 4);
+            this.pPrincipal.Controls.Add(this.PlayerNumberSelector, 1, 4);
             this.pPrincipal.Controls.Add(this.LvwNombres, 0, 5);
             this.pPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pPrincipal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,29 +202,29 @@
             this.label2.Text = "Jugadores:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // NudJugadores
+            // PlayerNumberSelector
             // 
-            this.NudJugadores.Location = new System.Drawing.Point(209, 110);
-            this.NudJugadores.Margin = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.NudJugadores.Maximum = new decimal(new int[] {
+            this.PlayerNumberSelector.Location = new System.Drawing.Point(209, 110);
+            this.PlayerNumberSelector.Margin = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.PlayerNumberSelector.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.NudJugadores.Minimum = new decimal(new int[] {
+            this.PlayerNumberSelector.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.NudJugadores.Name = "NudJugadores";
-            this.NudJugadores.Size = new System.Drawing.Size(169, 26);
-            this.NudJugadores.TabIndex = 5;
-            this.NudJugadores.Value = new decimal(new int[] {
-            2,
+            this.PlayerNumberSelector.Name = "PlayerNumberSelector";
+            this.PlayerNumberSelector.Size = new System.Drawing.Size(169, 26);
+            this.PlayerNumberSelector.TabIndex = 5;
+            this.PlayerNumberSelector.Value = new decimal(new int[] {
+            1,
             0,
             0,
             0});
-            this.NudJugadores.ValueChanged += new System.EventHandler(this.NudJugadores_ValueChanged);
+            this.PlayerNumberSelector.ValueChanged += new System.EventHandler(this.NudJugadores_ValueChanged);
             // 
             // LvwNombres
             // 
@@ -267,9 +267,9 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Set Game";
-            ((System.ComponentModel.ISupportInitialize)(this.NudNumCartas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CardNumberSelector)).EndInit();
             this.pPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NudJugadores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerNumberSelector)).EndInit();
             this.pGeneral.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -278,15 +278,15 @@
         #endregion
         private System.Windows.Forms.Label lbDif;
         private System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.ComboBox CmbDificultad;
-        private System.Windows.Forms.NumericUpDown NudNumCartas;
+        private System.Windows.Forms.ComboBox GameModeCombo;
+        private System.Windows.Forms.NumericUpDown CardNumberSelector;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel pPrincipal;
         private System.Windows.Forms.Button BtnVolver;
         private System.Windows.Forms.Button BtnAceptar;
         private System.Windows.Forms.Panel pGeneral;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown NudJugadores;
+        private System.Windows.Forms.NumericUpDown PlayerNumberSelector;
         private System.Windows.Forms.ListView LvwNombres;
     }
 }

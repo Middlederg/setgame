@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Set.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,21 +21,32 @@ namespace Set.Forms.Views
         private void BtnPlay_Click(object sender, EventArgs e)
         {
             Visible = false;
-            new FrmPropiedades().ShowDialog();
+            using (var view = new FrmPropiedades())
+            {
+                view.ShowDialog();
+                if (view.ShowDialog() == DialogResult.OK)
+                {
+                    var gameOptions = new GameOptions(view.CardNumber, view.GameMode, view.GetPlayersNames);
+                    using (var principalView = new FrmPrincipal(gameOptions))
+                    {
+                        principalView.ShowDialog();
+                    }
+                }
+            }
             Visible = true;
         }
 
-        private void BtnInstrucciones_Click(object sender, EventArgs e) 
-            => System.Diagnostics.Process.Start("http://www.tocamates.com/set-jugando-a-hacer-conjuntos/");
+        private void BtnInstruccionesClick(object sender, EventArgs e) => System.Diagnostics.Process.Start("http://www.tocamates.com/set-jugando-a-hacer-conjuntos/");
 
-        private void BtnRecords_Click(object sender, EventArgs e) => new FrmRecords().ShowDialog();
-        
+        private void BtnRecordsClick(object sender, EventArgs e)
+        {
+            using (var view = new FrmRecords())
+            {
+                view.ShowDialog();
+            }
+        }
 
-        private void BtnClose_Click(object sender, EventArgs e) => Application.Exit();
-        private void BtnMin_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
-        private void BtnMax_Click(object sender, EventArgs e) => WindowState = WindowState.Equals(FormWindowState.Maximized) ?
-            FormWindowState.Normal : FormWindowState.Maximized;
-
-
+        private void BtnCloseClick(object sender, EventArgs e) => Application.Exit();
+        private void BtnMinClick(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
     }
 }

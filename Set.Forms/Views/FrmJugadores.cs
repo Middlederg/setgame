@@ -1,4 +1,4 @@
-﻿using Set.Core.Model;
+﻿using Set.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ namespace Set.Forms.Views
     {
         public int BotonSeleccionado { get; set; }
 
-        public FrmJugadores(List<Jugador> jugadores)
+        public FrmJugadores(List<Player> jugadores)
         {
             InitializeComponent();
 
@@ -23,7 +23,7 @@ namespace Set.Forms.Views
             {
                 Button btn = new Button()
                 {
-                    Text = jug.Nombre,
+                    Text = jug.Name,
                     Dock = DockStyle.Top,
                     Height = pGeneral.Height / jugadores.Count,
                     TabIndex = indx,

@@ -7,41 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Set.Core.Model;
-using Set.Core.Negocio;
+using Set.Core;
 
 namespace Set.Forms.Views
 {
     public partial class FrmInputName : Form
     {
-        Record record;
+        public string InputName
+        {
+            get => TbxNombre.Text.Trim();
+            set => TbxNombre.Text = value;
+        }
 
         public FrmInputName(int sets, int fallos, int segundos)
         {
             InitializeComponent();
-            record = new Record(sets, fallos, segundos);
-            LblSets.Text = $"{sets} / {fallos}";
-            LblTiempo.Text = record.Tiempo.ToString();
-            LblPuntuacion.Text = record.Puntuacion().ToString() + " puntos";
+            var time = new Time(segundos);
+            var score = Score.Create(sets, fallos);
+            LblSets.Text = $"{score.SetCount} / {score.MistakeCount}";
+            LblTiempo.Text = time.ToString();
+            LblPuntuacion.Text = $"{score.Points(time)} puntos";
         }
 
-        private void BtnAceptar_Click_1(object sender, EventArgs e)
+        private void BtnAceptarClick(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(tbNombre.Text))
+            if (!string.IsNullOrWhiteSpace(TbxNombre.Text))
             {
-                record.NombreJugador = tbNombre.Text;
-                try
-                {
-                    Files.GuardarPuntuacion(record);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se pudo guardar la puntuación\n\n" + ex.Message);
-                }
                 Close();
             }
-            else
-                MessageBox.Show("Escribe tu nombre para guardar la puntuación obtenida");
+            else MessageBox.Show("Escribe tu nombre para guardar la puntuación obtenida");
         }
     }
 }

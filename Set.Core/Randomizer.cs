@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.ComponentModel;
 
-namespace Set.Core.Negocio
+namespace Set.Core
 {
     public static class Randomizer
     {

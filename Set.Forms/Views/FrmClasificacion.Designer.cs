@@ -103,7 +103,7 @@
             this.BtnAceptar.TabIndex = 1;
             this.BtnAceptar.Text = "Volver";
             this.BtnAceptar.UseVisualStyleBackColor = false;
-            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptarClick);
             // 
             // FrmClasificacion
             // 

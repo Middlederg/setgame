@@ -1,55 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Set.Core.Model;
-using Set.Core.Negocio;
+using Set.Core;
 
 namespace Set.Forms.Views
 {
     public partial class FrmRecords : Form
     {
-        public FrmRecords()
+        private IEnumerable<string> columnHeaders = new string[] { "Jugador", "Puntuación", "# Sets", "# Fallos", "Tiempo" };
+        public IEnumerable<Record> RecordList
         {
-            InitializeComponent();
-
-            try
+            get
             {
-                List<Record> l = Files.LeerBestScores();
-                LvwPuntos.View = View.Details;
-
-                List<ColumnHeader> columnas = new List<ColumnHeader>();
-                foreach (string col in new string[] { "Jugador", "Puntos", "# Sets", "# Fallos", "Tiempo"})
-                {
-                    columnas.Add(new ColumnHeader
-                    {
-                        Text = col,
-                        Width = -2
-                    }); 
-                }
-                LvwPuntos.Columns.AddRange(columnas.ToArray());
-
-                foreach (Record record in l.OrderByDescending(x => x.Puntuacion()))
-                {
-                    ListViewItem item = new ListViewItem(record.NombreJugador);
-                    item.SubItems.Add(record.Puntuacion().ToString());
-                    item.SubItems.Add(record.NumSets.ToString());
-                    item.SubItems.Add(record.Fallos.ToString());
-                    item.SubItems.Add(record.Tiempo.ToString());
-                    LvwPuntos.Items.Add(item);
-                }
+                foreach (ListViewItem item in Lvw.Items)
+                    yield return item.Tag as Record;
             }
-            catch (Exception ex)
+            set
             {
-                MessageBox.Show("No se pudo acceder al fichero de mejores puntuaciones\n\n" + ex.Message);
+                int i = 1;
+                foreach (var record in value)
+                {
+                    ListViewItem item = CreateItem(i, record);
+                    Lvw.Items.Add(item);
+                    i++;
+                }
             }
         }
 
-        private void BtnAceptar_Click(object sender, EventArgs e) => this.Close();
+        public FrmRecords()
+        {
+            InitializeComponent();
+            Lvw.View = View.Details;
+            Lvw.Columns.AddRange(columnHeaders.Select(x => CreateColumn(x)).ToArray());
+        }
+
+        private ColumnHeader CreateColumn(string header)
+        {
+            return new ColumnHeader()
+            {
+                Text = header,
+                Width = -2
+            };
+        }
+
+        private ListViewItem CreateItem(int i, Record record)
+        {
+            ListViewItem item = new ListViewItem(i.ToString());
+            item.SubItems.Add(record.Name);
+            item.SubItems.Add(record.Points().ToString());
+            item.SubItems.Add(record.Score.SetCount.ToString());
+            item.SubItems.Add(record.Score.MistakeCount.ToString());
+            item.SubItems.Add(record.Time.ToString());
+            item.Tag = record;
+            return item;
+        }
+
+        private void BtnAceptarClick(object sender, EventArgs e) => Close();
     }
 }
