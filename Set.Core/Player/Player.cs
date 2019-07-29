@@ -1,11 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Set.Core
 {
     public class Player
     {
+        public const int MaxPlayerNumber = 10;
         public static IEnumerable<Player> CreatePlayers(IEnumerable<string> names)
         {
+            if (names == null || !names.Any())
+                throw new ArgumentNullException(nameof(names));
+
+            if (names.Count() > MaxPlayerNumber)
+                throw new ArgumentOutOfRangeException($"Maximo número de jugadores: {MaxPlayerNumber}");
+
             foreach (var name in names)
                 yield return new Player(name);
         }

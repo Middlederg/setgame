@@ -11,7 +11,8 @@ using Set.Core;
 
 namespace Set.Forms.Views
 {
-    public partial class FrmInputName : Form
+
+    public partial class FrmInputName : Form, IPlayerName
     {
         public string InputName
         {
@@ -19,14 +20,16 @@ namespace Set.Forms.Views
             set => TbxNombre.Text = value;
         }
 
-        public FrmInputName(int sets, int fallos, int segundos)
+        public void SetInfo(Score score, Time time)
         {
-            InitializeComponent();
-            var time = new Time(segundos);
-            var score = Score.Create(sets, fallos);
             LblSets.Text = $"{score.SetCount} / {score.MistakeCount}";
             LblTiempo.Text = time.ToString();
             LblPuntuacion.Text = $"{score.Points(time)} puntos";
+        }
+
+        public FrmInputName()
+        {
+            InitializeComponent();
         }
 
         private void BtnAceptarClick(object sender, EventArgs e)

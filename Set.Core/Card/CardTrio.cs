@@ -7,10 +7,12 @@ namespace Set.Core
 {
     public class CardTrio
     {
-        private readonly IEnumerable<ICard> cards;
-        public ICard First => cards.ElementAt(0);
-        public ICard Second => cards.ElementAt(1);
-        public ICard Third => cards.ElementAt(2);
+        public IEnumerable<ICard> Cards { get; }
+        public bool Contains(ICard card) => Cards.Contains(card);
+
+        public ICard First => Cards.ElementAt(0);
+        public ICard Second => Cards.ElementAt(1);
+        public ICard Third => Cards.ElementAt(2);
 
         public CardTrio(params ICard[] cards) : this(cards.ToList()) { }
 
@@ -19,7 +21,7 @@ namespace Set.Core
             if (cards == null || cards.Count() != 3)
                 throw new ArgumentNullException("Deben pasarse 3 cartas como parámetro");
 
-            this.cards = cards;
+            Cards = cards;
         }
 
         public bool IsSet()
@@ -46,7 +48,7 @@ namespace Set.Core
         /// <param name="conditionLambda">select</param>
         /// <returns></returns>
         private bool Same<T>(Expression<Func<ICard, T>> conditionLambda)
-            => cards.AsQueryable().Select(conditionLambda).Distinct().Count() == 1;
+            => Cards.AsQueryable().Select(conditionLambda).Distinct().Count() == 1;
 
         /// <summary>
         /// Devuelve si el trío tiene esa propiedad distinta
@@ -55,7 +57,7 @@ namespace Set.Core
         /// <param name="conditionLambda">select</param>
         /// <returns></returns>
         public bool Different<T>(Expression<Func<ICard, T>> conditionLambda)
-            => cards.AsQueryable().Select(conditionLambda).Distinct().Count() == cards.Count();
+            => Cards.AsQueryable().Select(conditionLambda).Distinct().Count() == Cards.Count();
 
         public override bool Equals(object obj)
         {
@@ -63,10 +65,12 @@ namespace Set.Core
                 return false;
 
             var otherTrio = (CardTrio)obj;
-            return cards.Contains(otherTrio.First) && cards.Contains(otherTrio.Second) && cards.Contains(otherTrio.Third);
+            return Cards.Contains(otherTrio.First) && Cards.Contains(otherTrio.Second) && Cards.Contains(otherTrio.Third);
         }
 
         public override int GetHashCode() => First.GetHashCode() * Second.GetHashCode() * Third.GetHashCode();
+
+        public override string ToString() => string.Join(", ", Cards.Select(x => x.ToString()));
         
     }
 }

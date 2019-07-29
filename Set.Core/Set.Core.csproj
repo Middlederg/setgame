@@ -52,13 +52,15 @@
     <Compile Include="Game\GameMode.cs" />
     <Compile Include="Game\GameModeFactory.cs" />
     <Compile Include="Game\GameOptions.cs" />
-    <Compile Include="ILogger.cs" />
+    <Compile Include="Log\ILogger.cs" />
     <Compile Include="Game\MessageFactory.cs" />
     <Compile Include="Game\OnePlayerGame.cs" />
     <Compile Include="Game\Regular.cs" />
     <Compile Include="Card\Shape.cs" />
     <Compile Include="Card\Shading.cs" />
     <Compile Include="Game\Tutorial.cs" />
+    <Compile Include="Log\LogEntry.cs" />
+    <Compile Include="Log\LogType.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="Player\Record.cs" />
     <Compile Include="Card\CardFactory.cs" />

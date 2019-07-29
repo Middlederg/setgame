@@ -33,11 +33,11 @@ namespace Set.Core
         /// <summary>
         /// Lee el fichero de puntuaciones y guarda la nueva puntuación
         /// </summary>
-        /// <param name="score"></param>
-        public static void GuardarPuntuacion(Score score)
+        /// <param name="record"></param>
+        public static void GuardarPuntuacion(Record record)
         {
             var scores = LeerBestScores();
-            scores.Add(score);
+            scores.Add(record);
             FileStream fs = new FileStream(Properties.Resources.BestScorePath, FileMode.Create);
             BinaryFormatter binForm = new BinaryFormatter();
             binForm.Serialize(fs, scores);

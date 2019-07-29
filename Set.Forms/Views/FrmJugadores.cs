@@ -12,38 +12,36 @@ namespace Set.Forms.Views
 {
     public partial class FrmJugadores : Form
     {
-        public int BotonSeleccionado { get; set; }
+        private IEnumerable<Player> players;
+        public Player SelectedPlayer { get; private set; }
 
-        public FrmJugadores(List<Player> jugadores)
+        public FrmJugadores(List<Player> players)
         {
             InitializeComponent();
 
             int indx = 0;
-            foreach (var jug in jugadores)
+            foreach (var player in players)
             {
-                Button btn = new Button()
+                var btn = new CustomButton()
                 {
-                    Text = jug.Name,
+                    Text = player.ToString(),
                     Dock = DockStyle.Top,
-                    Height = pGeneral.Height / jugadores.Count,
-                    TabIndex = indx,
+                    Height = pGeneral.Height / players.Count,
+                    TabIndex = indx++,
                     Padding = new Padding(15, 5, 15, 5),
-                    FlatStyle = FlatStyle.Flat,
-                    BackColor = Color.FromArgb(45, 52, 54),
-                    ForeColor = Color.FromArgb(129, 236, 236),
-                    Font = new Font("Console", 10, FontStyle.Bold)
+                    Font = new Font("Console", 10, FontStyle.Bold),
+                    Tag = player
                 };
                 btn.FlatAppearance.BorderSize = 0;
                 btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(99, 110, 114);
-                indx++;
-                btn.Click += Btn_Click;
+                btn.Click += OnButtonClicked;
                 pGeneral.Controls.Add(btn);
             }
         }
 
-        private void Btn_Click(object sender, EventArgs e)
+        private void OnButtonClicked(object sender, EventArgs e)
         {
-            BotonSeleccionado = ((Control)sender).TabIndex;
+            SelectedPlayer = ((Control)sender).Tag as Player;
             Close();
         }
     }

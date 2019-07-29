@@ -11,7 +11,7 @@ namespace Set.Core
         public GameMode GameMode { get; private set; }
         public IEnumerable<string> PlayerNames { get; private set; }
 
-        public GameOptions(int cardNumber, GameMode gameMode, IEnumerable<string> playerNames)
+        public GameOptions(int cardNumber, GameMode gameMode, params string[] playerNames)
         {
             CardNumber = cardNumber;
             GameMode = gameMode;

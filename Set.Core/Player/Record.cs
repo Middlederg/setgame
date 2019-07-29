@@ -18,12 +18,12 @@ namespace Set.Core
             return new Record(name, Score.Create(sets, mistakes), seconds);
         }
 
-        public Record(string name, Score score, int seconds)
+        public Record(string name, Score score, Time time)
         {
             Name = name;
             Date = DateTime.Now;
             Score = score;
-            Time = new Time(seconds);
+            Time = time;
         }
 
         public int Points() => Score.Points(Time);

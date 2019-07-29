@@ -15,6 +15,10 @@ namespace Set.Core
         public IEnumerable<ICard> AvaliableCardList => Deck.Take(Math.Min(visibleCardsCount, Deck.Count));
 
         public List<Player> Players { get; private set; }
+        public int TotalSets => Players.Sum(x => x.SetCount);
+        public int TotalMistakes => Players.Sum(x => x.MistakeCount);
+        public bool IsOnePlayerMode => Players.Count == 1;
+
         public GameMode GameMode { get; set; }
         public Player PlayerTurn(int indx) => Players[indx];
 
@@ -41,77 +45,49 @@ namespace Set.Core
             visibleCardsCount = 12;
         }
 
-        /// <summary>
-        /// Comprueba si es un set, y devuelve true cuando finalice el juego
-        /// </summary>
-        /// <param name="cartas"></param>
-        /// <returns></returns>
-	    public bool ComprobarSet(List<Card> cartas, int turno)
+	    public bool Check(CardTrio cardTrio, Player player)
 	    {
-		    if (new CardTrio(cartas).IsSet())
+		    if (cardTrio.IsSet())
 		    {
-			    PlayerTurn(turno).AddSet();
-                log.Info((string.IsNullOrWhiteSpace(PlayerTurn(turno).ToString()) ? "¡Consigues Set! " : PlayerTurn(turno).ToString() + " consigue Set - ") + string.Join(", ", cartas.Select(x=> x.ToString())));
-                foreach (var c in cartas)
-                    Deck.Remove(c);
-                if (visibleCardsCount == 15)
-                    visibleCardsCount = 12;
+                player.AddSet();
+                string playerName = IsOnePlayerMode ? "¡Consigues Set!" : $"{player.ToString()} consigue Set";
+                log.Info(playerName + cardTrio.ToString());
+                foreach (var card in cardTrio.Cards)
+                    Deck.Remove(card);
+                return true;
 		    }
-		    else
-		    {
-			    log.Info("Fallo. No es un Set");
-                PlayerTurn(turno).AddMistake();
-		    }
-            return false; //seguimos jugando
+
+			log.Info("Fallo. No es un Set");
+            player.AddMistake();
+            return false;
 	    }
 
-        /// <summary>
-        /// Comprueba si no hay ningún set posible, y devuelve true cuando finalice el juego
-        /// </summary>
-        /// <returns></returns>
-        public bool NoHayNingunSet()
+        public bool TryToRefreshCards()
         {
-            int num = FindSets().Count();
+            if (IsGameEnd())
+                return false;
 
-            //Si no hay ningún set y no quedan cartas, termina la partida
-            if(num == 0 && Deck.Count < visibleCardsCount)
-            {
-                log.Info("No hay ningún set más y no quedan cartas. Termina la partida");
-                return true;
-            }
-
-            switch (num)
-            {
-                case 0:
-                    //Esto es muy dificil que pase (Que no haya un set con 15 cartas visibles)
-                    if (visibleCardsCount == 15)
-                    {
-                        //Renovamos tres cartas del mazo, y seguimos viendo 15 cartas en la mesa
-                        for (int i = 0; i < 3; i++)
-                            Deck.Remove(Deck.First());
-                    }
-                    else
-                    {
-                        //Dejamos 15 cartas visibles
-                        visibleCardsCount = 15; 
-                    }
-                    break;
-                case 1:
-                    log.Info("Echa un vistazo. Hay 1");
-                    break;
-                case 2:
-                    log.Info("Pues hay 2, así que...");
-                    break;
-                case 3:
-                    log.Info("Tronco, hay 3 sets por lo menos.");
-                    break;
-                default:
-                    log.Info($"Hay un montón. Concretamente {num}. Mira bien.");
-                    break;
-            }
-            return false;
+         
         }
 
+
+
         public IEnumerable<CardTrio> FindSets() => new SetFinder(AvaliableCardList).Find();
+
+        public bool IsGameEnd() => !FindSets().Any() && Deck.Count <= visibleCardsCount;
+        
+        public string SetCountHelp()
+        {
+            int num = FindSets().Count();
+            switch (num)
+            {
+                case 0: return "Esto no estaba previsto. No hay ningún Set :(";
+                case 1: return "Echa un vistazo. Hay 1";
+                case 2: return "Pues hay 2, así que...";
+                case 3: return "Colega, hay 3 sets por lo menos.";
+                default: return $"Hay un montón. Concretamente {num}. Mira bien.";
+            }
+        }
+
     }
 }

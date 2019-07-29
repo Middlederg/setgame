@@ -52,6 +52,7 @@ namespace Set.Forms.Views
             {
                 pPrincipal.RowStyles[5].Height = 0;
                 Height = 220;
+                LvwNombres.Items.Clear();
             }
             else
             {

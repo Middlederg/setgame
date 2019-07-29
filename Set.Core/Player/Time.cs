@@ -7,9 +7,10 @@ namespace Set.Core
 {
     public class Time
     {
-        public int Seconds { get; }
+        public int Seconds { get; private set; }
+        public void AddScecond() => Seconds++;
 
-        public Time(int segundos)
+        public Time(int segundos = 0)
         {
             Seconds = segundos;
         }
