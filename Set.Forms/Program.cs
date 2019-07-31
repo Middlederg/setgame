@@ -13,7 +13,7 @@ namespace SetGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Set.Forms.Views.FrmMenu());
+            Application.Run(new Set.Forms.Views.MenuView());
             //Application.Run(new Set.Forms.Views.FrmPrincipal(Dificultad.Normal, 15));
         }
     }

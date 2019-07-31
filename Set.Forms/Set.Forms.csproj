@@ -42,9 +42,6 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\portable-net40+sl4+win8+wp8\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -74,9 +71,8 @@
     <Compile Include="CustomControls\CustomIconButton.Designer.cs">
       <DependentUpon>CustomIconButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="IDemandPlayer.cs" />
-    <Compile Include="ViewModels\IPlayerName.cs" />
-    <Compile Include="WinFormLogger.cs" />
+    <Compile Include="Game\MainFactory.cs" />
+    <Compile Include="Game\WinFormLogger.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,55 +84,43 @@
     <Compile Include="UserControls\UcClasificacion.Designer.cs">
       <DependentUpon>UcClasificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmInputName.cs">
+    <Compile Include="Views\InputNameView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmInputName.Designer.cs">
-      <DependentUpon>FrmInputName.cs</DependentUpon>
+    <Compile Include="Views\InputNameView.Designer.cs">
+      <DependentUpon>InputNameView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmJugadores.cs">
+    <Compile Include="Views\PlayersView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmJugadores.Designer.cs">
-      <DependentUpon>FrmJugadores.cs</DependentUpon>
+    <Compile Include="Views\PlayersView.Designer.cs">
+      <DependentUpon>PlayersView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmLog.cs">
+    <Compile Include="Views\MenuView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmLog.Designer.cs">
-      <DependentUpon>FrmLog.cs</DependentUpon>
+    <Compile Include="Views\MenuView.Designer.cs">
+      <DependentUpon>MenuView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmMenu.cs">
+    <Compile Include="Views\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmMenu.Designer.cs">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmPrincipal.Designer.cs">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    <Compile Include="Views\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\FrmPropiedades.cs">
+    <Compile Include="Views\GameSettingsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmPropiedades.Designer.cs">
-      <DependentUpon>FrmPropiedades.cs</DependentUpon>
+    <Compile Include="Views\GameSettingsView.Designer.cs">
+      <DependentUpon>GameSettingsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FrmClasificacion.cs">
+    <Compile Include="Views\RecordListView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\FrmClasificacion.Designer.cs">
-      <DependentUpon>FrmClasificacion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FrmRecords.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\FrmRecords.Designer.cs">
-      <DependentUpon>FrmRecords.cs</DependentUpon>
+    <Compile Include="Views\RecordListView.Designer.cs">
+      <DependentUpon>RecordListView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CustomControls\CustomButton.resx">
       <DependentUpon>CustomButton.cs</DependentUpon>
@@ -147,34 +131,28 @@
     <EmbeddedResource Include="UserControls\UcClasificacion.resx">
       <DependentUpon>UcClasificacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmInputName.resx">
-      <DependentUpon>FrmInputName.cs</DependentUpon>
+    <EmbeddedResource Include="Views\InputNameView.resx">
+      <DependentUpon>InputNameView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmJugadores.resx">
-      <DependentUpon>FrmJugadores.cs</DependentUpon>
+    <EmbeddedResource Include="Views\PlayersView.resx">
+      <DependentUpon>PlayersView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmLog.resx">
-      <DependentUpon>FrmLog.cs</DependentUpon>
+    <EmbeddedResource Include="Views\MenuView.resx">
+      <DependentUpon>MenuView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmMenu.resx">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmPrincipal.resx">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="Views\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmPropiedades.resx">
-      <DependentUpon>FrmPropiedades.cs</DependentUpon>
+    <EmbeddedResource Include="Views\GameSettingsView.resx">
+      <DependentUpon>GameSettingsView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmClasificacion.resx">
-      <DependentUpon>FrmClasificacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\FrmRecords.resx">
-      <DependentUpon>FrmRecords.cs</DependentUpon>
+    <EmbeddedResource Include="Views\RecordListView.resx">
+      <DependentUpon>RecordListView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -199,9 +177,7 @@
       <Name>Set.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Game\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

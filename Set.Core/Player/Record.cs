@@ -15,7 +15,7 @@ namespace Set.Core
 
         internal static Record FromFile(string name, int sets, int mistakes, int seconds)
         {
-            return new Record(name, Score.Create(sets, mistakes), seconds);
+            return new Record(name, Score.Create(sets, mistakes), new Time(seconds));
         }
 
         public Record(string name, Score score, Time time)

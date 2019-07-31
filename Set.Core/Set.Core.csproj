@@ -47,14 +47,19 @@
     <Compile Include="Card\ICard.cs" />
     <Compile Include="Card\SetFinder.cs" />
     <Compile Include="Card\SimpleCard.cs" />
+    <Compile Include="Game\DemandPlayer\MultiplayerDemand.cs" />
+    <Compile Include="Game\DemandPlayer\OnePlayerDemand.cs" />
     <Compile Include="Game\Easy.cs" />
     <Compile Include="Game\Game.cs" />
     <Compile Include="Game\GameMode.cs" />
     <Compile Include="Game\GameModeFactory.cs" />
     <Compile Include="Game\GameOptions.cs" />
+    <Compile Include="Game\DemandPlayer\IDemandPlayer.cs" />
+    <Compile Include="Game\GameEnd\IEndGame.cs" />
+    <Compile Include="Game\GameEnd\MultiplayerEndGame.cs" />
+    <Compile Include="Game\GameEnd\OnePlayerEndGame.cs" />
     <Compile Include="Log\ILogger.cs" />
     <Compile Include="Game\MessageFactory.cs" />
-    <Compile Include="Game\OnePlayerGame.cs" />
     <Compile Include="Game\Regular.cs" />
     <Compile Include="Card\Shape.cs" />
     <Compile Include="Card\Shading.cs" />
@@ -77,6 +82,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\IPlayerNameViewModel.cs" />
+    <Compile Include="ViewModels\IPlayersViewModel.cs" />
+    <Compile Include="ViewModels\IWindowViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -41,7 +41,9 @@
             this.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.IconSize = 30;
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Size = new System.Drawing.Size(200, 30);
+            this.Size = new System.Drawing.Size(200, 40);
+            this.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.UseVisualStyleBackColor = false;
             this.ResumeLayout(false);
 

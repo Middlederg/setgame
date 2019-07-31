@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Set.Core
 {
@@ -15,6 +16,9 @@ namespace Set.Core
         {
             CardNumber = cardNumber;
             GameMode = gameMode;
+
+            if (playerNames == null || !playerNames.Any())
+                playerNames = new string[] { "Player 1" };
             PlayerNames = playerNames;
         }
     }

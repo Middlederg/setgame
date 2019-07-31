@@ -14,7 +14,7 @@ namespace Set.Forms.UserControls
     {
         // game.Jugadores.Select(x => (jugador: x, record: new Score(x.NumSets, x.Fallos, segundos))).OrderBy(x => x.record.Points());
         private IEnumerable<string> columnHeaders = new string[] { "#", "Jugador", "Puntuacion", "# Sets", "# Fallos" };
-        public IEnumerable<Record> RecordList
+        public IEnumerable<Record> Positions
         {
             get
             {
@@ -23,6 +23,7 @@ namespace Set.Forms.UserControls
             }
             set
             {
+                Lvw.Items.Clear();
                 int i = 1;
                 foreach (var record in value)
                 {

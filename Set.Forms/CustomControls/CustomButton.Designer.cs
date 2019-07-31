@@ -39,7 +39,7 @@
             this.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Size = new System.Drawing.Size(200, 30);
+            this.Size = new System.Drawing.Size(200, 40);
             this.UseVisualStyleBackColor = false;
             this.ResumeLayout(false);
 

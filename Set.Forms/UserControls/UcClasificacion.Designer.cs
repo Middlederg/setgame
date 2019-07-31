@@ -28,29 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pPrincipal = new System.Windows.Forms.TableLayoutPanel();
+            this.TlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.Lvw = new System.Windows.Forms.ListView();
-            this.pPrincipal.SuspendLayout();
+            this.TlpPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pPrincipal
+            // TlpPrincipal
             // 
-            this.pPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
-            this.pPrincipal.ColumnCount = 1;
-            this.pPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pPrincipal.Controls.Add(this.lbTitulo, 0, 0);
-            this.pPrincipal.Controls.Add(this.Lvw, 0, 1);
-            this.pPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pPrincipal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.pPrincipal.Name = "pPrincipal";
-            this.pPrincipal.RowCount = 2;
-            this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pPrincipal.Size = new System.Drawing.Size(445, 318);
-            this.pPrincipal.TabIndex = 7;
+            this.TlpPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(230)))), ((int)(((byte)(233)))));
+            this.TlpPrincipal.ColumnCount = 1;
+            this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpPrincipal.Controls.Add(this.lbTitulo, 0, 0);
+            this.TlpPrincipal.Controls.Add(this.Lvw, 0, 1);
+            this.TlpPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TlpPrincipal.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TlpPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.TlpPrincipal.Name = "TlpPrincipal";
+            this.TlpPrincipal.RowCount = 2;
+            this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TlpPrincipal.Size = new System.Drawing.Size(445, 318);
+            this.TlpPrincipal.TabIndex = 7;
             // 
             // lbTitulo
             // 
@@ -59,10 +58,10 @@
             this.lbTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbTitulo.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.lbTitulo.Location = new System.Drawing.Point(20, 0);
-            this.lbTitulo.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.lbTitulo.Location = new System.Drawing.Point(0, 12);
+            this.lbTitulo.Margin = new System.Windows.Forms.Padding(0, 12, 0, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(405, 35);
+            this.lbTitulo.Size = new System.Drawing.Size(445, 28);
             this.lbTitulo.TabIndex = 1;
             this.lbTitulo.Text = "Clasificación";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -71,12 +70,13 @@
             // 
             this.Lvw.AllowColumnReorder = true;
             this.Lvw.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Lvw.Font = new System.Drawing.Font("Consolas", 10F);
             this.Lvw.GridLines = true;
-            this.Lvw.Location = new System.Drawing.Point(20, 45);
-            this.Lvw.Margin = new System.Windows.Forms.Padding(20, 10, 20, 20);
+            this.Lvw.Location = new System.Drawing.Point(0, 40);
+            this.Lvw.Margin = new System.Windows.Forms.Padding(0);
             this.Lvw.MultiSelect = false;
             this.Lvw.Name = "Lvw";
-            this.Lvw.Size = new System.Drawing.Size(405, 253);
+            this.Lvw.Size = new System.Drawing.Size(445, 278);
             this.Lvw.TabIndex = 1;
             this.Lvw.UseCompatibleStateImageBehavior = false;
             this.Lvw.View = System.Windows.Forms.View.Details;
@@ -85,17 +85,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pPrincipal);
+            this.Controls.Add(this.TlpPrincipal);
             this.Name = "UcClasificacion";
             this.Size = new System.Drawing.Size(445, 318);
-            this.pPrincipal.ResumeLayout(false);
+            this.TlpPrincipal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel pPrincipal;
+        private System.Windows.Forms.TableLayoutPanel TlpPrincipal;
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.ListView Lvw;
     }

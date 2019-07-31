@@ -7,12 +7,7 @@ namespace Set.Core
 {
     public static class Files
     {
-        /// <summary>
-        /// Lee el fichero de mejores puntuaciones. 
-        /// Si no existiera devuelve lista vacía
-        /// </summary>
-        /// <returns></returns>
-        public static List<Score> LeerBestScores()
+        public static List<Record> LeerBestScores()
         {
             string ruta = Properties.Resources.BestScorePath;
 
@@ -20,13 +15,13 @@ namespace Set.Core
             {
                 FileStream fs = new FileStream(ruta, FileMode.Open);
                 BinaryFormatter binForm = new BinaryFormatter();
-                List<Score> lista = (List<Score>)binForm.Deserialize(fs);
+                List<Record> lista = (List<Record>)binForm.Deserialize(fs);
                 fs.Close();
                 return lista;
             }
             catch (Exception)
             {
-                return new List<Score>();
+                return new List<Record>();
             }
         }
 
@@ -36,11 +31,11 @@ namespace Set.Core
         /// <param name="record"></param>
         public static void GuardarPuntuacion(Record record)
         {
-            var scores = LeerBestScores();
-            scores.Add(record);
+            var records = LeerBestScores();
+            records.Add(record);
             FileStream fs = new FileStream(Properties.Resources.BestScorePath, FileMode.Create);
             BinaryFormatter binForm = new BinaryFormatter();
-            binForm.Serialize(fs, scores);
+            binForm.Serialize(fs, records);
             fs.Close();
         }
 

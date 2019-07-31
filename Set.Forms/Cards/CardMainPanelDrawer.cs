@@ -68,12 +68,12 @@ namespace Set.Forms
 
             DeselectAll();
             SelectCardTrio(selectedSet);
-            helpCount++;
+            helpCount = helpCount + 1 < sets.Count() ? helpCount + 1 : 0;
         }
 
         private void DeselectAll()
         {
-            foreach (var cardPanel in mainPanel.Controls.OfType<CardPanel>())
+            foreach (var cardPanel in mainPanel.Controls.OfType<CardPanel>().Where(x => x.Seleccionada))
                 cardPanel.Seleccionar(false);
         }
 
