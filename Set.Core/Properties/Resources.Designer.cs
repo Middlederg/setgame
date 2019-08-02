@@ -61,291 +61,292 @@ namespace Set.Core.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Files\BestScore.dat.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static string BestScorePath {
+        internal static byte[] DiamondsOutlinedBlue {
             get {
-                return ResourceManager.GetString("BestScorePath", resourceCulture);
+                object obj = ResourceManager.GetObject("DiamondsOutlinedBlue", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap douBlue {
+        internal static byte[] DiamondsOutlinedRed {
             get {
-                object obj = ResourceManager.GetObject("douBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("DiamondsOutlinedRed", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap douRed {
+        internal static byte[] DiamondsOutlinedYellow {
             get {
-                object obj = ResourceManager.GetObject("douRed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("DiamondsOutlinedYellow", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap douYellow {
+        internal static byte[] DiamondsSolidBlue {
             get {
-                object obj = ResourceManager.GetObject("douYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("DiamondsSolidBlue", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap dsoBlue {
+        internal static byte[] DiamondsSolidRed {
             get {
-                object obj = ResourceManager.GetObject("dsoBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("DiamondsSolidRed", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap dsoRed {
+        internal static byte[] DiamondsSolidYellow {
             get {
-                object obj = ResourceManager.GetObject("dsoRed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("DiamondsSolidYellow", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap dsoYellow {
+        internal static byte[] DiamondsStripedRed {
             get {
-                object obj = ResourceManager.GetObject("dsoYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("DiamondsStripedRed", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap dstBlue {
+        internal static byte[] DiamondsStripedYellow {
             get {
-                object obj = ResourceManager.GetObject("dstBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("DiamondsStripedYellow", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap dstRed {
+        internal static byte[] DiamondStripedBlue {
             get {
-                object obj = ResourceManager.GetObject("dstRed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("DiamondStripedBlue", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap dstYellow {
+        internal static byte[] OvalsOutlinedBlue {
             get {
-                object obj = ResourceManager.GetObject("dstYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("OvalsOutlinedBlue", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap oouBlue {
+        internal static byte[] OvalsOutlinedRed {
             get {
-                object obj = ResourceManager.GetObject("oouBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("OvalsOutlinedRed", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap oouRed {
+        internal static byte[] OvalsOutlinedYellow {
             get {
-                object obj = ResourceManager.GetObject("oouRed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("OvalsOutlinedYellow", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap oouYellow {
+        internal static byte[] OvalsSolidBlue {
             get {
-                object obj = ResourceManager.GetObject("oouYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("OvalsSolidBlue", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap osoBlue {
+        internal static byte[] OvalsSolidRed {
             get {
-                object obj = ResourceManager.GetObject("osoBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("OvalsSolidRed", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap osoRed {
+        internal static byte[] OvalsSolidYellow {
             get {
-                object obj = ResourceManager.GetObject("osoRed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("OvalsSolidYellow", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap osoYellow {
+        internal static byte[] OvalsStripedBlued {
             get {
-                object obj = ResourceManager.GetObject("osoYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("OvalsStripedBlued", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap ostBlue {
+        internal static byte[] OvalsStripedRed {
             get {
-                object obj = ResourceManager.GetObject("ostBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("OvalsStripedRed", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap ostRed {
+        internal static byte[] OvalsStripedYellow {
             get {
-                object obj = ResourceManager.GetObject("ostRed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("OvalsStripedYellow", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap ostYellow {
+        internal static byte[] panel_principal {
             get {
-                object obj = ResourceManager.GetObject("ostYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("panel_principal", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap portada {
+        internal static byte[] portada {
             get {
                 object obj = ResourceManager.GetObject("portada", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap souBlue {
+        internal static byte[] SquigglesOutlinedBlue {
             get {
-                object obj = ResourceManager.GetObject("souBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("SquigglesOutlinedBlue", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap souRed {
+        internal static byte[] SquigglesOutlinedRed {
             get {
-                object obj = ResourceManager.GetObject("souRed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("SquigglesOutlinedRed", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap souYellow {
+        internal static byte[] SquigglesOutlinedYellow {
             get {
-                object obj = ResourceManager.GetObject("souYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("SquigglesOutlinedYellow", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap ssoBlue {
+        internal static byte[] SquigglesSolidBlue {
             get {
-                object obj = ResourceManager.GetObject("ssoBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("SquigglesSolidBlue", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap ssoRed {
+        internal static byte[] SquigglesSolidRed {
             get {
-                object obj = ResourceManager.GetObject("ssoRed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("SquigglesSolidRed", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap ssoYellow {
+        internal static byte[] SquigglesSolidYellow {
             get {
-                object obj = ResourceManager.GetObject("ssoYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("SquigglesSolidYellow", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap sstBlue {
+        internal static byte[] SquigglesStripedBlue {
             get {
-                object obj = ResourceManager.GetObject("sstBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("SquigglesStripedBlue", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap sstRed {
+        internal static byte[] SquigglesStripedRed {
             get {
-                object obj = ResourceManager.GetObject("sstRed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("SquigglesStripedRed", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        internal static System.Drawing.Bitmap sstYellow {
+        internal static byte[] SquigglesStripedYellow {
             get {
-                object obj = ResourceManager.GetObject("sstYellow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("SquigglesStripedYellow", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

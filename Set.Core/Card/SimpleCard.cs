@@ -17,7 +17,7 @@ namespace Set.Core
 	    }
 
         public int Id => Number * 1000 + ((int)Background + 1) * 100 + ((int)Shape + 1) * 10 + ((int)Shading + 1) * 1;
-        public string Path => $"{Shape.ToString().ToLower().First()}{Shading.ToString().ToLower().Substring(0, 2)}{Background.ToString()}";
+        public string Path => $"{Shape.ToString()}{Shading.ToString()}{Background.ToString()}";
 	    public override string ToString() => $"{Number} {Background.ToString()} {Shape.ToString()}"; 
 
         public override bool Equals(object obj)

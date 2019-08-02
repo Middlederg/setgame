@@ -118,92 +118,91 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="douBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tvBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondsOutlinedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondsOutlinedBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="douRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tvRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondsOutlinedRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondsOutlinedRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="douYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tvYell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondsOutlinedYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondsOutlinedYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="dsoBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondsSolidBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondsSolidBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="dsoRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondsSolidRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondsSolidRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="dsoYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trYell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondsSolidYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondsSolidYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="dstBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\traBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondsStripedRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondsStripedRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="dstRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\traRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondsStripedYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondsStripedYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="dstYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\traYell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondStripedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondStripedBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="oouBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ovBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OvalsOutlinedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalsOutlinedBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="oouRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ovRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OvalsOutlinedRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalsOutlinedRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="oouYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ovYell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OvalsOutlinedYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalsOutlinedYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="osoBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\orBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OvalsSolidBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalsSolidBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="osoRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\orRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OvalsSolidRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalsSolidRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="osoYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\orYell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OvalsSolidYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalsSolidYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ostBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oraBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OvalsStripedBlued" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalsStripedBlued.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ostRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oraRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OvalsStripedRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalsStripedRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ostYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\oraYell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OvalsStripedYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OvalsStripedYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel_principal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\panel-principal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="portada" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\portada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\portada.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="souBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gvBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SquigglesOutlinedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SquigglesOutlinedBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="souRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gvRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SquigglesOutlinedRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SquigglesOutlinedRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="souYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gvYell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SquigglesOutlinedYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SquigglesOutlinedYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ssoBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SquigglesSolidBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SquigglesSolidBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ssoRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SquigglesSolidRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SquigglesSolidRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ssoYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grYell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SquigglesSolidYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SquigglesSolidYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="sstBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\graBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SquigglesStripedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SquigglesStripedBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="sstRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\graRed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SquigglesStripedRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SquigglesStripedRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="sstYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\graYell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BestScorePath" xml:space="preserve">
-    <value>Files\BestScore.dat</value>
-    <comment>Ruta para guardar mejores puntuaciones</comment>
+  <data name="SquigglesStripedYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SquigglesStripedYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

@@ -7,11 +7,13 @@ namespace Set.Core
     {
         private readonly Game game;
         private IPlayerNameViewModel view;
+        private IRepository repository;
 
-        public OnePlayerEndGame(Game game, IPlayerNameViewModel view)
+        public OnePlayerEndGame(Game game, IPlayerNameViewModel view, IRepository repository)
         {
             this.game = game;
             this.view = view;
+            this.repository = repository;
         }
 
         public void Process(Time time)
@@ -21,7 +23,7 @@ namespace Set.Core
             view.ShowWindow();
             string name = view.InputName;
             var record = new Record(player.ToString(), player.Score, time);
-            Files.GuardarPuntuacion(record);
+            repository.SaveRecord(record);
         }
     }
 }
