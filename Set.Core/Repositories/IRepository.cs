@@ -10,5 +10,6 @@ namespace Set.Core
         void SaveRecord(Record record);
         void SaveRecord(IEnumerable<Record> records);
         List<Record> GetBestRecords();
+        void Reset();
     }
 }

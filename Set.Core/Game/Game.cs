@@ -36,17 +36,30 @@ namespace Set.Core
         {
             log.Info(MessageFactory.StartGame);
             visibleCardsCount = VisibleCardNumberDefault;
+
+            while (!AreAvaliableSets)
+            {
+                PrepareAvaliableCards();
+            }
         }
+
+      
 
         public void RestartGame()
         {
             log.Info(MessageFactory.RestartGame);
             foreach (var player in Players)
                 player.Reset();
-            visibleCardsCount = VisibleCardNumberDefault;
+
+            while (!AreAvaliableSets)
+            {
+                PrepareAvaliableCards();
+            }
         }
 
-	    public bool Check(CardTrio cardTrio, Player player)
+       
+
+        public bool Check(CardTrio cardTrio, Player player)
 	    {
 		    if (cardTrio.IsSet())
             {
@@ -61,27 +74,39 @@ namespace Set.Core
             return false;
 	    }
 
-        public bool TryToRefreshCards(CardTrio cardTrio)
+        public void RefreshCards(CardTrio cardTrio)
+        {
+            do
+            {
+                RemoveCardsFromDeck(cardTrio);
+                PrepareAvaliableCards();
+            }
+            while (!AreAvaliableSets);
+        }
+
+        private void PrepareAvaliableCards()
         {
             visibleCardsCount = VisibleCardNumberDefault;
 
+            if (AreAvaliableSets)
+                return;
+
+            visibleCardsCount += 3;
+
+            if (AreAvaliableSets)
+                return;
+
+            RemoveCardsFromDeck(new CardTrio(Deck[0], Deck[1], Deck[2]));
+        }
+
+        private void RemoveCardsFromDeck(CardTrio cardTrio)
+        {
             foreach (var card in cardTrio.Cards)
                 Deck.Remove(card);
-
-            if (IsGameEnd())
-                return false;
-
-            if (!FindSets().Any())
-            {
-                visibleCardsCount = VisibleCardNumberDefault + 3;
-                if (IsGameEnd())
-                    return false;
-            }
-            return true;
         }
 
         public IEnumerable<CardTrio> FindSets() => new SetFinder(AvaliableCardList).Find();
-
+        public bool AreAvaliableSets => FindSets().Any();
         public bool IsGameEnd() => !FindSets().Any() && Deck.Count <= visibleCardsCount;
         
         public string SetCountHelp()

@@ -16,5 +16,16 @@ namespace Set.Core
         }
 
         public override string ToString() => TimeSpan.FromSeconds(Seconds).ToString(@"mm\:ss");
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            var other = (Time)obj;
+            return other.Seconds == Seconds;
+        }
+
+        public override int GetHashCode() => Seconds.GetHashCode();
     }
 }

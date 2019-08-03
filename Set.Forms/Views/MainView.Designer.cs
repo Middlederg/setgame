@@ -47,9 +47,9 @@
             this.FlpBotones = new System.Windows.Forms.FlowLayoutPanel();
             this.LvwLog = new System.Windows.Forms.ListView();
             this.PositionsList = new Set.Forms.UserControls.UcClasificacion();
-            this.BtnCheck = new Set.Forms.CustomIconButton();
-            this.BtnHowMany = new Set.Forms.CustomIconButton();
             this.BtnHelp = new Set.Forms.CustomIconButton();
+            this.BtnHowMany = new Set.Forms.CustomIconButton();
+            this.BtnCheck = new Set.Forms.CustomIconButton();
             this.panelTiempo.SuspendLayout();
             this.TlpPrincipal.SuspendLayout();
             this.FlpBotonesArriba.SuspendLayout();
@@ -60,10 +60,10 @@
             this.InfoCards.BackColor = System.Drawing.Color.Transparent;
             this.InfoCards.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InfoCards.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoCards.Location = new System.Drawing.Point(20, 602);
+            this.InfoCards.Location = new System.Drawing.Point(20, 642);
             this.InfoCards.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.InfoCards.Name = "InfoCards";
-            this.InfoCards.Size = new System.Drawing.Size(250, 20);
+            this.InfoCards.Size = new System.Drawing.Size(259, 20);
             this.InfoCards.TabIndex = 4;
             this.InfoCards.Text = "Cartas restantes: 0";
             this.InfoCards.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -73,10 +73,10 @@
             this.InfoMistakes.BackColor = System.Drawing.Color.Transparent;
             this.InfoMistakes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InfoMistakes.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoMistakes.Location = new System.Drawing.Point(20, 642);
-            this.InfoMistakes.Margin = new System.Windows.Forms.Padding(20, 0, 0, 5);
+            this.InfoMistakes.Location = new System.Drawing.Point(20, 622);
+            this.InfoMistakes.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.InfoMistakes.Name = "InfoMistakes";
-            this.InfoMistakes.Size = new System.Drawing.Size(250, 15);
+            this.InfoMistakes.Size = new System.Drawing.Size(259, 20);
             this.InfoMistakes.TabIndex = 4;
             this.InfoMistakes.Text = "Fallos cometidos: 0";
             this.InfoMistakes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -86,10 +86,10 @@
             this.InfoSets.BackColor = System.Drawing.Color.Transparent;
             this.InfoSets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InfoSets.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InfoSets.Location = new System.Drawing.Point(20, 622);
+            this.InfoSets.Location = new System.Drawing.Point(20, 602);
             this.InfoSets.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.InfoSets.Name = "InfoSets";
-            this.InfoSets.Size = new System.Drawing.Size(250, 20);
+            this.InfoSets.Size = new System.Drawing.Size(259, 20);
             this.InfoSets.TabIndex = 4;
             this.InfoSets.Text = "Sets encontrados: 0";
             this.InfoSets.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,7 +126,7 @@
             this.Info.Location = new System.Drawing.Point(20, 587);
             this.Info.Margin = new System.Windows.Forms.Padding(20, 5, 20, 0);
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(660, 15);
+            this.Info.Size = new System.Drawing.Size(679, 15);
             this.Info.TabIndex = 3;
             this.Info.Text = "label1";
             this.Info.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -141,7 +141,7 @@
             this.pCartas.Margin = new System.Windows.Forms.Padding(20, 0, 20, 5);
             this.pCartas.Name = "pCartas";
             this.TlpPrincipal.SetRowSpan(this.pCartas, 2);
-            this.pCartas.Size = new System.Drawing.Size(660, 505);
+            this.pCartas.Size = new System.Drawing.Size(679, 505);
             this.pCartas.TabIndex = 1;
             // 
             // timerTiempo
@@ -158,12 +158,12 @@
             this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00002F));
             this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 342F));
+            this.TlpPrincipal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 343F));
             this.TlpPrincipal.Controls.Add(this.LblRaya, 0, 1);
             this.TlpPrincipal.Controls.Add(this.LblTitulo, 0, 0);
-            this.TlpPrincipal.Controls.Add(this.InfoMistakes, 0, 8);
-            this.TlpPrincipal.Controls.Add(this.InfoSets, 0, 7);
-            this.TlpPrincipal.Controls.Add(this.InfoCards, 0, 6);
+            this.TlpPrincipal.Controls.Add(this.InfoMistakes, 0, 7);
+            this.TlpPrincipal.Controls.Add(this.InfoSets, 0, 6);
+            this.TlpPrincipal.Controls.Add(this.InfoCards, 0, 8);
             this.TlpPrincipal.Controls.Add(this.pCartas, 0, 3);
             this.TlpPrincipal.Controls.Add(this.Info, 0, 5);
             this.TlpPrincipal.Controls.Add(this.FlpBotonesArriba, 1, 0);
@@ -189,7 +189,7 @@
             this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TlpPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.TlpPrincipal.Size = new System.Drawing.Size(1043, 678);
+            this.TlpPrincipal.Size = new System.Drawing.Size(1063, 678);
             this.TlpPrincipal.TabIndex = 1;
             // 
             // LblRaya
@@ -201,7 +201,7 @@
             this.LblRaya.Location = new System.Drawing.Point(20, 30);
             this.LblRaya.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.LblRaya.Name = "LblRaya";
-            this.LblRaya.Size = new System.Drawing.Size(1003, 2);
+            this.LblRaya.Size = new System.Drawing.Size(1023, 2);
             this.LblRaya.TabIndex = 2;
             this.LblRaya.Text = "label1";
             // 
@@ -213,7 +213,7 @@
             this.LblTitulo.Location = new System.Drawing.Point(20, 0);
             this.LblTitulo.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(250, 30);
+            this.LblTitulo.Size = new System.Drawing.Size(259, 30);
             this.LblTitulo.TabIndex = 6;
             this.LblTitulo.Text = "Set Game";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -226,10 +226,10 @@
             this.FlpBotonesArriba.Controls.Add(this.BtnMin);
             this.FlpBotonesArriba.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlpBotonesArriba.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FlpBotonesArriba.Location = new System.Drawing.Point(270, 0);
+            this.FlpBotonesArriba.Location = new System.Drawing.Point(279, 0);
             this.FlpBotonesArriba.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.FlpBotonesArriba.Name = "FlpBotonesArriba";
-            this.FlpBotonesArriba.Size = new System.Drawing.Size(753, 30);
+            this.FlpBotonesArriba.Size = new System.Drawing.Size(764, 30);
             this.FlpBotonesArriba.TabIndex = 5;
             // 
             // BtnClose
@@ -242,7 +242,7 @@
             this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.BtnClose.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
             this.BtnClose.IconSize = 20;
-            this.BtnClose.Location = new System.Drawing.Point(723, 0);
+            this.BtnClose.Location = new System.Drawing.Point(734, 0);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Rotation = 0D;
@@ -261,7 +261,7 @@
             this.BtnMin.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.BtnMin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
             this.BtnMin.IconSize = 20;
-            this.BtnMin.Location = new System.Drawing.Point(693, 0);
+            this.BtnMin.Location = new System.Drawing.Point(704, 0);
             this.BtnMin.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMin.Name = "BtnMin";
             this.BtnMin.Rotation = 0D;
@@ -274,7 +274,7 @@
             // 
             this.FlpBotones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlpBotones.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.FlpBotones.Location = new System.Drawing.Point(620, 32);
+            this.FlpBotones.Location = new System.Drawing.Point(639, 32);
             this.FlpBotones.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.FlpBotones.Name = "FlpBotones";
             this.FlpBotones.Size = new System.Drawing.Size(60, 40);
@@ -283,11 +283,11 @@
             // LvwLog
             // 
             this.LvwLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LvwLog.Location = new System.Drawing.Point(700, 342);
+            this.LvwLog.Location = new System.Drawing.Point(719, 342);
             this.LvwLog.Margin = new System.Windows.Forms.Padding(0, 15, 20, 0);
             this.LvwLog.Name = "LvwLog";
             this.TlpPrincipal.SetRowSpan(this.LvwLog, 5);
-            this.LvwLog.Size = new System.Drawing.Size(323, 320);
+            this.LvwLog.Size = new System.Drawing.Size(324, 320);
             this.LvwLog.TabIndex = 9;
             this.LvwLog.UseCompatibleStateImageBehavior = false;
             this.LvwLog.View = System.Windows.Forms.View.Details;
@@ -295,12 +295,60 @@
             // PositionsList
             // 
             this.PositionsList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PositionsList.Location = new System.Drawing.Point(700, 32);
+            this.PositionsList.Location = new System.Drawing.Point(719, 32);
             this.PositionsList.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.PositionsList.Name = "PositionsList";
             this.TlpPrincipal.SetRowSpan(this.PositionsList, 2);
-            this.PositionsList.Size = new System.Drawing.Size(323, 295);
+            this.PositionsList.Size = new System.Drawing.Size(324, 295);
             this.PositionsList.TabIndex = 10;
+            // 
+            // BtnHelp
+            // 
+            this.BtnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.BtnHelp.FlatAppearance.BorderSize = 0;
+            this.BtnHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(110)))), ((int)(((byte)(114)))));
+            this.BtnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnHelp.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BtnHelp.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold);
+            this.BtnHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.BtnHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            this.BtnHelp.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.BtnHelp.IconSize = 36;
+            this.BtnHelp.Location = new System.Drawing.Point(639, 622);
+            this.BtnHelp.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnHelp.Name = "BtnHelp";
+            this.BtnHelp.Rotation = 0D;
+            this.TlpPrincipal.SetRowSpan(this.BtnHelp, 2);
+            this.BtnHelp.Size = new System.Drawing.Size(60, 40);
+            this.BtnHelp.TabIndex = 13;
+            this.BtnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnHelp.UseVisualStyleBackColor = false;
+            this.BtnHelp.Click += new System.EventHandler(this.OnHelpClicked);
+            // 
+            // BtnHowMany
+            // 
+            this.BtnHowMany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
+            this.BtnHowMany.FlatAppearance.BorderSize = 0;
+            this.BtnHowMany.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(110)))), ((int)(((byte)(114)))));
+            this.BtnHowMany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnHowMany.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.BtnHowMany.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold);
+            this.BtnHowMany.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.BtnHowMany.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
+            this.BtnHowMany.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.BtnHowMany.IconSize = 36;
+            this.BtnHowMany.Location = new System.Drawing.Point(559, 622);
+            this.BtnHowMany.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnHowMany.Name = "BtnHowMany";
+            this.BtnHowMany.Rotation = 0D;
+            this.TlpPrincipal.SetRowSpan(this.BtnHowMany, 2);
+            this.BtnHowMany.Size = new System.Drawing.Size(60, 40);
+            this.BtnHowMany.TabIndex = 12;
+            this.BtnHowMany.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnHowMany.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnHowMany.UseVisualStyleBackColor = false;
+            this.BtnHowMany.Click += new System.EventHandler(this.OnHowManyButtonClicked);
             // 
             // BtnCheck
             // 
@@ -315,12 +363,12 @@
             this.BtnCheck.IconChar = FontAwesome.Sharp.IconChar.Play;
             this.BtnCheck.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.BtnCheck.IconSize = 30;
-            this.BtnCheck.Location = new System.Drawing.Point(270, 622);
+            this.BtnCheck.Location = new System.Drawing.Point(279, 622);
             this.BtnCheck.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.BtnCheck.Name = "BtnCheck";
             this.BtnCheck.Rotation = 0D;
             this.TlpPrincipal.SetRowSpan(this.BtnCheck, 2);
-            this.BtnCheck.Size = new System.Drawing.Size(250, 40);
+            this.BtnCheck.Size = new System.Drawing.Size(260, 40);
             this.BtnCheck.TabIndex = 11;
             this.BtnCheck.Text = "Comprobar SET";
             this.BtnCheck.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -328,59 +376,11 @@
             this.BtnCheck.UseVisualStyleBackColor = false;
             this.BtnCheck.Click += new System.EventHandler(this.OnCheckButtonClicked);
             // 
-            // BtnHowMany
-            // 
-            this.BtnHowMany.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.BtnHowMany.FlatAppearance.BorderSize = 0;
-            this.BtnHowMany.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(110)))), ((int)(((byte)(114)))));
-            this.BtnHowMany.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnHowMany.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.BtnHowMany.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold);
-            this.BtnHowMany.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnHowMany.IconChar = FontAwesome.Sharp.IconChar.InfoCircle;
-            this.BtnHowMany.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnHowMany.IconSize = 36;
-            this.BtnHowMany.Location = new System.Drawing.Point(540, 622);
-            this.BtnHowMany.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnHowMany.Name = "BtnHowMany";
-            this.BtnHowMany.Rotation = 0D;
-            this.TlpPrincipal.SetRowSpan(this.BtnHowMany, 2);
-            this.BtnHowMany.Size = new System.Drawing.Size(60, 40);
-            this.BtnHowMany.TabIndex = 12;
-            this.BtnHowMany.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnHowMany.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnHowMany.UseVisualStyleBackColor = false;
-            this.BtnHowMany.Click += new System.EventHandler(this.OnHowManyButtonClicked);
-            // 
-            // BtnHelp
-            // 
-            this.BtnHelp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(54)))));
-            this.BtnHelp.FlatAppearance.BorderSize = 0;
-            this.BtnHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(110)))), ((int)(((byte)(114)))));
-            this.BtnHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnHelp.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.BtnHelp.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold);
-            this.BtnHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
-            this.BtnHelp.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.BtnHelp.IconSize = 36;
-            this.BtnHelp.Location = new System.Drawing.Point(620, 622);
-            this.BtnHelp.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnHelp.Name = "BtnHelp";
-            this.BtnHelp.Rotation = 0D;
-            this.TlpPrincipal.SetRowSpan(this.BtnHelp, 2);
-            this.BtnHelp.Size = new System.Drawing.Size(60, 40);
-            this.BtnHelp.TabIndex = 13;
-            this.BtnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnHelp.UseVisualStyleBackColor = false;
-            this.BtnHelp.Click += new System.EventHandler(this.OnHelpClicked);
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 678);
+            this.ClientSize = new System.Drawing.Size(1063, 678);
             this.ControlBox = false;
             this.Controls.Add(this.TlpPrincipal);
             this.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

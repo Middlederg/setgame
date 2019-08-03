@@ -79,6 +79,7 @@
     <Compile Include="CustomControls\CustomIconButton.Designer.cs">
       <DependentUpon>CustomIconButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\FileRepository.cs" />
     <Compile Include="Game\MainFactory.cs" />
     <Compile Include="Game\WinFormLogger.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -179,9 +180,7 @@
   <ItemGroup>
     <None Include="Resources\portada.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Set.Core\Set.Core.csproj">
       <Project>{95e3248d-0f03-46a4-b2a5-9221b1a1eda6}</Project>

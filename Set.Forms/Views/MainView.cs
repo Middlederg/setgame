@@ -86,15 +86,10 @@ namespace Set.Forms.Views
             var player = MainFactory.DemandPlayer(game, Location, Width).GetPlayer();
             if (game.Check(cardTrio, player))
             {
-                if (game.TryToRefreshCards(cardTrio))
-                {
-                    DrawMainPanel();
-                }
-                else
-                {
-                    DrawInfo();
+                game.RefreshCards(cardTrio);
+                DrawMainPanel();
+                if (game.IsGameEnd())
                     EndOfGame();
-                }
             }
             DrawInfo();
             SetCheckButton();

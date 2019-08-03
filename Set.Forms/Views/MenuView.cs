@@ -39,7 +39,7 @@ namespace Set.Forms.Views
 
         private void BtnRecordsClick(object sender, EventArgs e)
         {
-            using (var view = new RecordListView())
+            using (var view = new RecordListView() { RecordList = new FileRepository().GetBestRecords() })
             {
                 view.ShowDialog();
             }
