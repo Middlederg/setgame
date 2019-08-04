@@ -9,15 +9,23 @@ https://en.wikipedia.org/wiki/Set_(card_game)
 # Tareas a implementar
 ---
 
-1. Posibilidad de cambiar los colores de Rojo, azul y amarillo a qualquier color, en las cartas
-
----
-
+- Posibilidad de cambiar los colores de Rojo, azul y amarillo a cualquier color, en las cartas
 - Mejorar algoritmo de puntuación
 - Mensajes de ayuda en información más claros
+- Añadir en la puntuación el número de veces que se solicita ayuda
 - Que las tareas largas sean asíncronas
 	- Onclicks en botones
 	- Guardado en ficheros
+- Añadir una pantalla de ayuda en la pantalla principal, que explique bien lo que es un set o no es un set.
+- Elaborar una función que esplique porque un trío de cartas no es un set.
 - Arreglar el readme y ponerle fotos actuales
 - Añadir proyecto para jugar en moviles
+- Añadir el modo de juego Serie
+
+-
+
+# Enlaces de interés
+---
+https://brilliant.org/wiki/set-game/
+
 

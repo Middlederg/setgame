@@ -99,6 +99,12 @@
     <Compile Include="Views\InputNameView.Designer.cs">
       <DependentUpon>InputNameView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SerieView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SerieView.Designer.cs">
+      <DependentUpon>SerieView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PlayersView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\InputNameView.resx">
       <DependentUpon>InputNameView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SerieView.resx">
+      <DependentUpon>SerieView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PlayersView.resx">
       <DependentUpon>PlayersView.cs</DependentUpon>

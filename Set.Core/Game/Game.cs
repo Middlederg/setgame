@@ -43,8 +43,6 @@ namespace Set.Core
             }
         }
 
-      
-
         public void RestartGame()
         {
             log.Info(MessageFactory.RestartGame);
@@ -56,8 +54,6 @@ namespace Set.Core
                 PrepareAvaliableCards();
             }
         }
-
-       
 
         public bool Check(CardTrio cardTrio, Player player)
 	    {
@@ -115,10 +111,15 @@ namespace Set.Core
             switch (num)
             {
                 case 0: return "Esto no estaba previsto. No hay ningún Set :(";
-                case 1: return "Echa un vistazo. Hay 1";
-                case 2: return "Pues hay 2, así que...";
-                case 3: return "Colega, hay 3 sets por lo menos.";
-                default: return $"Hay un montón. Concretamente {num}. Mira bien.";
+                case 1: return "Solo hay un set, echa un vistazo. Si te fijas lo encontrarás.";
+                case 2: return "Hay dos sets posibles, así que tienes dos opciones";
+                case 3:
+                case 4:
+                    return "Hay {num} sets posibles, intenta descubrir alguno de ellos.";
+                case 5:
+                case 6:
+                    return "Tienes {num} sets posibles, seguro que puedes adivinar alguno.";
+                default: return $"Hay un montón de Sets posibles. Concretamente {num}.";
             }
         }
     }
