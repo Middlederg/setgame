@@ -299,3 +299,4 @@ F:\DESARROLLO\Repos\Set\Set.Forms\bin\Debug\System.Xml.XPath.XDocument.dll
 F:\DESARROLLO\Repos\Set\Set.Forms\bin\Debug\Newtonsoft.Json.dll
 F:\DESARROLLO\Repos\Set\Set.Forms\bin\Debug\System.Drawing.Common.dll
 F:\DESARROLLO\Repos\Set\Set.Forms\bin\Debug\Newtonsoft.Json.xml
+F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.Views.SerieView.resources

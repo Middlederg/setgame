@@ -59,7 +59,7 @@ namespace Set.Forms.Views
             InfoSets.Text = $"Sets encontrados: {game.TotalSets}";
             InfoMistakes.Text = $"Fallos cometidos: {game.TotalMistakes}";
 
-            PositionsList.Positions = game.PlayerPositions(time);
+            //PositionsList.Positions = game.PlayerPositions(time);
         }
 
         private void TimerTiempo_Tick(object sender, EventArgs e)
