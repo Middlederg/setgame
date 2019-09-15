@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FontAwesome.Sharp;
 using Set.Core;
 
 namespace Set.Forms.Views
@@ -95,15 +96,33 @@ namespace Set.Forms.Views
             SetCheckButton();
         }
 
-        private void OnHowManyButtonClicked(object sender, EventArgs e)
+        private async void OnHowManyButtonClickedAsync(object sender, EventArgs e)
         {
-            Info.Text = game.SetCountHelp();
+            var oldIcon = BeginLoadingForButton(sender as CustomIconButton);
+            Info.Text = await game.SetCountHelp();
+            EndLoadingForButton(sender as CustomIconButton, oldIcon);
         }
 
-        private void OnHelpClicked(object sender, EventArgs e)
+        private async void OnHelpClickedAsync(object sender, EventArgs e)
         {
-            mainPanelDrawer.ShowHelp();
+            var oldIcon = BeginLoadingForButton(sender as CustomIconButton);
+            await mainPanelDrawer.ShowHelp();
+            EndLoadingForButton(sender as CustomIconButton, oldIcon);
+        }
+
+        private IconChar BeginLoadingForButton(CustomIconButton btn)
+        {
+            var oldIcon = btn.IconChar;
+            btn.IconChar = IconChar.Spinner;
+            BtnCheck.Enabled = BtnHowMany.Enabled = BtnHelp.Enabled = false;
+            return oldIcon;
+        }
+
+        private void EndLoadingForButton(CustomIconButton btn, IconChar icon)
+        {
+            BtnHowMany.Enabled = BtnHelp.Enabled = true;
             SetCheckButton();
+            btn.IconChar = icon;
         }
     }
 }

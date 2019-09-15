@@ -102,12 +102,14 @@ namespace Set.Core
         }
 
         public IEnumerable<CardTrio> FindSets() => new SetFinder(AvaliableCardList).Find();
+        public async Task<IEnumerable<CardTrio>> FindSetsAsync() => await new SetFinder(AvaliableCardList).FindAsync();
         public bool AreAvaliableSets => FindSets().Any();
         public bool IsGameEnd() => !FindSets().Any() && Deck.Count <= visibleCardsCount;
         
-        public string SetCountHelp()
+        public async Task<string> SetCountHelp()
         {
-            int num = FindSets().Count();
+            var setList = await FindSetsAsync();
+            int num = setList.Count();
             switch (num)
             {
                 case 0: return "Esto no estaba previsto. No hay ningún Set :(";
@@ -115,10 +117,10 @@ namespace Set.Core
                 case 2: return "Hay dos sets posibles, así que tienes dos opciones";
                 case 3:
                 case 4:
-                    return "Hay {num} sets posibles, intenta descubrir alguno de ellos.";
+                    return $"Hay {num} sets posibles, intenta descubrir alguno de ellos.";
                 case 5:
                 case 6:
-                    return "Tienes {num} sets posibles, seguro que puedes adivinar alguno.";
+                    return $"Tienes {num} sets posibles, seguro que puedes adivinar alguno.";
                 default: return $"Hay un montón de Sets posibles. Concretamente {num}.";
             }
         }

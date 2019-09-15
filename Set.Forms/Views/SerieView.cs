@@ -98,15 +98,20 @@ namespace Set.Forms.Views
             SetCheckButton();
         }
 
-        private void OnHowManyButtonClicked(object sender, EventArgs e)
+        private async void OnHowManyButtonClickedAsync(object sender, EventArgs e)
         {
-            Info.Text = game.SetCountHelp();
+            Info.Text = await game.SetCountHelp();
         }
 
         private void OnHelpClicked(object sender, EventArgs e)
         {
             mainPanelDrawer.ShowHelp();
             SetCheckButton();
+        }
+
+        private void OnHowManyButtonClicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4,6 +4,8 @@ using Set.Core;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Set.Forms
 {
@@ -60,10 +62,10 @@ namespace Set.Forms
             return cardPanel;
         }
 
-        public void ShowHelp()
+        public async Task ShowHelp()
         {
             var cards = mainPanel.Controls.OfType<CardPanel>().Select(panel => panel.Card);
-            var sets = new SetFinder(cards).Find();
+            var sets = await new SetFinder(cards).FindAsync();
             var selectedSet = sets.ElementAt(helpCount);
 
             DeselectAll();

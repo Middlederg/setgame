@@ -324,7 +324,7 @@
             this.BtnHelp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnHelp.UseVisualStyleBackColor = false;
-            this.BtnHelp.Click += new System.EventHandler(this.OnHelpClicked);
+            this.BtnHelp.Click += new System.EventHandler(this.OnHelpClickedAsync);
             // 
             // BtnHowMany
             // 
@@ -348,7 +348,7 @@
             this.BtnHowMany.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnHowMany.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnHowMany.UseVisualStyleBackColor = false;
-            this.BtnHowMany.Click += new System.EventHandler(this.OnHowManyButtonClicked);
+            this.BtnHowMany.Click += new System.EventHandler(this.OnHowManyButtonClickedAsync);
             // 
             // BtnCheck
             // 

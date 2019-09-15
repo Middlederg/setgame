@@ -136,14 +136,14 @@
   <data name="DiamondsSolidYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DiamondsSolidYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DiamondsStripedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondsStripedBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="DiamondsStripedRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DiamondsStripedRed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DiamondsStripedYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DiamondsStripedYellow.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DiamondStripedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DiamondStripedBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="OvalsOutlinedBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OvalsOutlinedBlue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

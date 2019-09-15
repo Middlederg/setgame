@@ -19,7 +19,7 @@ namespace Set.Core.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -123,6 +123,16 @@ namespace Set.Core.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
+        internal static byte[] DiamondsStripedBlue {
+            get {
+                object obj = ResourceManager.GetObject("DiamondsStripedBlue", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
         internal static byte[] DiamondsStripedRed {
             get {
                 object obj = ResourceManager.GetObject("DiamondsStripedRed", resourceCulture);
@@ -136,16 +146,6 @@ namespace Set.Core.Properties {
         internal static byte[] DiamondsStripedYellow {
             get {
                 object obj = ResourceManager.GetObject("DiamondsStripedYellow", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Byte[].
-        /// </summary>
-        internal static byte[] DiamondStripedBlue {
-            get {
-                object obj = ResourceManager.GetObject("DiamondStripedBlue", resourceCulture);
                 return ((byte[])(obj));
             }
         }
