@@ -1,0 +1,82 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Set";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Set Card game</h1>
+    <p>Learn about <a href="https://en.wikipedia.org/wiki/Set_(card_game)">Set card game rules</a>.</p>
+</div>
+
+
+<div class="row">
+
+    @foreach (var card in Model.Game.AvaliableCardList)
+    {
+        <div class="col-md-3">
+            <partial name="_Card" model="card" />
+        </div>
+    }
+
+</div>
+
+
+<div class="row flex">
+    <div class="col-3 m-auto">
+        <form method="post">
+            <input type="hidden" id="First" />
+            <input type="hidden" id="Second" />
+            <input type="hidden" id="Third" />
+            <button type="submit" class="btn btn-primary m-auto btn-block btn-lg" id="check-button" disabled>
+                Check Set
+            </button>
+        </form>
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn btn-outline-info m-auto">
+            <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+        </button>
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn btn-outline-info m-auto">
+            <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
+        </button>
+    </div>
+
+</div>
+
+<div class="container mt-4">
+    <blockquote class="blockquote text-right">
+        <p class="mb-0">@Model.Message</p>
+        <footer class="blockquote-footer">Select three cards ant check if is really a <cite title="Source Title">SET</cite></footer>
+    </blockquote>
+</div>
+
+@section Scripts {
+    <script>
+        let count = 0;
+        $('.set-card').click(function () {
+            if (this.classList.contains("active")) {
+                this.classList.remove("active");
+                count--;
+                checkButton();
+            }
+            else {
+                this.classList.add("active");
+                count++;
+                checkButton();
+            }
+
+        });
+
+        function checkButton() {
+            if (count == 3) {
+                document.getElementById('check-button').disabled = false;
+            }
+            else {
+                document.getElementById('check-button').disabled = true;
+            }
+        }
+    </script>
+}

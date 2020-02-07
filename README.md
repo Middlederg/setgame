@@ -1,6 +1,9 @@
 # SetGame
 
-Set card game implementation in C# with Windows forms
+Set card game implementation in C# 
+
+- Windows forms
+
 
 ![principal](img/panel-principal.png)
 

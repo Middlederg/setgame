@@ -60,7 +60,6 @@ F:\DESARROLLO\Repos\SetGame\Set.Forms\obj\Debug\Set.Forms.Views.FrmClasificacion
 F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.csprojAssemblyReference.cache
 F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.Properties.Resources.resources
 F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.csproj.GenerateResource.cache
-F:\DESARROLLO\Repos\Set\Set.Forms\obj\Debug\Set.Forms.csproj.CoreCompileInputs.cache
 F:\DESARROLLO\Repos\Set\Set.Forms\bin\Debug\Set.Forms.exe.config
 F:\DESARROLLO\Repos\Set\Set.Forms\bin\Debug\Set.Forms.exe
 F:\DESARROLLO\Repos\Set\Set.Forms\bin\Debug\Set.Forms.pdb

@@ -7,7 +7,7 @@ namespace Set.Forms
 {
     public class WinFormLogger : ILogger
     {
-        private ListView lvw;
+        private readonly ListView lvw;
         public List<LogEntry> LogEntries { get; private set; }
 
         public WinFormLogger(ListView lvw)

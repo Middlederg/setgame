@@ -1,0 +1,16 @@
+﻿@model Set.Core.ICard
+@{
+    string imagePath = $"{Model.Path}.png";
+}
+    <button type="button" class="btn btn-light m-4 px-1 py-4 set-card" style="width:160px">
+        @foreach (var i in Enumerable.Range(0, Model.Number))
+        {
+        <img class="d-inline" src="~/img/@imagePath" style="width:40px" />
+        }
+
+    </button>
+
+
+  
+      
+    
