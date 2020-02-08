@@ -1,0 +1,108 @@
+﻿@page "/"
+
+
+<div class="text-center">
+    <h1 class="display-4">Set Card game</h1>
+    <p>Learn about <a href="https://en.wikipedia.org/wiki/Set_(card_game)">Set card game rules</a>.</p>
+</div>
+
+
+<div class="row">
+
+    @foreach (var card in game.AvaliableCardList)
+    {
+        <div class="col-md-3">
+            <Card SetCard="card" OnCardSelected="@OnCardSelectedClicked" OnCardDeSelected="@OnCardDeSelectedClicked" />
+        </div>
+    }
+
+</div>
+
+
+<div class="row flex">
+    <div class="col-3 m-auto">
+        <button type="submit" @onclick="@CheckSet" class="btn btn-primary m-auto btn-block btn-lg" id="check-button" disabled="@buttonIsDisabled">
+            Check Set
+        </button>
+    </div>
+    <div class="col-3">
+        <button type="button" @onclick="@GetHelp" class="btn btn-outline-info m-auto">
+            <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+        </button>
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn btn-outline-info m-auto">
+            <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <blockquote class="blockquote text-right">
+        <p class="mb-0">@message</p>
+        <footer class="blockquote-footer">
+            Select three cards ant check if is really a <cite title="Source Title">SET</cite>
+        </footer>
+    </blockquote>
+</div>
+
+@code {
+    private Set.Core.Game game;
+
+    private List<Card> SelectedCards;
+
+    private string message;
+    private bool buttonIsDisabled = true;
+
+    protected override void OnInitialized()
+    {
+        SelectedCards = new List<Card>();
+
+        var options = new Set.Core.GameOptions(Set.Core.GameOptions.DefaultMinCardNumber, Set.Core.GameModeFactory.Tutorial, "Mike");
+        var logger = new MessengerLogger();
+        game = new Set.Core.Game(options, logger);
+        game.StartGame();
+        message = game.GetLastMessage();
+    }
+
+    private void OnCardSelectedClicked(Card selectedCard)
+    {
+        SelectedCards.Add(selectedCard);
+        buttonIsDisabled = SelectedCards.Count() != 3;
+    }
+
+    private void OnCardDeSelectedClicked(Card selectedCard)
+    {
+        SelectedCards.Remove(selectedCard);
+        buttonIsDisabled = SelectedCards.Count() != 3;
+    }
+
+    private void CheckSet()
+    {
+        var cardTrio = new Core.CardTrio(SelectedCards.Select(x => x.SetCard));
+        bool success = game.Check(cardTrio, game.Players.First());
+        if (success)
+        {
+            game.RefreshCards(cardTrio);
+            SelectedCards.ForEach(x => x.Selected = false);
+            SelectedCards = new List<Card>();
+            buttonIsDisabled = true;
+            message = game.GetLastMessage();
+            if (game.IsGameEnd())
+            {
+
+            }
+        }
+        else message = game.GetLastMessage();
+    }
+
+    private async Task GetHelp()
+    {
+        message = await game.SetCountHelp();
+    }
+
+    private async Task Currentsets()
+    {
+        var sets = await new Set.Core.SetFinder(game.AvaliableCardList).FindAsync();
+    }
+}

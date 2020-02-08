@@ -11,6 +11,7 @@ namespace Set.Core
         public const int VisibleCardNumberDefault = 12;
 
         private readonly ILogger log;
+        public string GetLastMessage() => log.LogEntries.Last().Message;
         private int visibleCardsCount;
 
         public List<ICard> Deck { get; private set; }

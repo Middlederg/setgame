@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\img\DiamondsOutlinedBlue.png" />
+    <Content Remove="wwwroot\img\DiamondsOutlinedRed.png" />
+    <Content Remove="wwwroot\img\DiamondsOutlinedYellow.png" />
+    <Content Remove="wwwroot\img\DiamondsSolidBlue.png" />
+    <Content Remove="wwwroot\img\DiamondsSolidRed.png" />
+    <Content Remove="wwwroot\img\DiamondsSolidYellow.png" />
+    <Content Remove="wwwroot\img\DiamondsStripedBlue.png" />
+    <Content Remove="wwwroot\img\DiamondsStripedRed.png" />
+    <Content Remove="wwwroot\img\DiamondsStripedYellow.png" />
+    <Content Remove="wwwroot\img\OvalsOutlinedBlue.png" />
+    <Content Remove="wwwroot\img\OvalsOutlinedRed.png" />
+    <Content Remove="wwwroot\img\OvalsOutlinedYellow.png" />
+    <Content Remove="wwwroot\img\OvalsSolidBlue.png" />
+    <Content Remove="wwwroot\img\OvalsSolidRed.png" />
+    <Content Remove="wwwroot\img\OvalsSolidYellow.png" />
+    <Content Remove="wwwroot\img\OvalsStripedBlue.png" />
+    <Content Remove="wwwroot\img\OvalsStripedRed.png" />
+    <Content Remove="wwwroot\img\OvalsStripedYellow.png" />
+    <Content Remove="wwwroot\img\panel-principal.png" />
+    <Content Remove="wwwroot\img\portada.png" />
+    <Content Remove="wwwroot\img\SquigglesOutlinedBlue.png" />
+    <Content Remove="wwwroot\img\SquigglesOutlinedRed.png" />
+    <Content Remove="wwwroot\img\SquigglesOutlinedYellow.png" />
+    <Content Remove="wwwroot\img\SquigglesSolidBlue.png" />
+    <Content Remove="wwwroot\img\SquigglesSolidRed.png" />
+    <Content Remove="wwwroot\img\SquigglesSolidYellow.png" />
+    <Content Remove="wwwroot\img\SquigglesStripedBlue.png" />
+    <Content Remove="wwwroot\img\SquigglesStripedRed.png" />
+    <Content Remove="wwwroot\img\SquigglesStripedYellow.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\img\DiamondsOutlinedBlue.png" />
+    <None Include="wwwroot\img\DiamondsOutlinedRed.png" />
+    <None Include="wwwroot\img\DiamondsOutlinedYellow.png" />
+    <None Include="wwwroot\img\DiamondsSolidBlue.png" />
+    <None Include="wwwroot\img\DiamondsSolidRed.png" />
+    <None Include="wwwroot\img\DiamondsSolidYellow.png" />
+    <None Include="wwwroot\img\DiamondsStripedBlue.png" />
+    <None Include="wwwroot\img\DiamondsStripedRed.png" />
+    <None Include="wwwroot\img\DiamondsStripedYellow.png" />
+    <None Include="wwwroot\img\OvalsOutlinedBlue.png" />
+    <None Include="wwwroot\img\OvalsOutlinedRed.png" />
+    <None Include="wwwroot\img\OvalsOutlinedYellow.png" />
+    <None Include="wwwroot\img\OvalsSolidBlue.png" />
+    <None Include="wwwroot\img\OvalsSolidRed.png" />
+    <None Include="wwwroot\img\OvalsSolidYellow.png" />
+    <None Include="wwwroot\img\OvalsStripedBlue.png" />
+    <None Include="wwwroot\img\OvalsStripedRed.png" />
+    <None Include="wwwroot\img\OvalsStripedYellow.png" />
+    <None Include="wwwroot\img\panel-principal.png" />
+    <None Include="wwwroot\img\portada.png" />
+    <None Include="wwwroot\img\SquigglesOutlinedBlue.png" />
+    <None Include="wwwroot\img\SquigglesOutlinedRed.png" />
+    <None Include="wwwroot\img\SquigglesOutlinedYellow.png" />
+    <None Include="wwwroot\img\SquigglesSolidBlue.png" />
+    <None Include="wwwroot\img\SquigglesSolidRed.png" />
+    <None Include="wwwroot\img\SquigglesSolidYellow.png" />
+    <None Include="wwwroot\img\SquigglesStripedBlue.png" />
+    <None Include="wwwroot\img\SquigglesStripedRed.png" />
+    <None Include="wwwroot\img\SquigglesStripedYellow.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Set.Core\Set.Core.csproj" />
+  </ItemGroup>
+
+</Project>
