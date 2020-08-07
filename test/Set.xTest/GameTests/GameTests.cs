@@ -5,7 +5,7 @@ namespace Set.xTest
 {
     public abstract class GameTests
     {
-        protected readonly ILogger log;
+        protected readonly IMessengerLogger log;
         protected Game game;
 
         public GameTests(int cardNumber, GameMode gameMode, int playerNumber)

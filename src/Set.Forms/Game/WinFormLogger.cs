@@ -2,10 +2,11 @@
 using System.Drawing;
 using Set.Core;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Set.Forms
 {
-    public class WinFormLogger : ILogger
+    public class WinFormLogger : IMessengerLogger
     {
         private readonly ListView lvw;
         public List<LogEntry> LogEntries { get; private set; }
@@ -29,6 +30,11 @@ namespace Set.Forms
             };
             lvw.Items.Add(item);
             LogEntries.Add(new LogEntry(message, type));
+        }
+
+        public string GetLastEntry()
+        {
+            return LogEntries.LastOrDefault()?.Message ?? "";
         }
     }
 

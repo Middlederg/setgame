@@ -3,11 +3,12 @@ using Set.Core;
 
 namespace Set.Web
 {
-    public class MessengerLogger : ILogger
+    public class MessengerLogger : IMessengerLogger
     {
         private readonly IMessengerLogger messenger;
 
         public List<LogEntry> LogEntries { get; private set; }
+        public string Message { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public MessengerLogger(IMessengerLogger messenger)
         {

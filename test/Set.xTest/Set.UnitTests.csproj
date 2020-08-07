@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Set.Core\Set.Core.csproj" />
-    <ProjectReference Include="..\Set.Forms\Set.Forms.csproj" />
+    <ProjectReference Include="..\..\src\Set.Core\Set.Core.csproj" />
+    <ProjectReference Include="..\..\src\Set.Forms\Set.Forms.csproj" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Set.xTest
 {
-    public class TestLogger : ILogger
+    public class TestLogger : IMessengerLogger
     {
         public List<LogEntry> LogEntries { get; private set; }
 
@@ -19,5 +19,10 @@ namespace Set.xTest
         public void Warning(string message) => WriteInLog(message, LogType.Warning);
 
         private void WriteInLog(string message, LogType type) => LogEntries.Add(new LogEntry(message, type));
+
+        public string GetLastEntry()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

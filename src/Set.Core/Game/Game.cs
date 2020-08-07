@@ -10,8 +10,8 @@ namespace Set.Core
     {
         public const int VisibleCardNumberDefault = 12;
 
-        private readonly ILogger log;
-        public string GetLastMessage() => log.LogEntries.Last().Message;
+        private readonly IMessengerLogger log;
+        public string GetLastMessage() => log.GetLastEntry();
         private int visibleCardsCount;
 
         public List<ICard> Deck { get; private set; }
@@ -25,7 +25,7 @@ namespace Set.Core
 
         public GameMode GameMode { get; set; }
 
-        public Game(GameOptions options, ILogger log)
+        public Game(GameOptions options, IMessengerLogger log)
 	    {
             this.log = log;
             GameMode = options.GameMode;
