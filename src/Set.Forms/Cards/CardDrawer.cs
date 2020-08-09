@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Drawing;
 using Set.Core;
+using System.IO;
 
 namespace Set.Forms
 {
@@ -37,7 +38,7 @@ namespace Set.Forms
                     BackColor = System.Drawing.Color.Transparent,
                     //BorderStyle = BorderStyle.FixedSingle,
                     Margin = new Padding(0),
-                    Image = Util.ObtenerRecurso(card.Path)
+                    Image = ObtenerRecurso(card.Path)
                 };
                 var punto = (cardWidth / (card.Number + 1)) * num; //punto del centro de la imagen
                 pbx.Location = new Point((int)Math.Truncate(punto - (pbx.Size.Width / 2)), 0);
@@ -45,6 +46,15 @@ namespace Set.Forms
                 p.Controls.Add(pbx);
             }
             return p;
+        }
+
+        private Image ObtenerRecurso(string nombre)
+        {
+            var file = Properties.Resources.ResourceManager.GetObject(nombre) as byte[];
+            using (var ms = new MemoryStream(file))
+            {
+                return new Bitmap(ms);
+            }
         }
     }
 }

@@ -7,15 +7,6 @@ namespace Set.Core
 {
     public static class Util
     {
-        public static Image ObtenerRecurso(string nombre)
-        {
-            var file = Properties.Resources.ResourceManager.GetObject(nombre) as byte[];
-            using (var ms = new MemoryStream(file))
-            {
-                return new Bitmap(ms);
-            }
-        }
-
         public static string Simplify(this string value)
         {
             if (string.IsNullOrWhiteSpace(value)) return string.Empty;
