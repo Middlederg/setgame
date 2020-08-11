@@ -2,7 +2,7 @@
 
 Set card game implementation in C# 
 
-- Blazor client app (https://jcl86.github.io/setgame)
+- Blazor client app (https://middlederg.github.io/setgame/)
 
 - Windows forms
 
