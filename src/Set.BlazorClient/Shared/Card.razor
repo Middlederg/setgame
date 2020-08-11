@@ -1,18 +1,20 @@
 ﻿@using Set.Core
 
-<button type="button" @onclick="@OnSelected" class="rounded-md shadow m-4 px-1 py-4 border-blue-800 flex align-middle justify-around hover:bg-gray-100 @active" 
+<button type="button" @onclick="@OnSelected" class="rounded-md shadow m-4 px-1 py-4 border-blue-800 flex align-middle justify-center hover:bg-gray-100 @active" 
         style="width:130px">
     @{
         string imagePath = $"{SetCard.Path}.png";
     }
     @foreach (var i in Enumerable.Range(0, SetCard.Number))
     {
-        <img src="img/@imagePath" style="width:40px" />
+        <img class="@imagePath" src="img/@imagePath" style="width:40px" />
     }
 
 </button>
 
 @code {
+    private string imageWidth => SetCard.Number == 2 ? "mx-1" : "";
+
     private string active;
     private bool selected;
     public bool Selected
@@ -29,7 +31,7 @@
     {
         Selected = !Selected;
         if (Selected)
-           OnCardSelected.InvokeAsync(this);
+            OnCardSelected.InvokeAsync(this);
         else OnCardDeSelected.InvokeAsync(this);
     }
 
