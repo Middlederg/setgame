@@ -103,9 +103,9 @@ namespace Set.Forms.Views
             Info.Text = await game.SetCountHelp();
         }
 
-        private void OnHelpClicked(object sender, EventArgs e)
+        private async void OnHelpClicked(object sender, EventArgs e)
         {
-            mainPanelDrawer.ShowHelp();
+            await mainPanelDrawer.ShowHelp();
             SetCheckButton();
         }
 
