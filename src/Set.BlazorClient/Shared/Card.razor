@@ -1,18 +1,22 @@
 ﻿@using Set.Core
 
-<button type="button" @onclick="@OnSelected" class="rounded-md shadow m-4 px-1 py-4 border-blue-800 flex align-middle justify-center hover:bg-gray-100 @active" 
-        style="width:130px">
+<button type="button" @onclick="@OnSelected" class="rounded-md shadow m-4 px-1 py-4 border-blue-800 flex align-middle 
+        justify-center hover:@backgroundColor
+        outline-none focus:outline-none
+        w-32 lg:w-40 xl:w-48 @active">
     @{
         string imagePath = $"{SetCard.Path}.png";
     }
     @foreach (var i in Enumerable.Range(0, SetCard.Number))
     {
-        <img class="@imagePath" src="img/@imagePath" style="width:40px" />
+        <img class="w-10 lg:w-12 xl:w-14 @imagePath" src="img/@imagePath" />
     }
 
 </button>
 
 @code {
+    private string backgroundColor = "bg-blue-100";
+
     private string imageWidth => SetCard.Number == 2 ? "mx-1" : "";
 
     private string active;
@@ -23,7 +27,7 @@
         set
         {
             selected = value;
-            active = value ? "active" : "";
+            active = value ? $"shadow-outline {backgroundColor}" : "";
         }
     }
 
