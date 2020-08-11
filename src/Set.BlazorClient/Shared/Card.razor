@@ -1,12 +1,13 @@
 ﻿@using Set.Core
 
-<button type="button" @onclick="@OnSelected" class="btn btn-light m-4 px-1 py-4 set-card @active" style="width:160px">
+<button type="button" @onclick="@OnSelected" class="rounded-md shadow m-4 px-1 py-4 border-blue-800 flex align-middle justify-around hover:bg-gray-100 @active" 
+        style="width:130px">
     @{
         string imagePath = $"{SetCard.Path}.png";
     }
     @foreach (var i in Enumerable.Range(0, SetCard.Number))
     {
-        <img class="d-inline" src="img/@imagePath" style="width:40px" />
+        <img src="img/@imagePath" style="width:40px" />
     }
 
 </button>
