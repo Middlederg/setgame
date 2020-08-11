@@ -19,6 +19,6 @@
 
         public override int GetHashCode() => Name.GetHashCode();
 
-        public bool IsTutorial => GetType().Equals(typeof(Tutorial));
+        public bool IsTutorial => Name.Equals(new Tutorial().Name);
     }
 }

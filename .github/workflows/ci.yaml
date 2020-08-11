@@ -14,9 +14,13 @@ jobs:
           with:
             dotnet-version: 3.1.x
 
+        # Build
+        - name: Build
+          run: dotnet build src\Set.BlazorClient\Set.BlazorClient.csproj
+
         # Run tests
-        - name: Tests
-          run: dotnet test
+        - name: Run tests
+          run: dotnet test test\Set.xTest\Set.UnitTests.csproj
 
         # Generate the website
         - name: Publish

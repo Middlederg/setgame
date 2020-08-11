@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Set.Core;
-using Set.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -9,7 +8,7 @@ namespace Set.xTest
 {
     public class FileTests
     {
-        private IRepository repository;
+        private readonly FileRepository repository;
         public FileTests()
         {
             
