@@ -22,9 +22,17 @@ jobs:
         - name: Run tests
           run: dotnet test test/Set.xTest/Set.UnitTests.csproj
 
+
         # Generate the website
         - name: Publish
           run: dotnet publish src/Set.BlazorClient/Set.BlazorClient.csproj --configuration Release --output build
+          
+        # Rewrite base href
+        - name: Rewrite base href
+          uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
+          with:
+            html_path: ${{ env.PUBLISH_DIR }}/index.html
+            base_href: /setgame/
 
         - name: Deploy to Github Pages
           uses: JamesIves/github-pages-deploy-action@releases/v3
