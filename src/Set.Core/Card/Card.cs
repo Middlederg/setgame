@@ -9,10 +9,10 @@ namespace Set.Core
     {
         public override Shading Shading { get; }
 
-        public Card(int numero, Background color, Shape forma, Shading shading) : base(numero, color, forma)
+        public Card(int number, Background background, Shape shape, Shading shading) : base(number, background, shape)
         {
             Shading = shading;
         }
-        public override string ToString() => $"{Number} {Background.ToString()} {Shading.ToString()} {Shape.ToString()}";
+        public override string ToString() => $"{Number} {Background} {Shading} {Shape}";
     }
 }

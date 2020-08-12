@@ -18,22 +18,22 @@ namespace Set.Core
         public Time GetTime(int step) => new Time(Seconds + step * SecondIncrementPerStep);
     }
 
-    public sealed class SerieOptions
+    public sealed class ChallengeOptions
     {
         public TimeStep TimeStep { get; }
         public bool AccumulateTime { get; }
 
-        public SerieOptions(TimeStep timeStep, bool accumulateTime)
+        public ChallengeOptions(TimeStep timeStep, bool accumulateTime)
         {
             TimeStep = timeStep;
             AccumulateTime = accumulateTime;
         }
     }
-    public class Serie
+    public class Challenge
     {
         private Guid id;
-        
-        public string Name { get; }
+
+        private readonly string name;
 
         public TimeStep TimeStep { get; }
         public bool AccumulateTime { get; }
@@ -44,21 +44,21 @@ namespace Set.Core
         public void Nextstep() => stepIndex++;
         public bool IsFinished => Steps.Count() >= stepIndex;
 
-        public Serie(string name, int seconds,  params int[] steps)
+        public Challenge(string name,  params int[] steps)
         {
             id = Guid.NewGuid();
-            Name = name;
+            this.name = name;
             Steps = steps.Select(x => new Step(x));
             stepIndex = 0;
         }
 
-        public override string ToString() => $"{Name} ({Steps.Count()} pasos)";
+        public override string ToString() => $"{name} ({Steps.Count()} steps)";
 
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
                 return false;
-            var other = obj as Serie;
+            var other = obj as Challenge;
             return (other.id.Equals(id));
         }
 

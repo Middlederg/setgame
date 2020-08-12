@@ -1,80 +1,54 @@
 ﻿@page "/"
 
 @inject NavigationManager navigationManager
-@inject Set.BlazorClient.Services.GameService gameService
 
-<div class="container mx-auto md:px-5 lg:px-20">
+<div class="container mx-auto px-4 lg:my-3 xl:my-6 flex flex-col items-center">
 
-    <div class="flex justify-between items-center mt-3 lg:my-3 xl:my-6">
-        <span class="mx-4 text-teal-700 font-semibold border-teal-300 uppercase text-sm lg:text-xl xl:text-4xl">Find sets</span>
+    <img class="w-3/5 bg-teal-700 p-2 m-1
+  md:p-4 md:text-xl
+   md:text-2xl"
+         src="https://github.com/Middlederg/setgame/blob/gh-pages/img/portada.png?raw=true" />
 
-        <TimerAlarm TimesUp="ShowTimesUpAlert" Time="currentTime"></TimerAlarm>
+    <button class="w-3/5 uppercase bg-teal-700 text-white hover:bg-teal-600 font-semibold p-2 m-1
+  md:p-4 md:text-xl
+   md:text-2xl
+    outline-none focus:outline-none
+    flex items-center justify-center">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="play w-6 h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span>play game</span>
+    </button>
 
-    </div>
+    <button class="w-3/5 uppercase bg-teal-700 text-white hover:bg-teal-600 font-semibold p-2 m-1
+  md:p-4 md:text-xl
+   md:text-2xl
+    outline-none focus:outline-none
+    flex items-center justify-center">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="puzzle w-6 h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg><span>Challenge</span>
+    </button>
 
-    @if (!string.IsNullOrWhiteSpace(gameResultMessage))
-    {
-        <div class="bg-teal-200 border-l-4 border-teal-700 text-teal-900 text-sm p-4 my-4" role="alert">
-            <p class="font-bold">@gameResultMessage</p>
-            <p>Score: @game.Players.First().Score.Points()</p>
-        </div>
-    }
-    else
-    {
-        <Board Game="game" OnSetDiscovered="AddSetToList" OnLevelCompleted="LevelCompleted"></Board>
-    }
+    <button class="w-3/5 uppercase bg-teal-700 text-white hover:bg-teal-600 font-semibold p-2 m-1
+  md:p-4 md:text-xl
+   md:text-2xl
+    outline-none focus:outline-none
+    flex items-center justify-center">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="adjustments w-6 h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg><span>Configuration</span>
+    </button>
 
-    <div class="m-4">
-        <h3 class="mb-1 text-teal-700 font-semibold border-teal-300 uppercase text-sm lg:text-lg xl:text-2xl ">
-            Discovered sets
-        </h3>
+    <button class="w-3/5 uppercase bg-teal-700 text-white hover:bg-teal-600 font-semibold p-2 m-1
+  md:p-4 md:text-xl
+   md:text-2xl
+    outline-none focus:outline-none
+    flex items-center justify-center">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="book-open w-6 h-6 mr-2"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg><span>How to play</span>
+    </button>
 
-        @foreach (var row in rows)
-        {
-            <SetRow Row="row"></SetRow>
-        }
+
+    <div class="w-3/5 flex justify-end mt-2 px-2">
+        <a class="text-xs font-bold text-indigo-600 hover:text-indigo-800
+         lg:text-base" href="https://github.com/Middlederg/setgame">
+            Source code
+        </a>
     </div>
 
 </div>
 
-
-@code {
-
-    private string gameResultMessage;
-
-    private Set.Core.Time currentTime;
-    private Set.Core.Game game;
-    private List<SetRowViewModel> rows;
-
-    protected override void OnInitialized()
-    {
-        var options = new Set.Core.GameOptions(Set.Core.GameOptions.DefaultMinCardNumber, Set.Core.GameModeFactory.Tutorial, "Mike");
-        currentTime = new Core.Time();
-        var logger = new Set.Core.MessengerLogger();
-        game = new Set.Core.Game(options, logger);
-        game.StartGame();
-        rows = new List<SetRowViewModel>();
-        gameResultMessage = null;
-    }
-    
-    private void ShowTimesUpAlert()
-    {
-        gameResultMessage = @"Time's up!";
-    }
-
-    private void LevelCompleted()
-    {
-        gameResultMessage = @"Level completed!";
-    }
-
-    private void AddSetToList(Set.Core.CardTrio trio)
-    {
-        rows.Add(new SetRowViewModel(rows.Count() + 1, trio, trio.ToString(), currentTime.TimeSpan));
-    }
-
-    private void GoToGameSummary()
-    {
-        gameService.SetCurrentGame(game);
-        navigationManager.NavigateTo("GameSummary");
-    }
-}

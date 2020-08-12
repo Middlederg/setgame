@@ -1,41 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace Set.Core
 {
+
     public class Player
     {
-        public const int MaxPlayerNumber = 10;
-        public static IEnumerable<Player> CreatePlayers(IEnumerable<string> names)
-        {
-            if (names == null || !names.Any())
-                throw new ArgumentNullException(nameof(names));
-
-            if (names.Count() > MaxPlayerNumber)
-                throw new ArgumentOutOfRangeException($"Maximo número de jugadores: {MaxPlayerNumber}");
-
-            foreach (var name in names)
-                yield return new Player(name);
-        }
-
-        private string name;
+        private readonly string name;
         public Score Score { get; private set; }
         public int SetCount => Score.SetCount;
         public void AddSet() => Score.AddSet();
         public int MistakeCount => Score.SetCount;
         public void AddMistake() => Score.AddMistake();
-        public Record GetRecord() => new Record(name, Score);
+        public void AddHelp() => Score.AddHelp();
+        public void AddSurrender() => Score.AddSurrender();
+
+        public List<CardTrio> DiscoveredSets { get; }
+        public void Discover(CardTrio trio) => DiscoveredSets.Add(new CardTrio(trio.Cards));
 
         public Player(string name)
         {
             this.name = name;
-            Reset();
-        }
-
-        public void Reset()
-        {
             Score = new Score();
+            DiscoveredSets = new List<CardTrio>();
         }
 
         public override string ToString() => name;

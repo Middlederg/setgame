@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Set.Core
@@ -11,14 +12,18 @@ namespace Set.Core
         public int CardNumber { get; private set; }
         public GameMode GameMode { get; private set; }
         public IEnumerable<string> PlayerNames { get; private set; }
+        public TimeSpan AvaliableTime { get; private set; }
 
-        public GameOptions(int cardNumber, GameMode gameMode, params string[] playerNames)
+        public GameOptions(int cardNumber, GameMode gameMode, TimeSpan avaliableTime, params string[] playerNames)
         {
             CardNumber = cardNumber;
             GameMode = gameMode;
+            AvaliableTime = avaliableTime;
 
             if (playerNames == null || !playerNames.Any())
+            {
                 playerNames = new string[] { "Player 1" };
+            }
             PlayerNames = playerNames;
         }
     }

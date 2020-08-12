@@ -8,7 +8,7 @@ namespace Set.Core
 {
     public static class Randomizer
     {
-        private static Random random = new Random(DateTime.Now.Millisecond);
+        private static readonly Random random = new Random(DateTime.Now.Millisecond);
         private static int GetRandomNumber(int inf, int sup) => random.Next(inf, sup + 1);
         public static T GetRandomItem<T>(this IEnumerable<T> lista)
         {

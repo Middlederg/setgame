@@ -8,5 +8,7 @@
         string Path { get; }
         Shading Shading { get; }
         Shape Shape { get; }
+
+        ICard Copy();
     }
 }

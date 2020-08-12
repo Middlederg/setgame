@@ -6,32 +6,41 @@ using System.Threading.Tasks;
 
 namespace Set.Core
 {
+    public class MultiPlayerGame
+    {
+        public IEnumerable<Player> Ranking() => Players.OrderByDescending(x => x.Score.Points());
+    }
+
     public class Game
     {
         public const int VisibleCardNumberDefault = 12;
 
-        private readonly IMessengerLogger log;
+        private readonly MessengerLogger log;
         public string GetLastMessage() => log.GetLastEntry();
         private int visibleCardsCount;
 
-        public List<ICard> Deck { get; private set; }
+        public List<ICard> Deck { get; }
         public IEnumerable<ICard> AvaliableCardList => Deck.Take(Math.Min(visibleCardsCount, Deck.Count)).ToList();
 
-        public List<Player> Players { get; private set; }
+        public List<Player> Players { get; }
         public int TotalSets => Players.Sum(x => x.SetCount);
         public int TotalMistakes => Players.Sum(x => x.MistakeCount);
-        public bool IsOnePlayerMode => Players.Count == 1;
-        public IEnumerable<Record> PlayerPositions() => Players.Select(player => player.GetRecord()).OrderByDescending(x => x.Points());
+
+
         public IEnumerable<Player> Ranking() => Players.OrderByDescending(x => x.Score.Points());
 
-        public GameMode GameMode { get; set; }
 
-        public Game(GameOptions options, IMessengerLogger log)
+        public GameMode GameMode { get; }
+        public TimeSpan AvaliableTime { get; }
+
+        public Game(GameOptions options)
 	    {
-            this.log = log;
+            log = new MessengerLogger();
             GameMode = options.GameMode;
+            AvaliableTime = options.AvaliableTime;
+
             Deck = CardFactory.CreateDeck(options.GameMode).ToList();
-            Players = Player.CreatePlayers(options.PlayerNames).ToList();
+            Players = PlayersCreator.CreatePlayers(options.PlayerNames).ToList();
         }
 
         public void StartGame()
@@ -64,7 +73,7 @@ namespace Set.Core
         {
             do
             {
-                RemoveCardsFromDeck(cardTrio);
+                RemoveCardsFromDeck(cardTrio.Cards.ToArray());
                 PrepareAvaliableCards();
             }
             while (!AreAvaliableSets);
@@ -82,12 +91,12 @@ namespace Set.Core
             if (AreAvaliableSets)
                 return;
 
-            RemoveCardsFromDeck(new CardTrio(Deck[0], Deck[1], Deck[2]));
+            RemoveCardsFromDeck(Deck[0], Deck[1], Deck[2]);
         }
 
-        private void RemoveCardsFromDeck(CardTrio cardTrio)
+        private void RemoveCardsFromDeck(params ICard[] cards)
         {
-            foreach (var card in cardTrio.Cards)
+            foreach (var card in cards)
                 Deck.Remove(card);
         }
 

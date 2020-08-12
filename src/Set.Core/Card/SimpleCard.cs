@@ -9,16 +9,16 @@ namespace Set.Core
         public Shape Shape { get; }
         public virtual Shading Shading => Shading.Solid;
 
-        public SimpleCard(int numero, Background color,  Shape forma)
+        public SimpleCard(int number, Background background,  Shape shape)
 	    {
-		    Number = numero;
-		    Background = color;
-            Shape = forma;
+		    Number = number;
+		    Background = background;
+            Shape = shape;
 	    }
 
         public int Id => Number * 1000 + ((int)Background + 1) * 100 + ((int)Shape + 1) * 10 + ((int)Shading + 1) * 1;
-        public string Path => $"{Shape.ToString()}{Shading.ToString()}{Background.ToString()}";
-	    public override string ToString() => $"{Number} {Background.ToString()} {Shape.ToString()}"; 
+        public string Path => $"{Shape}{Shading}{Background}";
+	    public override string ToString() => $"{Number} {Background} {Shape}"; 
 
         public override bool Equals(object obj)
         {
@@ -28,6 +28,8 @@ namespace Set.Core
             return (carta.Number == Number && carta.Background.Equals(Background) && carta.Shape.Equals(Shape) && carta.Shading.Equals(Shading));
         }
 
-        public override int GetHashCode() => Number.GetHashCode();
+        public override int GetHashCode() => Path.GetHashCode();
+
+        public ICard Copy() => new Card(Number, Background, Shape, Shading);
     }
 }

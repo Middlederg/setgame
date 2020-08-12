@@ -4,7 +4,7 @@ using Set.Core;
 
 namespace Set.Core
 {
-    public class MessengerLogger : IMessengerLogger
+    public class MessengerLogger
     {
         public List<LogEntry> LogEntries { get; private set; }
 
