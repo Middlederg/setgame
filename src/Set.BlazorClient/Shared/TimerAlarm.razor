@@ -1,0 +1,50 @@
+﻿@using System.Timers;
+
+@implements IDisposable
+
+<span class="text-xs font-mono mx-4 px-3 lg:text-xl xl:text-2xl border-black border-2 rounded 
+  text-white bg-teal-500">
+    @Time.ToString()
+</span>
+
+@code {
+
+    [Parameter]
+    public Set.Core.Time Time { get; set; }
+
+    [Parameter]
+    public EventCallback TimesUp { get; set; }
+
+    private Timer timer;
+
+    protected override void OnInitialized()
+    {
+        timer = new Timer()
+        {
+            Interval = 1000
+        };
+
+        timer.Elapsed += TimerOnElapsed;
+        timer.Start();
+    }
+
+    private async void TimerOnElapsed(object sender, ElapsedEventArgs e)
+    {
+        Time.RemoveSecond();
+        StateHasChanged();
+
+        if(Time.IsUp())
+        {
+            timer.Stop();
+            await TimesUp.InvokeAsync(true);
+        }
+    }
+
+    public void Dispose()
+    {
+        if (timer != null)
+        {
+            timer.Dispose();
+        }
+    }
+}

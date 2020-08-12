@@ -15,7 +15,7 @@
         {
             foreach (var player in game.Players)
             {
-                var record = new Record(player.ToString(), player.Score, time);
+                var record = new Record(player.ToString(), player.Score);
                 repository.SaveRecord(record);
             }
         }

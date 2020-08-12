@@ -21,7 +21,8 @@ namespace Set.Core
         public int TotalSets => Players.Sum(x => x.SetCount);
         public int TotalMistakes => Players.Sum(x => x.MistakeCount);
         public bool IsOnePlayerMode => Players.Count == 1;
-        public IEnumerable<Record> PlayerPositions(Time time) => Players.Select(player => player.GetRecord(time)).OrderByDescending(x => x.Points());
+        public IEnumerable<Record> PlayerPositions() => Players.Select(player => player.GetRecord()).OrderByDescending(x => x.Points());
+        public IEnumerable<Player> Ranking() => Players.OrderByDescending(x => x.Score.Points());
 
         public GameMode GameMode { get; set; }
 
@@ -44,25 +45,13 @@ namespace Set.Core
             }
         }
 
-        public void RestartGame()
-        {
-            log.Info(MessageFactory.RestartGame);
-            foreach (var player in Players)
-                player.Reset();
-
-            while (!AreAvaliableSets)
-            {
-                PrepareAvaliableCards();
-            }
-        }
-
         public bool Check(CardTrio cardTrio, Player player)
 	    {
 		    if (cardTrio.IsSet())
             {
                 player.AddSet();
-                string playerName = IsOnePlayerMode ? "¡Consigues Set!" : $"{player.ToString()} consigue Set";
-                log.Info($"{playerName} {cardTrio.ToString()}");
+                string playerName = IsOnePlayerMode ? "¡Consigues Set!" : $"{player} consigue Set";
+                log.Info($"{playerName} {cardTrio}");
                 return true;
             }
 
@@ -105,7 +94,7 @@ namespace Set.Core
         public IEnumerable<CardTrio> FindSets() => new SetFinder(AvaliableCardList).Find();
         public async Task<IEnumerable<CardTrio>> FindSetsAsync() => await new SetFinder(AvaliableCardList).FindAsync();
         public bool AreAvaliableSets => FindSets().Any();
-        public bool IsGameEnd() => !FindSets().Any() && Deck.Count <= visibleCardsCount;
+        public bool LevelCompleted() => !FindSets().Any() && Deck.Count <= visibleCardsCount;
         
         public async Task<string> SetCountHelp()
         {

@@ -57,12 +57,12 @@ namespace Set.Forms.Views
             InfoSets.Text = $"Sets encontrados: {game.TotalSets}";
             InfoMistakes.Text = $"Fallos cometidos: {game.TotalMistakes}";
 
-            PositionsList.Positions = game.PlayerPositions(time);
+            PositionsList.Positions = game.PlayerPositions();
         }
 
         private void TimerTiempo_Tick(object sender, EventArgs e)
         {
-            time.AddScecond();
+            time.RemoveSecond();
             LblTiempo.Text = time.ToString();
         }
 
@@ -89,7 +89,7 @@ namespace Set.Forms.Views
             {
                 game.RefreshCards(cardTrio);
                 DrawMainPanel();
-                if (game.IsGameEnd())
+                if (game.LevelCompleted())
                     EndOfGame();
             }
             DrawInfo();

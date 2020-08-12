@@ -1,0 +1,18 @@
+﻿<div class="bg-teal-200 border-l-4 border-teal-700 text-teal-900 text-sm p-4 my-4" role="alert">
+    <p class="font-bold">@Title</p>
+    <p>@Subtitle</p>
+
+    @ChildContent
+</div>
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string Subtitle { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

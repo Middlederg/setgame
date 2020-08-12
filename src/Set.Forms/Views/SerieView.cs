@@ -64,7 +64,7 @@ namespace Set.Forms.Views
 
         private void TimerTiempo_Tick(object sender, EventArgs e)
         {
-            time.AddScecond();
+            time.RemoveSecond();
             LblTiempo.Text = time.ToString();
         }
 
@@ -91,7 +91,7 @@ namespace Set.Forms.Views
             {
                 game.RefreshCards(cardTrio);
                 DrawMainPanel();
-                if (game.IsGameEnd())
+                if (game.LevelCompleted())
                     EndOfGame();
             }
             DrawInfo();

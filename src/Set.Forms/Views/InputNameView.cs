@@ -24,7 +24,7 @@ namespace Set.Forms.Views
         {
             LblSets.Text = $"{score.SetCount} / {score.MistakeCount}";
             LblTiempo.Text = time.ToString();
-            LblPuntuacion.Text = $"{score.Points(time)} puntos";
+            LblPuntuacion.Text = $"{score.Points()} puntos";
         }
 
         public InputNameView()

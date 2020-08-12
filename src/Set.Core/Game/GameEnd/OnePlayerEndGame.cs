@@ -21,8 +21,7 @@ namespace Set.Core
             var player = game.Players.First();
             view.SetInfo(player.Score, time);
             view.ShowWindow();
-            string name = view.InputName;
-            var record = new Record(player.ToString(), player.Score, time);
+            var record = new Record(player.ToString(), player.Score);
             repository.SaveRecord(record);
         }
     }

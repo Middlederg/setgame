@@ -36,7 +36,7 @@ namespace Set.xTest
         public void Should_serialize_a_file()
         {
             //Arrange
-            var record = new Core.Record("nombre", Score.Create(1, 4), new Time(30));
+            var record = new Core.Record("nombre", Score.Create(1, 4, 0, 0));
             
             //Act
             repository.SaveRecord(record);

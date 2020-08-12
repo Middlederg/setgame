@@ -1,0 +1,116 @@
+﻿<div class="grid grid-cols-4 gap-0 mx-4 my-2 md:shadow">
+
+    @foreach (var card in Game.AvaliableCardList)
+    {
+        <Card SetCard="card" OnCardSelected="@OnCardSelectedClicked" OnCardDeSelected="@OnCardDeSelectedClicked" />
+    }
+
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2">
+
+    <div class="my-4 flex justify-center items-center">
+        <PrimaryButton Text="Check Set" IsDisabled="buttonIsDisabled" OnButtonClicked="CheckSet"></PrimaryButton>
+
+        <PrimaryButton OnButtonClicked="GetHelp">
+            <svg viewBox="0 0 20 20" fill="currentColor" class="information-circle w-6 h-6">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                      clip-rule="evenodd"></path>
+            </svg>
+        </PrimaryButton>
+
+        <PrimaryButton OnButtonClicked="CurrentSets">
+            <svg viewBox="0 0 20 20" fill="currentColor" class="question-mark-circle w-6 h-6">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd">
+                </path>
+            </svg>
+        </PrimaryButton>
+    </div>
+
+
+    <div class="m-4">
+        <blockquote class="flex flex-wrap flex-col bg-teal-100 text-teal-900 border-r-8 italic border-teal-500
+    px-4 py-3">
+            <p class="flex justify-end">@message</p>
+            <span class="flex justify-end text-sm text-teal-900 font-semibold pt-2">
+                Select three cards ant check if it is really a SET
+            </span>
+
+            <div class="flex justify-end mt-2">
+
+                <a class="flex justify-center items-center" href="https://en.wikipedia.org/wiki/Set_(card_game)">
+                    <svg viewBox="0 0 20 20" fill="currentColor" class="book-open w-6 h-6 mr-2">
+                        <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
+                    </svg>
+                    Learn about game rules
+                </a>
+
+            </div>
+        </blockquote>
+    </div>
+</div>
+
+@code {
+    private List<Card> SelectedCards;
+
+    private string message;
+    private bool buttonIsDisabled = true;
+
+    [Parameter]
+    public Set.Core.Game Game { get; set; }
+
+    [Parameter]
+    public EventCallback<Set.Core.CardTrio> OnSetDiscovered { get; set; }
+
+    [Parameter]
+    public EventCallback OnLevelCompleted { get; set; }
+
+    protected override void OnInitialized()
+    {
+        SelectedCards = new List<Card>();
+        message = Game.GetLastMessage();
+    }
+
+    private void OnCardSelectedClicked(Card selectedCard)
+    {
+        SelectedCards.Add(selectedCard);
+        buttonIsDisabled = SelectedCards.Count() != 3;
+    }
+
+    private void OnCardDeSelectedClicked(Card selectedCard)
+    {
+        SelectedCards.Remove(selectedCard);
+        buttonIsDisabled = SelectedCards.Count() != 3;
+    }
+
+    private async Task CheckSet()
+    {
+        var cardTrio = new Core.CardTrio(SelectedCards.Select(x => x.SetCard));
+        bool success = Game.Check(cardTrio, Game.Players.First());
+        if (success)
+        {
+            await OnSetDiscovered.InvokeAsync(cardTrio);
+            Game.RefreshCards(cardTrio);
+            SelectedCards.ForEach(x => x.Selected = false);
+            SelectedCards = new List<Card>();
+            buttonIsDisabled = true;
+            message = Game.GetLastMessage();
+
+            if (Game.LevelCompleted())
+            {
+                await OnLevelCompleted.InvokeAsync(null);
+            }
+        }
+        else message = Game.GetLastMessage();
+    }
+
+    private async Task GetHelp()
+    {
+        message = await Game.SetCountHelp();
+    }
+
+    private async Task CurrentSets()
+    {
+        var sets = await new Set.Core.SetFinder(Game.AvaliableCardList).FindAsync();
+    }
+}

@@ -11,23 +11,21 @@ namespace Set.Core
         public string Name { get; private set; }
         public DateTime Date { get; private set; }
         public Score Score { get; private set; }
-        public Time Time { get; private set; }
 
         public static Record FromFile(FileEntry fileEntry)
         {
-            return new Record(fileEntry.Name, Score.Create(fileEntry.SetCount, fileEntry.MistakeCount), new Time(fileEntry.Seconds), fileEntry.Date);
+            return new Record(fileEntry.Name, Score.Create(fileEntry.SetCount, fileEntry.MistakeCount,  fileEntry.HelpCount, fileEntry.SurrenderCount), fileEntry.Date);
         }
 
-        public Record(string name, Score score, Time time, DateTime? date = null)
+        public Record(string name, Score score, DateTime? date = null)
         {
             Name = name;
             Date = date ?? DateTime.Now;
             Score = score;
-            Time = time;
         }
 
-        public int Points() => Score.Points(Time);
-        public override string ToString() => $"{Name} ({Score.Points(Time)})";
+        public int Points() => Score.Points();
+        public override string ToString() => $"{Name} ({Score.Points()})";
 
         public override bool Equals(object obj)
         {
@@ -35,10 +33,9 @@ namespace Set.Core
                 return false;
 
             var other = (Record)obj;
-            return other.Date.Equals(Date) && other.Name == Name && other.Score.SetCount == Score.SetCount && other.Score.MistakeCount == Score.MistakeCount && other.Time.Equals(Time);
+            return other.Date.Equals(Date) && other.Name == Name && other.Score.Equals(Score);
         }
 
-        // override object.GetHashCode
-        public override int GetHashCode() => Name.GetHashCode();
+        public override int GetHashCode() => Date.GetHashCode();
     }
 }

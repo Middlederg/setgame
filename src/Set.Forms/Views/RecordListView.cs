@@ -52,7 +52,6 @@ namespace Set.Forms.Views
             item.SubItems.Add(record.Points().ToString());
             item.SubItems.Add(record.Score.SetCount.ToString());
             item.SubItems.Add(record.Score.MistakeCount.ToString());
-            item.SubItems.Add(record.Time.ToString());
             item.Tag = record;
             return item;
         }

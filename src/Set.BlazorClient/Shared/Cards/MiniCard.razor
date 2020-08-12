@@ -1,0 +1,12 @@
+﻿<div class="rounded-md shadow m-4 px-1 py-1 border-blue-800
+                flex align-middle justify-center w-7 ">
+    @foreach (var i in Enumerable.Range(0, Card.Number))
+    {
+        <img class="w-2" src="img/@($"{Card.Path}.png")" />
+    }
+</div>
+
+@code {
+    [Parameter]
+    public Set.Core.ICard Card { get; set; }
+}

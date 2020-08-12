@@ -25,7 +25,7 @@ namespace Set.Core
         public void AddSet() => Score.AddSet();
         public int MistakeCount => Score.SetCount;
         public void AddMistake() => Score.AddMistake();
-        public Record GetRecord(Time time) => new Record(name, Score, time);
+        public Record GetRecord() => new Record(name, Score);
 
         public Player(string name)
         {

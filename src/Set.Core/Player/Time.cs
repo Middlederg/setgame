@@ -7,15 +7,21 @@ namespace Set.Core
 {
     public class Time
     {
-        public int Seconds { get; private set; }
-        public void AddScecond() => Seconds++;
+        public TimeSpan TimeSpan { get; private set; }
+        public void RemoveSecond() => TimeSpan = TimeSpan.Subtract(new TimeSpan(0, 0, 1));
+        public bool IsUp() => TimeSpan.TotalSeconds <= 0;
 
-        public Time(int segundos = 0)
+        public Time(int seconds = 50)
         {
-            Seconds = segundos;
+            TimeSpan = new TimeSpan(0, 0, seconds);
         }
 
-        public override string ToString() => TimeSpan.FromSeconds(Seconds).ToString(@"mm\:ss");
+        public Time(TimeSpan timespan)
+        {
+            TimeSpan = timespan;
+        }
+
+        public override string ToString() => TimeSpan.ToString();
 
         public override bool Equals(object obj)
         {
@@ -23,9 +29,9 @@ namespace Set.Core
                 return false;
 
             var other = (Time)obj;
-            return other.Seconds == Seconds;
+            return other.TimeSpan.Equals(TimeSpan);
         }
 
-        public override int GetHashCode() => Seconds.GetHashCode();
+        public override int GetHashCode() => TimeSpan.GetHashCode();
     }
 }
