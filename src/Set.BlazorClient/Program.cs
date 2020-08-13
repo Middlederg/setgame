@@ -20,6 +20,7 @@ namespace Set.BlazorClient
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton<GameService>();
+            builder.Services.AddScoped<CookieService>();
 
             await builder.Build().RunAsync();
         }

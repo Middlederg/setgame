@@ -1,7 +1,7 @@
 ﻿<div class="flex justify-between items-center bg-teal-100 border-b-2 border-teal-500">
 
     <div class="flex justify-center items-center mx-4">
-        <span class="font-bold text-xl text-teal-900">@Row.Position</span>
+        <span class="font-bold text-xl text-teal-900">@Position</span>
         <MiniTrio Trio="Row.Trio"></MiniTrio>
     </div>
 
@@ -14,5 +14,8 @@
 
 @code {
     [Parameter]
-    public SetRowViewModel Row { get; set; }
+    public int Position { get; set; }
+
+    [Parameter]
+    public Set.Core.DiscoveredSet Row { get; set; }
 }

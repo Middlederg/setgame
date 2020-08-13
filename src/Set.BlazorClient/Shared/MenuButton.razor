@@ -1,0 +1,28 @@
+﻿<button @onclick="OnClick" class="w-3/5 uppercase bg-teal-700 text-white hover:bg-teal-600 font-semibold p-2 m-1
+  md:p-4 md:text-xl
+   md:text-2xl
+    outline-none focus:outline-none
+    flex items-center justify-center">
+    @ChildContent
+       <span>@Text</span>
+</button>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Text { get; set; } = "";
+
+    [Parameter]
+    public bool Rounded { get; set; } = false;
+    private string rounded => Rounded ? "rounded-full" : "rounded-sm";
+
+    [Parameter]
+    public EventCallback OnButtonClicked { get; set; }
+
+    private async Task OnClick()
+    {
+        await OnButtonClicked.InvokeAsync(null);
+    }
+}

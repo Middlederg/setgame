@@ -1,14 +1,15 @@
-﻿@page "/"
+﻿@page "/playGame"
 
 @inject NavigationManager navigationManager
 @inject Set.BlazorClient.Services.GameService gameService
+@inject Set.BlazorClient.Services.CookieService cookieService
 
 <div class="container mx-auto md:px-5 lg:px-20">
 
     <div class="flex justify-between items-center mt-3 lg:my-3 xl:my-6">
         <span class="mx-4 text-teal-700 font-semibold border-teal-300 uppercase text-sm lg:text-xl xl:text-4xl">Find sets</span>
 
-        <TimerAlarm TimesUp="ShowTimesUpAlert" Time="currentTime"></TimerAlarm>
+        <TimerAlarm TimesUp="ShowTimesUpAlert" Time="game.CurrentTime"></TimerAlarm>
 
     </div>
 
@@ -29,7 +30,7 @@
             Discovered sets
         </h3>
 
-        @foreach (var row in rows)
+        @foreach (var row in game.DiscoveredSets)
         {
             <SetRow Row="row"></SetRow>
         }
@@ -42,18 +43,16 @@
 
     private string gameResultMessage;
 
-    private Set.Core.Time currentTime;
     private Set.Core.Game game;
-    private List<SetRowViewModel> rows;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        var options = new Set.Core.GameOptions(Set.Core.GameOptions.DefaultMinCardNumber, Set.Core.GameModeFactory.Tutorial, "Mike");
-        currentTime = new Core.Time();
-        var logger = new Set.Core.MessengerLogger();
-        game = new Set.Core.Game(options, logger);
+        //var options = new Set.Core.GameOptions(Set.Core.GameOptions.DefaultMinCardNumber, Set.Core.GameModeFactory.Tutorial, "Mike");
+        var options = gameService.GameOptions;
+        var playerId = gameService.CreatePlayer();
+        var playerName = await cookieService.RetrieveCookie(Set.BlazorClient.Services.CookieService.PlayerNameCookie);
+        game = new Set.Core.Game(options, (playerId, playerName));
         game.StartGame();
-        rows = new List<SetRowViewModel>();
         gameResultMessage = null;
     }
 
@@ -69,12 +68,12 @@
 
     private void AddSetToList(Set.Core.CardTrio trio)
     {
-        rows.Add(new SetRowViewModel(rows.Count() + 1, trio, trio.ToString(), currentTime.TimeSpan));
+        // rows.Add(new SetRowViewModel(rows.Count() + 1, trio, trio.ToString(), currentTime.TimeSpan));
     }
 
     private void GoToGameSummary()
     {
-        gameService.SetCurrentGame(game);
-        navigationManager.NavigateTo("GameSummary");
+        // gameService.SetCurrentGame(game);
+        //  navigationManager.NavigateTo("GameSummary");
     }
 }

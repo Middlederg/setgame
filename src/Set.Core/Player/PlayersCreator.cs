@@ -8,31 +8,31 @@ namespace Set.Core
     {
         public const int MaxPlayerNumber = 10;
 
-        public static IEnumerable<Player> CreatePlayers(IEnumerable<string> names)
+        public static IEnumerable<Player> CreatePlayers(params (Guid id, string name)[] players)
         {
-            if (names == null || !names.Any())
+            if (players == null || !players.Any())
             {
-                throw new ArgumentNullException(nameof(names));
+                throw new ArgumentNullException(nameof(players));
             }
 
-            if (names.Any(x => string.IsNullOrWhiteSpace(x)))
+            if (players.Any(x => string.IsNullOrWhiteSpace(x.name)))
             {
                 throw new ArgumentNullException("Names can not be empty");
             }
 
-            if (names.Count() > MaxPlayerNumber)
+            if (players.Count() > MaxPlayerNumber)
             {
                 throw new ArgumentOutOfRangeException($"Max. number of players: {MaxPlayerNumber}");
             }
 
-            if (names.Select(x => x.Trim().ToLower()).Distinct().Count() != names.Count())
+            if (players.Select(x => x.name.Trim().ToLower()).Distinct().Count() != players.Count())
             {
                 throw new ArgumentException("All names must be different");
             }
 
-            foreach (var name in names)
+            foreach (var player in players)
             { 
-                yield return new Player(name);
+                yield return new Player(player.id, player.name);
             }
         }
     }

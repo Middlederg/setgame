@@ -4,6 +4,7 @@ using Xunit;
 
 namespace Set.xTest
 {
+
     public class OnePlayerEasyGameTests : GameTests
     {
         public OnePlayerEasyGameTests() : base(27, GameModeFactory.Easy, 1)

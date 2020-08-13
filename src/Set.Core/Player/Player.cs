@@ -1,27 +1,42 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Set.Core
 {
-
     public class Player
     {
         private readonly string name;
-        public Score Score { get; private set; }
-        public int SetCount => Score.SetCount;
-        public void AddSet() => Score.AddSet();
-        public int MistakeCount => Score.SetCount;
-        public void AddMistake() => Score.AddMistake();
-        public void AddHelp() => Score.AddHelp();
-        public void AddSurrender() => Score.AddSurrender();
+        public Score Score => new Score(discoveredSets.Count, mistakeCount, helpCount, surrenderCount);
 
-        public List<CardTrio> DiscoveredSets { get; }
-        public void Discover(CardTrio trio) => DiscoveredSets.Add(new CardTrio(trio.Cards));
+        private int mistakeCount;
+        public void AddMistake() => mistakeCount++;
 
-        public Player(string name)
+        private int helpCount;
+        public void AddHelpRequest() => helpCount++;
+
+        private int surrenderCount;
+        public void AddSurrenderRequest() => surrenderCount++;
+
+        private readonly List<DiscoveredSet> discoveredSets;
+        public IEnumerable<DiscoveredSet> DiscoveredSets => discoveredSets.AsReadOnly();
+
+        public Guid Id { get; }
+
+        public void Discover(CardTrio trio, Time time)
         {
+            var set = new CardTrio(trio.Cards.Select(x => x.Copy()));
+            discoveredSets.Add(new DiscoveredSet(set, set.ToString(), time.TimeSpan));
+        }
+
+        public Player(Guid id, string name)
+        {
+            Id = id;
             this.name = name;
-            Score = new Score();
-            DiscoveredSets = new List<CardTrio>();
+            mistakeCount = 0;
+            helpCount = 0;
+            surrenderCount = 0;
+            discoveredSets = new List<DiscoveredSet>();
         }
 
         public override string ToString() => name;

@@ -8,7 +8,14 @@ namespace Set.BlazorClient.Services
 {
     public class GameService
     {
-        public Game CurrentGame { get; private set; }
-        public Game SetCurrentGame(Game game) => CurrentGame = game;
+        public GameOptions GameOptions { get; private set; }
+        public void SetNextGameOptions(GameOptions gameOptions) => GameOptions = gameOptions;
+
+        public Guid CurrentPlayer { get; private set; }
+        public Guid CreatePlayer()
+        {
+            CurrentPlayer = Guid.NewGuid();
+            return CurrentPlayer;
+        }
     }
 }

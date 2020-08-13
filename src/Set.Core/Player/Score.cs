@@ -9,35 +9,23 @@ namespace Set.Core
         public const int HelpValue = 5;
         public const int SurrenderValue = 25;
 
-        public int SetCount { get; private set; }
-        internal void AddSet() => SetCount++;
+        public int Sets { get; private set; }
+        public int Mistakes { get; private set; }
+        public int Help { get; private set; }
+        public int Surrender { get; private set; }
 
-        public int MistakeCount { get; private set; }
-        internal void AddMistake() => MistakeCount++;
-
-        public int HelpCount { get; private set; }
-        internal void AddHelp() => HelpCount++;
-
-        public int SurrenderCount { get; private set; }
-        internal void AddSurrender() => SurrenderCount++;
-
-        public static Score Create(int sets, int mistakes, int help, int surrender)
+        public Score(int sets, int mistakes, int help, int surrender)
         {
-            return new Score() { SetCount = sets, MistakeCount = mistakes, HelpCount = help, SurrenderCount = surrender  };
-        }
-
-        public Score()
-        {
-            SetCount = 0;
-            MistakeCount = 0;
-            HelpCount = 0;
-            SurrenderCount = 0;
+            Sets = sets;
+            Mistakes = mistakes;
+            Help = help;
+            Surrender = surrender;
         }
 
         public int Points()
         {
-            var positivePoints = SetCount * SetValue;
-            var negativePoints = (MistakeCount * MistakeValue) + (HelpCount * HelpValue) + (SurrenderCount + SurrenderValue);
+            var positivePoints = Sets * SetValue;
+            var negativePoints = (Mistakes * MistakeValue) + (Help * HelpValue) + (Surrender + SurrenderValue);
             return Math.Max(0, positivePoints - negativePoints);
         }
 
@@ -48,10 +36,7 @@ namespace Set.Core
 
             var other = (Score)obj;
 
-            return other.SetCount == SetCount &&
-                other.MistakeCount == MistakeCount &&
-                other.HelpCount == HelpCount &&
-                other.SurrenderCount == SurrenderCount;
+            return other.Points() == Points();
         }
 
         public override int GetHashCode() => base.GetHashCode();

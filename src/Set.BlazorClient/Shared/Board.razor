@@ -1,4 +1,6 @@
-﻿<div class="grid grid-cols-4 gap-0 mx-4 my-2 md:shadow">
+﻿@inject Set.BlazorClient.Services.GameService gameService
+
+<div class="grid grid-cols-4 gap-0 mx-4 my-2 md:shadow">
 
     @foreach (var card in Game.AvaliableCardList)
     {
@@ -86,7 +88,7 @@
     private async Task CheckSet()
     {
         var cardTrio = new Core.CardTrio(SelectedCards.Select(x => x.SetCard));
-        bool success = Game.Check(cardTrio, Game.Players.First());
+        bool success = Game.Check(cardTrio, gameService.CurrentPlayer);
         if (success)
         {
             await OnSetDiscovered.InvokeAsync(cardTrio);
@@ -106,7 +108,7 @@
 
     private async Task GetHelp()
     {
-        message = await Game.SetCountHelp();
+        message = await Game.SetCountHelp(gameService.CurrentPlayer);
     }
 
     private async Task CurrentSets()

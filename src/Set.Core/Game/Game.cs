@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace Set.Core
 {
-    public class MultiPlayerGame
-    {
-        public IEnumerable<Player> Ranking() => Players.OrderByDescending(x => x.Score.Points());
-    }
-
     public class Game
     {
         public const int VisibleCardNumberDefault = 12;
@@ -23,24 +18,23 @@ namespace Set.Core
         public IEnumerable<ICard> AvaliableCardList => Deck.Take(Math.Min(visibleCardsCount, Deck.Count)).ToList();
 
         public List<Player> Players { get; }
-        public int TotalSets => Players.Sum(x => x.SetCount);
-        public int TotalMistakes => Players.Sum(x => x.MistakeCount);
-
-
+        public IEnumerable<DiscoveredSet> DiscoveredSets => Players.SelectMany(x => x.DiscoveredSets).OrderByDescending(x => x.Time);
         public IEnumerable<Player> Ranking() => Players.OrderByDescending(x => x.Score.Points());
-
+        private Player GetPlayer(Guid id) => Players.First(x => x.Id == id);
 
         public GameMode GameMode { get; }
         public TimeSpan AvaliableTime { get; }
+        public Time CurrentTime { get; }
 
-        public Game(GameOptions options)
+        public Game(GameOptions options, params (Guid id, string name)[] players)
 	    {
             log = new MessengerLogger();
             GameMode = options.GameMode;
             AvaliableTime = options.AvaliableTime;
+            CurrentTime = new Time(AvaliableTime);
 
             Deck = CardFactory.CreateDeck(options.GameMode).ToList();
-            Players = PlayersCreator.CreatePlayers(options.PlayerNames).ToList();
+            Players = PlayersCreator.CreatePlayers(players).ToList();
         }
 
         public void StartGame()
@@ -54,17 +48,17 @@ namespace Set.Core
             }
         }
 
-        public bool Check(CardTrio cardTrio, Player player)
+        public bool Check(CardTrio cardTrio, Guid playerId)
 	    {
+            var player = GetPlayer(playerId);
 		    if (cardTrio.IsSet())
             {
-                player.AddSet();
-                string playerName = IsOnePlayerMode ? "¡Consigues Set!" : $"{player} consigue Set";
-                log.Info($"{playerName} {cardTrio}");
+                player.Discover(cardTrio, CurrentTime);
+                log.Info($"{player} found {cardTrio}");
                 return true;
             }
 
-            log.Info("Fallo. No es un Set");
+            log.Info($"{player} failed finding set");
             player.AddMistake();
             return false;
 	    }
@@ -105,8 +99,10 @@ namespace Set.Core
         public bool AreAvaliableSets => FindSets().Any();
         public bool LevelCompleted() => !FindSets().Any() && Deck.Count <= visibleCardsCount;
         
-        public async Task<string> SetCountHelp()
+        public async Task<string> SetCountHelp(Guid playerId)
         {
+            var player = GetPlayer(playerId);
+            player.AddHelpRequest();
             var setList = await FindSetsAsync();
             int num = setList.Count();
             switch (num)
