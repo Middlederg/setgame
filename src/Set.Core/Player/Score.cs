@@ -25,7 +25,7 @@ namespace Set.Core
         public int Points()
         {
             var positivePoints = Sets * SetValue;
-            var negativePoints = (Mistakes * MistakeValue) + (Help * HelpValue) + (Surrender + SurrenderValue);
+            var negativePoints = (Mistakes * MistakeValue) + (Help * HelpValue) + (Surrender * SurrenderValue);
             return Math.Max(0, positivePoints - negativePoints);
         }
 

@@ -1,0 +1,86 @@
+﻿@page "/playGame"
+
+@inject NavigationManager navigationManager
+@inject GameService gameService
+@inject CookieService cookieService
+
+@if (game is null)
+{
+    <label>Preparing board</label>
+}
+else
+{
+<div class="container mx-auto md:px-5 lg:px-20">
+
+    <div class="flex justify-between items-center mt-3 lg:my-3 xl:my-6">
+        <span class="mx-4 text-teal-700 font-semibold border-teal-300 uppercase text-sm lg:text-xl xl:text-4xl">Find sets</span>
+
+        <TimerAlarm TimesUp="ShowTimesUpAlert" Time="game.CurrentTime"></TimerAlarm>
+
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(gameResultMessage))
+    {
+        <div class="bg-teal-200 border-l-4 border-teal-700 text-teal-900 text-sm p-4 my-4" role="alert">
+            <p class="font-bold">@gameResultMessage</p>
+            <p>Score: @game.Players.First().Score.Points()</p>
+        </div>
+    }
+    else
+    {
+        <Board Game="game" OnSetDiscovered="AddSetToList" OnLevelCompleted="LevelCompleted"></Board>
+    }
+
+    <div class="m-4">
+        <h3 class="mb-1 text-teal-700 font-semibold border-teal-300 uppercase text-sm lg:text-lg xl:text-2xl ">
+            Discovered sets
+        </h3>
+
+        @foreach (var row in game.DiscoveredSets)
+        {
+            <SetRow Row="row"></SetRow>
+        }
+    </div>
+
+</div>
+}
+
+
+@code {
+
+    private string gameResultMessage;
+
+    private Set.Core.Game game;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //var options = new Set.Core.GameOptions(Set.Core.GameOptions.DefaultMinCardNumber, Set.Core.GameModeFactory.Tutorial, "Mike");
+        var options = gameService.GameOptions;
+        var playerId = gameService.CreatePlayer();
+        var playerName = await cookieService.RetrieveCookie(CookieService.PlayerNameCookie);
+        game = new Set.Core.Game(options, (playerId, playerName));
+        game.StartGame();
+        gameResultMessage = null;
+    }
+
+    private void ShowTimesUpAlert()
+    {
+        gameResultMessage = @"Time's up!";
+    }
+
+    private void LevelCompleted()
+    {
+        gameResultMessage = @"Level completed!";
+    }
+
+    private void AddSetToList(Set.Core.CardTrio trio)
+    {
+        // rows.Add(new SetRowViewModel(rows.Count() + 1, trio, trio.ToString(), currentTime.TimeSpan));
+    }
+
+    private void GoToGameSummary()
+    {
+        // gameService.SetCurrentGame(game);
+        //  navigationManager.NavigateTo("GameSummary");
+    }
+}

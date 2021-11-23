@@ -30,9 +30,9 @@ namespace Set.Core
                 throw new ArgumentException("All names must be different");
             }
 
-            foreach (var player in players)
+            foreach (var (id, name) in players)
             { 
-                yield return new Player(player.id, player.name);
+                yield return new Player(id, name);
             }
         }
     }

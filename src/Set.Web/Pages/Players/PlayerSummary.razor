@@ -1,0 +1,36 @@
+﻿<div class="flex justify-between items-center text-teal-700 bg-white border-teal-300 border-b-2 shadow-lg p-2 mb-1">
+    <span class="mx-4">
+        <span class="font-semibold"> @Position. </span><span> @Player.ToString()</span>
+    </span>
+
+    <span class="font-bold flex justify-end">
+
+        <span class="text-white w-10 flex justify-center bg-green-500 rounded-full mx-2">
+            @Player.Score.Sets
+        </span>
+
+        <span class="text-red-600 w-10 hidden md:flex md:justify-center mx-2">
+            @Player.Score.Mistakes
+        </span>
+
+        <span class="text-yellow-400 w-10 hidden lg:flex md:justify-center">
+            @Player.Score.Help
+        </span>
+
+        <span class="text-blue-500 w-10 hidden lg:flex md:justify-center">
+            @Player.Score.Surrender
+        </span>
+
+    </span>
+
+</div>
+
+
+@code 
+{ 
+    [Parameter]
+    public int Position { get; set; }
+
+    [Parameter]
+    public Set.Core.Player Player { get; set; }
+}

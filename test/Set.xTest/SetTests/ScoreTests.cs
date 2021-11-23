@@ -13,18 +13,18 @@ namespace Set.xTest
             var ascendingValues = new List<Score>()
             {
                 new Score(sets: 1, mistakes: 3, help: 2, surrender: 3),
-                new Score(sets: 3, mistakes: 6, help: 1, surrender: 1),
-                new Score(sets: 3, mistakes: 5, help: 0, surrender: 0),
-                new Score(sets: 4, mistakes: 7, help: 0, surrender: 0),
+                new Score(sets: 3, mistakes: 2, help: 1, surrender: 0),
+                new Score(sets: 3, mistakes: 2, help: 0, surrender: 0),
+                new Score(sets: 4, mistakes: 3, help: 0, surrender: 0),
                 new Score(sets: 6, mistakes: 10, help: 0, surrender: 0),
                 new Score(sets: 5, mistakes: 0, help: 0, surrender: 0),
-                new Score(sets: 10, mistakes: 3, help: 0, surrender: 0),
-                new Score(sets: 9, mistakes: 2, help: 0, surrender: 0),
+                new Score(sets: 10, mistakes: 4, help: 2, surrender: 0),
+                new Score(sets: 9, mistakes: 0, help: 0, surrender: 0),
                 new Score(sets: 15, mistakes: 20, help: 0, surrender: 0),
             };
 
             //Act and assert
-            int lastScore = 0;
+            int lastScore = -1;
             foreach (var value in ascendingValues)
             {
                 var score = value.Points();

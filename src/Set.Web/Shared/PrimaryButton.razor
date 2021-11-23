@@ -1,0 +1,32 @@
+﻿<button @onclick="@OnClick" class="mx-4 bg-teal-700 text-white hover:bg-teal-600 font-semibold py-2 px-4 @rounded
+    outline-none focus:outline-none
+    inline-flex items-center
+    md:text-xl lg:text-2xl xl:font-bold xl:text-4xl @IsDisabled" disabled="@IsDisabled">
+    @ChildContent
+    <span>@Text</span>
+</button>
+
+@code {
+
+    [Parameter]
+    public bool IsDisabled { get; set; } = false;
+    private string disabled => IsDisabled ? "opacity-50 cursor-not-allowed" : "";
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Text { get; set; } = "";
+
+    [Parameter]
+    public bool Rounded { get; set; } = false;
+    private string rounded => Rounded ? "rounded-full" : "rounded-sm";
+
+    [Parameter]
+    public EventCallback<PrimaryButton> OnButtonClicked { get; set; }
+
+    private async Task OnClick()
+    {
+        await OnButtonClicked.InvokeAsync(this);
+    }
+}

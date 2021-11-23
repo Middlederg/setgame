@@ -1,0 +1,48 @@
+﻿@using Set.Core
+
+<button type="button" @onclick="@OnSelected" class="rounded-md shadow m-4 px-1 py-4 border-blue-800 flex bg-white align-middle 
+        justify-center hover:bg-blue-100
+        outline-none focus:outline-none
+        w-16 sm:w-20 md:w-28 lg:w-40 xl:w-48 @active">
+    @foreach (var i in Enumerable.Range(0, SetCard.Number))
+    {
+        <img class="w-3 sm:w-5 md:w-8 lg:w-12 xl:w-14" src="img/@($"{SetCard.Path}.png")" />
+    }
+
+</button>
+
+@code {
+    private string backgroundColor = "bg-blue-100";
+
+    private string imageWidth => SetCard.Number == 2 ? "mx-1" : "";
+
+    private string active;
+    private bool selected;
+    public bool Selected
+    {
+        get => selected;
+        set
+        {
+            selected = value;
+            active = value ? $"shadow-outline {backgroundColor}" : "";
+        }
+    }
+
+    void OnSelected()
+    {
+        Selected = !Selected;
+        if (Selected)
+            OnCardSelected.InvokeAsync(this);
+        else OnCardDeSelected.InvokeAsync(this);
+    }
+
+    [Parameter]
+    public EventCallback<Card> OnCardSelected { get; set; }
+
+    [Parameter]
+    public EventCallback<Card> OnCardDeSelected { get; set; }
+
+    [Parameter]
+    public ICard SetCard { get; set; }
+}
+

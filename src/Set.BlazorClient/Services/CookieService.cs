@@ -6,6 +6,8 @@ namespace Set.BlazorClient.Services
     public class CookieService
     {
         public const string PlayerNameCookie = "Set.PlayerName";
+        public const int DefaultDuration = 30;
+        public const string DefaultPlayerName = "Player 1";
 
         private readonly IJSRuntime jsRuntime;
 
@@ -14,7 +16,7 @@ namespace Set.BlazorClient.Services
             this.jsRuntime = jsRuntime;
         }
 
-        public async void CreateCookie(string name, string value, int days)
+        public async Task CreateCookie(string name, string value, int days = 30)
         {
             await jsRuntime.InvokeAsync<string>("methods.CreateCookie", name, value, days);
         }
@@ -22,7 +24,7 @@ namespace Set.BlazorClient.Services
         public async Task<string> RetrieveCookie(string name)
         {
             string result = await jsRuntime.InvokeAsync<string>("methods.GetCookieValue", name);
-            return result ?? "Player 1";
+            return result ?? DefaultPlayerName;
         }
     }
 }

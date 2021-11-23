@@ -4,6 +4,12 @@
 @inject Set.BlazorClient.Services.GameService gameService
 @inject Set.BlazorClient.Services.CookieService cookieService
 
+@if (game is null)
+{
+    <label>Preparing board</label>
+}
+else
+{
 <div class="container mx-auto md:px-5 lg:px-20">
 
     <div class="flex justify-between items-center mt-3 lg:my-3 xl:my-6">
@@ -37,6 +43,7 @@
     </div>
 
 </div>
+}
 
 
 @code {
