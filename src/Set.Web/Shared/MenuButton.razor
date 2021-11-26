@@ -1,8 +1,9 @@
-﻿<button @onclick="OnClick" class="w-full uppercase bg-teal-700 text-white hover:bg-teal-600 font-semibold p-2 m-1
-  md:p-4 md:text-xl
+﻿<button @onclick="OnClick" class="w-full uppercase 
+        bg-@Styles.PrimaryColor text-white hover:bg-@Styles.PrimaryColorLigther font-semibold p-2 m-1
+        md:p-4 md:text-xl
    md:text-2xl
     outline-none focus:outline-none
-    flex items-center justify-center">
+    flex items-center justify-center space-x-2">
     @ChildContent
        <span>@Text</span>
 </button>

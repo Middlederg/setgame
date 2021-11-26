@@ -1,9 +1,16 @@
-﻿<button @onclick="@OnClick" class="mx-4 bg-teal-700 text-white hover:bg-teal-600 font-semibold py-2 px-4 @rounded
-    outline-none focus:outline-none
-    inline-flex items-center
-    md:text-xl lg:text-2xl xl:font-bold xl:text-4xl @IsDisabled" disabled="@IsDisabled">
+﻿<button @onclick="@OnClick" class="bg-@Styles.PrimaryColor text-@Styles.Background
+        hover:bg-@Styles.PrimaryColorLigther 
+        font-semibold 
+        @rounded
+        outline-none focus:outline-none
+        w-full
+        p-2 md:p-4 
+        md:text-xl md:text-2xl uppercase
+        outline-none focus:outline-none
+        flex items-center justify-center
+        @IsDisabled" disabled="@IsDisabled">
     @ChildContent
-    <span>@Text</span>
+    <span class="ml-1">@Text</span>
 </button>
 
 @code {

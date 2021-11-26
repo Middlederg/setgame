@@ -1,17 +1,35 @@
-﻿
-<div class="w-32">
-    <label class="text-sm text-teal-500 tracking-widest lg:text-lg">
+﻿<div>
+    <label class="@Styles.SubTitle">
         @Title
     </label>
-    <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1 lg:mt-3">
-        <button data-action="decrement" class=" bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none">
-            <span class="m-auto text-2xl font-thin">−</span>
+    <div class="flex flex-row fustify-start mt-1 lg:mt-3">
+        <button type="button"
+                @onclick="OnDecrement"
+                class="w-10 bg-@Styles.PrimaryColor text-@Styles.Background
+        hover:bg-@Styles.PrimaryColorLigther rounded-l cursor-pointer flex justify-center items-center">
+            <svg class="w-6 h-6" fill="currentColor"
+                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd">
+                </path>
+            </svg>
         </button>
-        <input type="number" class ="outline-none focus:outline-none text-center w-full bg-gray-300 font-semibold text-md hover:text-black
-    focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none" @bind="Value"
-               min="@Minimum" max="@Maximum" />
-        <button data-action="increment" class="bg-gray-300 text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer">
-            <span class="m-auto text-2xl font-thin">+</span>
+        <input type="number" 
+               readonly 
+               class="flex-1 md:w-32 px-4 py-2 text-center bg-@Styles.BackgroundDarker font-semibold
+        text-md flex items-center text-@Styles.Text outline-none focus:outline-none"
+               @bind="Value"
+               min="@Minimum"
+               max="@Maximum" />
+        <button type="button" 
+                @onclick="OnIncrement"
+                class="w-10 bg-@Styles.PrimaryColor text-@Styles.Background
+        hover:bg-@Styles.PrimaryColorLigther rounded-r cursor-pointer flex justify-center items-center">
+            <svg class="w-7 h-7" fill="currentColor"
+                 viewBox="0 0 20 20"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd">
+                </path>
+            </svg>
         </button>
     </div>
 </div>
@@ -22,12 +40,28 @@
     public string Title { get; set; }
 
     [Parameter]
-    public int Value { get; set; }
+    public int Value { get; set; } = 0;
 
     [Parameter]
-    public int Minimum { get; set; }
+    public int Minimum { get; set; } = 0;
 
     [Parameter]
-    public int Maximum { get; set; }
+    public int Maximum { get; set; } = 100;
+
+    public void OnIncrement()
+    {
+        if (Value < Maximum)
+        {
+            Value++;
+        }
+    }
+
+    public void OnDecrement()
+    {
+        if (Value > Minimum)
+        {
+            Value--;
+        }
+    }
 
 }

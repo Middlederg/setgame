@@ -13,7 +13,7 @@ else
 <div class="container mx-auto md:px-5 lg:px-20">
 
     <div class="flex justify-between items-center mt-3 lg:my-3 xl:my-6">
-        <span class="mx-4 text-teal-700 font-semibold border-teal-300 uppercase text-sm lg:text-xl xl:text-4xl">Find sets</span>
+        <span class="mx-4 text-gray-700 font-semibold border-gray-300 uppercase text-sm lg:text-xl xl:text-4xl">Find sets</span>
 
         <TimerAlarm TimesUp="ShowTimesUpAlert" Time="game.CurrentTime"></TimerAlarm>
 
@@ -21,7 +21,7 @@ else
 
     @if (!string.IsNullOrWhiteSpace(gameResultMessage))
     {
-        <div class="bg-teal-200 border-l-4 border-teal-700 text-teal-900 text-sm p-4 my-4" role="alert">
+        <div class="bg-gray-200 border-l-4 border-gray-700 text-gray-900 text-sm p-4 my-4" role="alert">
             <p class="font-bold">@gameResultMessage</p>
             <p>Score: @game.Players.First().Score.Points()</p>
         </div>
@@ -32,7 +32,7 @@ else
     }
 
     <div class="m-4">
-        <h3 class="mb-1 text-teal-700 font-semibold border-teal-300 uppercase text-sm lg:text-lg xl:text-2xl ">
+        <h3 class="mb-1 text-gray-700 font-semibold border-gray-300 uppercase text-sm lg:text-lg xl:text-2xl ">
             Discovered sets
         </h3>
 
