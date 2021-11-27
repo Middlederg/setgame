@@ -10,7 +10,8 @@ namespace Set.Core
     {
         public const int VisibleCardNumberDefault = 12;
 
-        private readonly MessengerLogger log;
+        private readonly MessageLogger log;
+
         public string GetLastMessage() => log.GetLastEntry();
         private int visibleCardsCount;
 
@@ -26,9 +27,9 @@ namespace Set.Core
         public TimeSpan AvaliableTime { get; }
         public Time CurrentTime { get; }
 
-        public Game(GameOptions options, params (Guid id, string name)[] players)
+        public Game(GameOptions options, Action<string, LogType> onLogUpdated, params (Guid id, string name)[] players)
 	    {
-            log = new MessengerLogger();
+            log = new MessageLogger(onLogUpdated);
             GameMode = options.GameMode;
             AvaliableTime = options.AvaliableTime;
             CurrentTime = new Time(AvaliableTime);
@@ -105,19 +106,15 @@ namespace Set.Core
             player.AddHelpRequest();
             var setList = await FindSetsAsync();
             int num = setList.Count();
-            switch (num)
+            return num switch
             {
-                case 0: return "Esto no estaba previsto. No hay ningún Set :(";
-                case 1: return "Solo hay un set, echa un vistazo. Si te fijas lo encontrarás.";
-                case 2: return "Hay dos sets posibles, así que tienes dos opciones";
-                case 3:
-                case 4:
-                    return $"Hay {num} sets posibles, intenta descubrir alguno de ellos.";
-                case 5:
-                case 6:
-                    return $"Tienes {num} sets posibles, seguro que puedes adivinar alguno.";
-                default: return $"Hay un montón de Sets posibles. Concretamente {num}.";
-            }
+                0 => "Esto no estaba previsto. No hay ningún Set :(",
+                1 => "Solo hay un set, echa un vistazo. Si te fijas lo encontrarás.",
+                2 => "Hay dos sets posibles, así que tienes dos opciones",
+                3 or 4 => $"Hay {num} sets posibles, intenta descubrir alguno de ellos.",
+                5 or 6 => $"Tienes {num} sets posibles, seguro que puedes adivinar alguno.",
+                _ => $"Hay un montón de Sets posibles. Concretamente {num}.",
+            };
         }
     }
 }

@@ -1,14 +1,14 @@
 ﻿@page "/configuration"
 
 @inject NavigationManager navigationManager
-@inject CookieService cookieService
+@inject GameService gameService
 
 <div class="@Styles.Container">
     <div class="w-full max-w-3xl flex flex-col">
 
         <div class="lg:my-3 xl:my-6 text-center">
             <span class="@Styles.Title">
-                Prepare game
+                Configuration
             </span>
         </div>
 
@@ -23,7 +23,7 @@
                 <input class="border rounded-sm w-full py-2 px-3 text-gray-700
                    focus:outline-none focus:shadow-outline w-full mt-1"
                        placeholder="Type your name"
-                       @bind="name" />
+                       @bind="model.Name" />
             </div>
 
         
@@ -39,7 +39,7 @@
                 <svg viewBox="0 0 20 20" fill="currentColor" class="chevron-left w-6 h-6 mr-1"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
             </PrimaryButton>
 
-            <PrimaryButton Text="Play" OnButtonClicked="Save">
+            <PrimaryButton Text="Save" OnButtonClicked="Save">
                 <svg viewBox="0 0 20 20" fill="currentColor" class="check-circle w-6 h-6 mr-1"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
             </PrimaryButton>
 
@@ -47,46 +47,20 @@
     </div>
 </div>
 
-<div class="container mx-auto px-4 lg:my-3 xl:my-6 flex flex-col justify-start sm:w-4/5 md:w-3/5">
-
-    <div class="mt-3 lg:my-3 xl:my-6 text-center">
-        <span class="m-1 text-gray-700 font-semibold border-gray-300 uppercase text-sm lg:text-xl xl:text-4xl">
-            Configuration
-        </span>
-    </div>
-
-
-    <div class="m-1 mt-4 lg:mt-6">
-
-        <label class="uppercase text-xs text-gray-500 lg:text-xl lg:mt-2">
-            Your name
-        </label>
-
-        <input class="appearance-none border rounded-sm w-full py-2 px-3 text-gray-700
-                   focus:outline-none focus:shadow-outline w-full mt-1"
-               placeholder="Custom Form Input"
-               @bind="name" />
-
-
-    </div>
-
-
-</div>
-
 @code {
-    private string name;
+    private PlayerModel model = new PlayerModel();
 
     protected override async Task OnInitializedAsync()
     {
-        name = await cookieService.RetrieveCookie(Services.CookieService.PlayerNameCookie);
+        model = await gameService.GetPlayer();
     }
 
     private async Task Save()
     {
-        await cookieService.CreateCookie(Services.CookieService.PlayerNameCookie, name);
+        await gameService.SavePlayer(model);
         navigationManager.NavigateTo("/");
     }
 
     private void GoBack() => navigationManager.NavigateTo("/");
-    
+
 }

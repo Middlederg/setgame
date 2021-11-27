@@ -23,36 +23,36 @@
 
                 <label class="flex items-center lg:text-xl lg:mt-2">
                     <input type="radio"
-                           class="form-radio text-@Styles.Text xl:mr-1"
+                           class="text-@Styles.Text xl:mr-1"
                            name="game-mode"
-                           @bind="selectedMode"
+                           @bind="model.GameMode"
                            checked />
                     <span class="ml-2">Tutorial</span>
                 </label>
 
                 <label class="flex items-center lg:text-xl">
                     <input type="radio"
-                           class="form-radio text-@Styles.Text xl:mr-1"
+                           class="text-@Styles.Text xl:mr-1"
                            name="game-mode"
-                           @bind="selectedMode" />
+                           @bind="model.GameMode" />
                     <span class="ml-2">Easy</span>
                 </label>
 
                 <label class="flex items-center lg:text-xl">
                     <input type="radio"
-                           class="form-radio text-@Styles.Text xl:mr-1"
+                           class="text-@Styles.Text xl:mr-1"
                            name="game-mode"
-                           @bind="selectedMode" />
+                           @bind="model.GameMode" />
                     <span class="ml-2">Regular</span>
                 </label>
             </div>
 
-            <NumericUpDown Value="cards"
-                           Maximum="SelectedMode.MaxCardNumber"
+            <NumericUpDown Value="model.CardNumber"
+                           Maximum="model.MaxCardNumber()"
                            Minimum="Set.Core.GameOptions.DefaultMinCardNumber"
                            Title="Cards" />
 
-            <NumericUpDown Value="seconds"
+            <NumericUpDown Value="model.AvaliableTimeInSeconds"
                            Maximum="3600"
                            Minimum="1"
                            Title="Seconds" />
@@ -80,30 +80,24 @@
     </div>
 </div>
 
+<div>
+    current
+    <span>@model.CardNumber</span>
+    <span>@model.GameMode</span>
+    <span>@model.AvaliableTimeInSeconds</span>
+    <span>@model.MinCardNumber() - @model.MaxCardNumber()</span>
+</div>
+
 @code
 {
-    private int cards = 27;
-    private int seconds = 300;
-    private string selectedMode = "Tutorial";
+    private GameOptionsModel model = new GameOptionsModel();
 
-    private Set.Core.GameMode SelectedMode
+    private async Task Play()
     {
-        get
-        {
-            if (selectedMode.Equals("Tutorial")) return Set.Core.GameModeFactory.Tutorial;
-            if (selectedMode.Equals("Easy")) return Set.Core.GameModeFactory.Easy;
-            return Set.Core.GameModeFactory.Regular;
-        }
-    }
-
-    private void Play()
-    {
-        gameService.SetNextGameOptions(new Core.GameOptions(cards, SelectedMode, new TimeSpan(0, 0, seconds)));
+        await gameService.SaveOptions(model);
         navigationManager.NavigateTo("playGame");
     }
 
-    private void GoBack()
-    {
-        navigationManager.NavigateTo("/");
-    }
+    private void GoBack() => navigationManager.NavigateTo("/");
+    
 }

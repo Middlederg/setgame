@@ -1,21 +1,48 @@
-﻿using Set.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.JSInterop;
 using System.Threading.Tasks;
+using Blazored.LocalStorage;
 
 namespace Set.Web.Services
 {
     public class GameService
     {
-        public GameOptions GameOptions { get; private set; }
-        public void SetNextGameOptions(GameOptions gameOptions) => GameOptions = gameOptions;
+        private readonly ILocalStorageService localStorageService;
 
-        public Guid CurrentPlayer { get; private set; }
-        public Guid CreatePlayer()
+        public GameService(ILocalStorageService localStorageService)
         {
-            CurrentPlayer = Guid.NewGuid();
-            return CurrentPlayer;
+            this.localStorageService = localStorageService;
+        }
+
+        public async Task<GameOptionsModel> GetOptions()
+        {
+            var options = await localStorageService.GetItemAsync<GameOptionsModel>(nameof(GameOptionsModel));
+            if (options is null)
+            {
+                return new GameOptionsModel();
+            }
+            return options;
+        }
+
+        public async Task SaveOptions(GameOptionsModel options)
+        {
+            await localStorageService.SetItemAsync(nameof(GameOptionsModel), options);
+        }
+
+        public async Task<PlayerModel> GetPlayer()
+        {
+            var name = await localStorageService.GetItemAsync<PlayerModel>(nameof(PlayerModel));
+            if (name is null)
+            {
+                return new PlayerModel();
+            }
+            return name;
+        }
+
+        public async Task SavePlayer(PlayerModel player)
+        {
+            await localStorageService.SetItemAsync<PlayerModel>(nameof(PlayerModel), player);
         }
     }
+
+    
 }

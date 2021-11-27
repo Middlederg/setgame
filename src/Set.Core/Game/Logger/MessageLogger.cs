@@ -1,16 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Set.Core;
 
 namespace Set.Core
 {
-    public class MessengerLogger
+    public class MessageLogger
     {
+        private readonly Action<string, LogType> onLogWritten;
+
         public List<LogEntry> LogEntries { get; private set; }
 
-        public MessengerLogger()
+        public MessageLogger(Action<string, LogType> onLogWritten)
         {
             LogEntries = new List<LogEntry>();
+            this.onLogWritten = onLogWritten;
         }
 
         public void Error(string message) => WriteInLog(message, LogType.Error);
@@ -20,6 +24,7 @@ namespace Set.Core
         private void WriteInLog(string message, LogType type)
         {
             LogEntries.Add(new LogEntry(message, type));
+            onLogWritten?.Invoke(message, type);
         }
 
         public string GetLastEntry()
