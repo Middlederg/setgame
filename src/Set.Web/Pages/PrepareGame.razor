@@ -21,45 +21,33 @@
                     Game mode
                 </span>
 
-                <label class="flex items-center lg:text-xl lg:mt-2">
-                    <input type="radio"
-                           class="text-@Styles.Text xl:mr-1"
-                           name="game-mode"
-                           @bind="model.GameMode"
-                           checked />
-                    <span class="ml-2">Tutorial</span>
-                </label>
+                @foreach (var gameModel in Core.GameModeFactory.GetAll())
+                {
+                    <label class="flex items-center lg:text-xl lg:mt-2">
+                        <input type="radio"
+                               id="@gameModel"
+                               value="@gameModel"
+                               name="@nameof(model.GameMode)"
+                               checked=@(model.GameMode.Equals(gameModel.ToString()))
+                               class="text-@Styles.Text xl:mr-1"
+                               @onchange="(args) => model.GameMode = args.Value.ToString()" />
+                        <span class="ml-2">@gameModel</span>
+                    </label>
 
-                <label class="flex items-center lg:text-xl">
-                    <input type="radio"
-                           class="text-@Styles.Text xl:mr-1"
-                           name="game-mode"
-                           @bind="model.GameMode" />
-                    <span class="ml-2">Easy</span>
-                </label>
-
-                <label class="flex items-center lg:text-xl">
-                    <input type="radio"
-                           class="text-@Styles.Text xl:mr-1"
-                           name="game-mode"
-                           @bind="model.GameMode" />
-                    <span class="ml-2">Regular</span>
-                </label>
+                }
             </div>
 
             <NumericUpDown Value="model.CardNumber"
                            Maximum="model.MaxCardNumber()"
                            Minimum="Set.Core.GameOptions.DefaultMinCardNumber"
+                           OnValueChanged="(value) => model.CardNumber = value"
                            Title="Cards" />
 
             <NumericUpDown Value="model.AvaliableTimeInSeconds"
                            Maximum="3600"
                            Minimum="1"
+                           OnValueChanged="(value) => model.AvaliableTimeInSeconds = value"
                            Title="Seconds" />
-
-
-
-
         </div>
 
         <div class="flex-1 max-h-40">
@@ -78,14 +66,6 @@
 
         </div>
     </div>
-</div>
-
-<div>
-    current
-    <span>@model.CardNumber</span>
-    <span>@model.GameMode</span>
-    <span>@model.AvaliableTimeInSeconds</span>
-    <span>@model.MinCardNumber() - @model.MaxCardNumber()</span>
 </div>
 
 @code

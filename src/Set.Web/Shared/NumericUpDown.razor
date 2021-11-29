@@ -48,11 +48,15 @@
     [Parameter]
     public int Maximum { get; set; } = 100;
 
+    [Parameter]
+    public EventCallback<int> OnValueChanged { get; set; }
+
     public void OnIncrement()
     {
         if (Value < Maximum)
         {
             Value++;
+            OnValueChanged.InvokeAsync(Value);
         }
     }
 
@@ -61,6 +65,7 @@
         if (Value > Minimum)
         {
             Value--;
+            OnValueChanged.InvokeAsync(Value);
         }
     }
 

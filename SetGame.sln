@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D59E8B8E-F07
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{71C54DC1-E8A7-4F36-92A0-D1C8C18E6A72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Set.Web", "src\Set.Web\Set.Web.csproj", "{2D2E8398-5099-4D73-95F3-9673D96B6293}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Set.Web", "src\Set.Web\Set.Web.csproj", "{2D2E8398-5099-4D73-95F3-9673D96B6293}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

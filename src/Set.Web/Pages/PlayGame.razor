@@ -9,60 +9,81 @@
 }
 else
 {
-    <div class="container mx-auto md:px-5 lg:px-20">
+    <div class="@Styles.Container">
+        <div class="w-full max-w-3xl flex flex-col">
 
-        <div class="flex justify-between items-center mt-3 lg:my-3 xl:my-6">
-            <span class="mx-4 text-gray-700 font-semibold border-gray-300 uppercase text-sm lg:text-xl xl:text-4xl">Find sets</span>
+            <div class="flex justify-between items-center lg:my-3 xl:my-6">
+                <span class="@Styles.Title">Find sets</span>
 
-            <TimerAlarm TimesUp="ShowTimesUpAlert" Time="game.CurrentTime"></TimerAlarm>
+                <TimerAlarm TimesUp="ShowTimesUpAlert" Time="game.CurrentTime"></TimerAlarm>
 
-        </div>
-
-        @if (model.IsGameOver())
-        {
-            <div class="bg-gray-200 border-l-4 border-gray-700 text-gray-900 text-sm p-4 my-4" role="alert">
-                <p class="font-bold">@model.GameResultMessage</p>
-                <p>Score: @game.Players.First().Score.Points()</p>
             </div>
-        }
-        else
-        {
-            <Board Game="game" OnSetDiscovered="AddSetToList" OnLevelCompleted="LevelCompleted"></Board>
-        }
 
-        <div class="m-4">
-            <h3 class="mb-1 text-gray-700 font-semibold border-gray-300 uppercase text-sm lg:text-lg xl:text-2xl ">
-                Discovered sets
-            </h3>
-
-            @foreach (var row in game.DiscoveredSets)
+            @if (model.IsGameOver())
             {
-                <SetRow Row="row"></SetRow>
+                <div class="bg-@Styles.BackgroundDarker border-l-4 border-@Styles.PrimaryColorLigther
+                         text-@Styles.PrimaryColor text-sm p-4 my-4"
+                     role="alert">
+                    <p class="font-bold">@model.GameResultMessage</p>
+                    <p>Score: @game.Players.First().Score.Points()</p>
+                </div>
             }
-        </div>
-
-        <div class="m-4">
-            <h3 class="mb-1 text-gray-700 font-semibold border-gray-300 uppercase text-sm lg:text-lg xl:text-2xl ">
-                Log
-            </h3>
-
-            @foreach (var message in model.Log)
+            else
             {
-                <span>
-                    @message.Message
-                </span>
+                <Board Game="game" OnSetDiscovered="AddSetToList" OnLevelCompleted="LevelCompleted"></Board>
             }
-        </div>
 
+            <div class="m-4">
+                <h3 class="mb-1 text-gray-700 font-semibold border-gray-300 uppercase text-sm lg:text-lg xl:text-2xl ">
+                    Discovered sets
+                </h3>
+
+                @foreach (var row in game.DiscoveredSets)
+                {
+                    <SetRow Row="row"></SetRow>
+                }
+            </div>
+
+
+            <div class="@(showLog ? "" : "hidden")">
+                <h3 class="mb-1 text-gray-700 font-semibold border-gray-300 uppercase text-sm lg:text-lg xl:text-2xl ">
+                    Log
+                </h3>
+
+                @foreach (var message in model.Log)
+                {
+                    <span>
+                        @message.Message
+                    </span>
+                }
+            </div>
+
+
+        </div>
     </div>
 }
 
+<footer class="bg-@Styles.BackgroundDarker border-t-4 border-@Styles.PrimaryColorLigther border-dashed">
+    <div class="container mx-auto flex p-4 items-center justify-center">
+
+        <div class="text-center w-full lg:w-2/3 flex flex-col space-y-2">
+            <a class="flex justify-center items-center @Styles.Text" href="https://en.wikipedia.org/wiki/Set_(card_game)">
+                <svg viewBox="0 0 20 20" fill="currentColor" class="book-open w-6 h-6 mr-2">
+                    <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
+                </svg>
+                Learn about game rules
+            </a>
+        </div>
+    </div>
+</footer>
 
 @code {
 
     private GameModel model = new GameModel();
 
     private Set.Core.Game game;
+
+    private bool showLog = false;
 
     protected override async Task OnInitializedAsync()
     {

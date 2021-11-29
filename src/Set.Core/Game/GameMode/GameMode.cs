@@ -5,6 +5,7 @@
         protected abstract string Name { get; }
         public abstract string Description { get; }
         public virtual int MaxCardNumber => GameOptions.DefaultMaxCardnumber;
+        public virtual bool IsHelpAllowed => false;
 
         internal GameMode() { }
         public override string ToString() => Name;

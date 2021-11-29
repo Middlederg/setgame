@@ -1,4 +1,6 @@
-﻿namespace Set.Core
+﻿using System.Collections.Generic;
+
+namespace Set.Core
 {
     public static class GameModeFactory
     {
@@ -15,5 +17,7 @@
                 _ => Regular,
             };
         }
+
+        public static IEnumerable<GameMode> GetAll() => new List<GameMode>() { Tutorial, Easy, Regular };
     }
 }

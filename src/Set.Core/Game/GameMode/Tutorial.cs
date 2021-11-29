@@ -6,5 +6,6 @@
             $"Además, puedes contar con la ayuda especial si te quedas atascado";
         protected override string Name => "Tutorial";
         public override int MaxCardNumber => GameOptions.DefaultMinCardNumber;
+        public override bool IsHelpAllowed => true;
     }
 }
