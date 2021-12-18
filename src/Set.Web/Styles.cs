@@ -11,6 +11,6 @@
         public const string Link = "text-xs font-bold text-indigo-600 hover:text-indigo-800 lg:text-base";
         public static string Title = $"text-{PrimaryColor} font-semibold uppercase text-xl xl:text-4xl";
         public static string SubTitle = $"text-sm text-{PrimaryColor} tracking-widest lg:text-lg";
-        public static string Container = $"h-full flex justify-center md:pt-20 p-8 bg-{Background}";
+        public static string Container = $"h-full flex justify-center md:pt-20 p-8";
     }
 }

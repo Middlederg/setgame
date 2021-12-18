@@ -1,24 +1,30 @@
 ﻿@using Set.Core
 
-<button type="button" @onclick="@OnSelected" class="rounded-md shadow border border-@Styles.BackgroundDarker 
+<button type="button" @onclick="@OnSelected" class="
+rounded-md 
+        shadow border border-@Styles.BackgroundDarker 
         flex flex-col
-        bg-white justify-self-center
-        justify-center hover:bg-@backgroundColor
+        justify-self-center
+        justify-center
+        items-center
+        hover:bg-@backgroundColor
         outline-none focus:outline-none
-        h-16 sm:h-20 md:h-28 lg:h-40 xl:h-48 @active">
+        @active
+        px-2 sm:px-4 md:px-6
+        h-16 sm:h-24 md:h-28 lg:h-40 xl:h-48">
     @foreach (var i in Enumerable.Range(0, SetCard.Number))
     {
-        <img class="w-3 sm:h-5 md:h-8 lg:h-12 xl:h-14 transform rotate-90" src="img/@($"{SetCard.Path}.png")" />
+        <img class="h-5 sm:h-7 md:h-9 lg:h-12 xl:h-14" src="img/@($"{SetCard.Path}.png")" />
     }
 
 </button>
 
 @code {
-    private string backgroundColor = Styles.BackgroundDarker;
+    private string backgroundColor = $"bg-{Styles.BackgroundDarker}";
 
     private string imageWidth => SetCard.Number == 2 ? "mx-1" : "";
 
-    private string active;
+    private string active = "bg-white";
     private bool selected;
     public bool Selected
     {
@@ -26,7 +32,7 @@
         set
         {
             selected = value;
-            active = value ? $"shadow-outline {backgroundColor}" : "";
+            active = value ? $"shadow-outline {backgroundColor}" : "bg-white";
         }
     }
 
