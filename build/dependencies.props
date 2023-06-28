@@ -1,6 +1,5 @@
 <Project>
     <PropertyGroup Label="Default SDK Versions">
-        <NetVersion>net5.0</NetVersion>
-        <NetStandardVersion>netstandard2.0</NetStandardVersion>
+        <NetVersion>net7.0</NetVersion>
     </PropertyGroup>
 </Project>

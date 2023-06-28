@@ -1,8 +1,8 @@
 <Project>
-    <Import Project="build/dependencies.props"/>
-    <PropertyGroup Label="Default Metadata">
-        <Authors>jcl86</Authors>
-        <Company>Middlederg</Company>
-        <RepositoryUrl>https://github.com/Middlederg/setgame</RepositoryUrl>
-    </PropertyGroup>
+  <Import Project="build/dependencies.props"/>
+  <PropertyGroup Label="Default Metadata">
+    <Authors>jcl86</Authors>
+    <Company>Middlederg</Company>
+    <RepositoryUrl>https://github.com/Middlederg/setgame</RepositoryUrl>
+  </PropertyGroup>
 </Project>
