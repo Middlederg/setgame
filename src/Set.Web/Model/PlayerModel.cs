@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace Set.Web.Services
+namespace Set.Web.Services;
+
+public class PlayerModel
 {
-    public class PlayerModel
-    {
-        public Guid Id { get; set; } = Guid.NewGuid();
-        public string Name { get; set; } = "Player 1";
-    }
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public string Name { get; set; } = "Player 1";
 }

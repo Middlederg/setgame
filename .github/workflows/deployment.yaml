@@ -1,5 +1,8 @@
 name: 'Publish application'
-on: push
+
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   build:
@@ -12,33 +15,28 @@ jobs:
         - name: Setup .NET Core
           uses: actions/setup-dotnet@v1
           with:
-            dotnet-version: 3.1.x
-
-        # Build
-        - name: Build
-          run: dotnet build src/Set.BlazorClient/Set.BlazorClient.csproj
-
-        # Run tests
-        - name: Run tests
-          run: dotnet test test/Set.xTest/Set.UnitTests.csproj
-
+            dotnet-version: 7.0.x
 
         # Generate the website
         - name: Publish
-          run: dotnet publish src/Set.BlazorClient/Set.BlazorClient.csproj --configuration Release --output build
-          
-        # Rewrite base href
-        - name: Rewrite base href
-          uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
-          with:
-            html_path: build/wwwroot/index.html
-            base_href: /setgame/
+          run: dotnet publish --configuration Release --output artifacts
+        
+        - name: Run unit tests
+          run: dotnet test --no-restore --verbosity normal test/Set.UnitTests/Set.UnitTests.csproj
 
+         # changes the base-tag in index.html from '/' to 'setgame' to match GitHub Pages repository subdirectory
+        - name: Change base-tag in index.html from / to setgame
+          run: sed -i 's/<base href="\/" \/>/<base href="\/setgame\/" \/>/g' artifacts/wwwroot/index.html
+
+         # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
+        - name: Add .nojekyll file
+          run: touch artifacts/wwwroot/.nojekyll
+          
         - name: Deploy to Github Pages
           uses: JamesIves/github-pages-deploy-action@releases/v3
           with:
             ACCESS_TOKEN: ${{ secrets.PUBLISH_TOKEN }}
             BASE_BRANCH: master # The branch the action should deploy from.
             BRANCH: gh-pages # The branch the action should deploy to.
-            FOLDER: build/wwwroot # The folder the action should deploy.
+            FOLDER: artifacts/wwwroot # The folder the action should deploy.
             SINGLE_COMMIT: true

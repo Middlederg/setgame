@@ -2,10 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>$(NetVersion)</TargetFramework>
-
     <IsPackable>false</IsPackable>
-
-    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

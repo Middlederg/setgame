@@ -4,5 +4,7 @@
     <Authors>jcl86</Authors>
     <Company>Middlederg</Company>
     <RepositoryUrl>https://github.com/Middlederg/setgame</RepositoryUrl>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 </Project>
