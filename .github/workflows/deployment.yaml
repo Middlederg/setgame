@@ -19,7 +19,7 @@ jobs:
 
         # Generate the website
         - name: Publish
-          run: dotnet publish --configuration Release --output artifacts
+          run: dotnet publish src/Set.Web/Set.Web.csproj --configuration Release --output artifacts
         
         - name: Run unit tests
           run: dotnet test --no-restore --verbosity normal test/Set.UnitTests/Set.UnitTests.csproj
